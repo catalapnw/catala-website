@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>About CATALA</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #111;
+            color: #f4efdf;
+        }
+
+
+        /* =========================
+           ABOUT HERO
+        ========================= */
+
+        .about-page {
+            position: relative;
+
+            width: 100%;
+            min-height: 100vh;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.62) 0%,
+                    rgba(0, 0, 0, 0.35) 45%,
+                    rgba(0, 0, 0, 0.12) 100%
+                ),
+                url("catala-hero.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .nav {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 30px 38px;
+
+            z-index: 10;
+        }
+
+        .nav-brand {
+            color: #f4efdf;
+
+            text-decoration: none;
+
+            font-size: 22px;
+            font-weight: 900;
+
+            letter-spacing: -1px;
+        }
+
+        .back-link {
+            color: #f4efdf;
+
+            text-decoration: none;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+        .back-link:hover {
+            opacity: 0.65;
+        }
+
+
+        /* =========================
+           ABOUT CONTENT
+        ========================= */
+
+        .about-content {
+            width: min(680px, 90%);
+
+            margin-left: 7%;
+
+            padding: 130px 0 80px;
+        }
+
+        .eyebrow {
+            margin-bottom: 25px;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 4px;
+
+            opacity: 0.7;
+        }
+
+        h1 {
+            max-width: 800px;
+
+            font-size: clamp(55px, 7vw, 105px);
+
+            line-height: 0.86;
+
+            letter-spacing: -5px;
+
+            margin-bottom: 45px;
+        }
+
+        .about-copy {
+            max-width: 570px;
+        }
+
+        .about-copy p {
+            margin-bottom: 20px;
+
+            font-size: clamp(15px, 1.3vw, 18px);
+
+            line-height: 1.55;
+        }
+
+        .final-line {
+            margin-top: 35px;
+
+            font-size: 11px !important;
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================
+           SMALL LOGO
+        ========================= */
+
+        .about-logo {
+            position: absolute;
+
+            right: 5%;
+            bottom: 6%;
+
+            width: min(280px, 24vw);
+
+            filter:
+                invert(96%)
+                sepia(13%)
+                saturate(447%)
+                hue-rotate(339deg)
+                brightness(105%)
+                contrast(91%);
+
+            opacity: 0.9;
+        }
+
+
+        /* =========================
+           PHOTO CREDIT
+        ========================= */
+
+        .photo-credit {
+            position: absolute;
+
+            right: 18px;
+            bottom: 14px;
+
+            color: rgba(244, 239, 223, 0.55);
+
+            font-size: 7px;
+
+            letter-spacing: 0.5px;
+
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .about-page {
+                align-items: flex-end;
+
+                background-position: center;
+            }
+
+            .nav {
+                padding: 22px 20px;
+            }
+
+            .nav-brand {
+                font-size: 19px;
+            }
+
+            .about-content {
+                width: 100%;
+
+                margin-left: 0;
+
+                padding:
+                    140px
+                    22px
+                    90px;
+            }
+
+            h1 {
+                font-size: 15vw;
+
+                letter-spacing: -3px;
+
+                margin-bottom: 35px;
+            }
+
+            .about-copy p {
+                font-size: 15px;
+            }
+
+            .about-logo {
+                display: none;
+            }
+
+            .photo-credit {
+                right: 10px;
+                bottom: 8px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="about-page">
+
+
+        <!-- NAV -->
+
+        <nav class="nav">
+
+            <a
+                class="nav-brand"
+                href="index.html">
+
+                CATALA
+
+            </a>
+
+
+            <a
+                class="back-link"
+                href="index.html">
+
+                ← BACK
+
+            </a>
+
+        </nav>
+
+
+
+        <!-- ABOUT COPY -->
+
+        <section class="about-content">
+
+
+            <p class="eyebrow">
+                ABOUT CATALA
+            </p>
+
+
+            <h1>
+                BORN IN<br>
+                THE PNW.<br>
+                MADE FOR<br>
+                EVERYWHERE.
+            </h1>
+
+
+            <div class="about-copy">
+
+
+                <p>
+                    CATALA is an outdoor lifestyle brand
+                    born on the Pacific Northwest coast.
+                </p>
+
+
+                <p>
+                    Built around the things we'd rather
+                    be doing — surfing, exploring,
+                    travelling, getting outside and
+                    chasing good days.
+                </p>
+
+
+                <p>
+                    It's for surfers, outdoorsmen and
+                    women, explorers, and anyone else
+                    who'd rather be out there than
+                    sitting still.
+                </p>
+
+
+                <p>
+                    You don't have to surf.
+                    You don't have to live on the coast.
+                    You just have to get it.
+                </p>
+
+
+                <p class="final-line">
+                    BORN IN THE PNW. OPEN TO EVERYONE.
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- CATALA MARK -->
+
+        <img
+            class="about-logo"
+            src="catala-logo.png"
+            alt="CATALA">
+
+
+
+        <!-- PHOTO CREDIT -->
+
+        <a
+            class="photo-credit"
+            href="https://commons.wikimedia.org/wiki/File:Surfer_Cox_Bay_Tofino_2736.jpg"
+            target="_blank"
+            rel="noopener">
+
+            PHOTO: IMAGEPERSON / CC BY 4.0
+
+        </a>
+
+
+    </main>
+
+
+</body>
+
+</html>

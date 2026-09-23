@@ -82,19 +82,16 @@
 
         .nav-brand {
             color: #f4efdf;
-
             text-decoration: none;
 
             font-size: 22px;
             font-weight: 900;
-
             letter-spacing: -1px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-
             gap: 34px;
         }
 
@@ -102,12 +99,10 @@
             position: relative;
 
             color: #f4efdf;
-
             text-decoration: none;
 
             font-size: 12px;
             font-weight: 700;
-
             letter-spacing: 1.5px;
         }
 
@@ -115,7 +110,6 @@
             content: "";
 
             position: absolute;
-
             left: 0;
             bottom: -5px;
 
@@ -145,7 +139,6 @@
             transform: translate(-50%, -50%);
 
             width: 100%;
-
             padding: 0 30px;
 
             text-align: center;
@@ -172,18 +165,15 @@
             display: inline-block;
 
             margin-top: 38px;
-
             padding: 14px 28px;
 
             border: 1px solid rgba(244, 239, 223, 0.9);
 
             color: #f4efdf;
-
             text-decoration: none;
 
             font-size: 11px;
             font-weight: 700;
-
             letter-spacing: 2.5px;
 
             transition: 0.25s ease;
@@ -263,7 +253,6 @@
             font-size: clamp(42px, 5vw, 72px);
 
             line-height: 0.9;
-
             letter-spacing: -4px;
         }
 
@@ -274,14 +263,13 @@
 
 
         /* =========================
-           PRODUCTS
+           PRODUCT GRID
         ========================= */
 
         .product-grid {
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 22px;
         }
@@ -310,13 +298,14 @@
             transition: transform 0.5s ease;
         }
 
-        .product-card:hover
-        .product-image img {
+        .product-card:hover .product-image img {
             transform: scale(1.025);
         }
 
 
-        /* PLACEHOLDER PRODUCT ART */
+        /* =========================
+           TEMPORARY TEE ART
+        ========================= */
 
         .placeholder {
             display: flex;
@@ -344,54 +333,12 @@
 
             object-fit: contain;
 
-            filter: opacity(0.75);
-        }
-
-
-        /* SUNGLASSES PREVIEW */
-
-        .coming-soon {
-            background:
-                linear-gradient(
-                    145deg,
-                    #d4cec2,
-                    #eee9df
-                );
-        }
-
-        .coming-label {
-            position: absolute;
-
-            top: 18px;
-            right: 18px;
-
-            padding: 8px 11px;
-
-            background: #171717;
-
-            color: #f2eee3;
-
-            font-size: 9px;
-            font-weight: 700;
-
-            letter-spacing: 2px;
-        }
-
-        .prototype-text {
-            position: absolute;
-
-            left: 20px;
-            bottom: 18px;
-
-            font-size: 9px;
-            letter-spacing: 2px;
-
-            opacity: 0.55;
+            opacity: 0.75;
         }
 
 
         /* =========================
-           PRODUCT INFO
+           PRODUCT INFORMATION
         ========================= */
 
         .product-info {
@@ -421,10 +368,6 @@
             font-weight: 700;
         }
 
-        .coming-price {
-            opacity: 0.5;
-        }
-
 
         /* =========================
            PRODUCT BUTTONS
@@ -436,7 +379,6 @@
             width: 100%;
 
             margin-top: 17px;
-
             padding: 13px 15px;
 
             border: 1px solid #171717;
@@ -450,7 +392,6 @@
 
             font-size: 9px;
             font-weight: 700;
-
             letter-spacing: 2px;
 
             transition: 0.25s ease;
@@ -459,17 +400,6 @@
         .product-button:hover {
             background: #171717;
             color: #f2eee3;
-        }
-
-        .coming-button {
-            cursor: default;
-
-            opacity: 0.45;
-        }
-
-        .coming-button:hover {
-            background: transparent;
-            color: #171717;
         }
 
 
@@ -489,14 +419,12 @@
             padding: 17px 60px;
 
             background: #171717;
-
             color: #f2eee3;
 
             text-decoration: none;
 
             font-size: 10px;
             font-weight: 700;
-
             letter-spacing: 3px;
 
             transition: opacity 0.25s ease;
@@ -508,7 +436,7 @@
 
 
         /* =========================
-           BOTTOM STATEMENT
+           BRAND STATEMENT
         ========================= */
 
         .statement {
@@ -531,7 +459,6 @@
             font-size: clamp(40px, 7vw, 100px);
 
             line-height: 0.9;
-
             letter-spacing: -5px;
         }
 
@@ -568,7 +495,6 @@
 
             .hero-content {
                 top: 55%;
-
                 padding: 0 18px;
             }
 
@@ -736,7 +662,9 @@
         <div class="product-grid">
 
 
-            <!-- PRODUCT 1 -->
+            <!-- =====================
+                 TEE 01
+            ====================== -->
 
             <article class="product-card">
 
@@ -746,7 +674,7 @@
 
                         <img
                             src="catala-logo.png"
-                            alt="CATALA tee">
+                            alt="CATALA Tee 01">
 
                     </div>
 
@@ -756,15 +684,15 @@
                 <div class="product-info">
 
                     <h3 class="product-name">
-                        CATALA SUN TEE
+                        CATALA TEE 01
                     </h3>
 
                     <p class="product-detail">
-                        NATURAL
+                        COLOUR TBC
                     </p>
 
                     <p class="product-price">
-                        $— 
+                        $—
                     </p>
 
                     <a
@@ -781,61 +709,9 @@
 
 
 
-            <!-- SUNGLASSES / WIP -->
-
-            <article class="product-card">
-
-                <div class="product-image coming-soon">
-
-                    <div class="placeholder">
-
-                        <img
-                            src="catala-logo.png"
-                            alt="CATALA sunglasses concept">
-
-                    </div>
-
-
-                    <span class="coming-label">
-                        COMING SOON
-                    </span>
-
-
-                    <span class="prototype-text">
-                        CONCEPT / IN DEVELOPMENT
-                    </span>
-
-                </div>
-
-
-                <div class="product-info">
-
-                    <h3 class="product-name">
-                        CATALA SUNGLASSES
-                    </h3>
-
-                    <p class="product-detail">
-                        CONCEPT 001
-                    </p>
-
-                    <p class="product-price coming-price">
-                        IN DEVELOPMENT
-                    </p>
-
-                    <span
-                        class="product-button coming-button">
-
-                        COMING SOON
-
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PRODUCT 3 -->
+            <!-- =====================
+                 TEE 02
+            ====================== -->
 
             <article class="product-card">
 
@@ -845,7 +721,7 @@
 
                         <img
                             src="catala-logo.png"
-                            alt="CATALA tee">
+                            alt="CATALA Tee 02">
 
                     </div>
 
@@ -855,7 +731,54 @@
                 <div class="product-info">
 
                     <h3 class="product-name">
-                        CATALA LOGO TEE
+                        CATALA TEE 02
+                    </h3>
+
+                    <p class="product-detail">
+                        COLOUR TBC
+                    </p>
+
+                    <p class="product-price">
+                        $—
+                    </p>
+
+                    <a
+                        class="product-button"
+                        href="#">
+
+                        VIEW TEE
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =====================
+                 TEE 03
+            ====================== -->
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <div class="placeholder">
+
+                        <img
+                            src="catala-logo.png"
+                            alt="CATALA Tee 03">
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <h3 class="product-name">
+                        CATALA TEE 03
                     </h3>
 
                     <p class="product-detail">

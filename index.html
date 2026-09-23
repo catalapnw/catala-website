@@ -2,8 +2,12 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>CATALA</title>
 
@@ -25,9 +29,15 @@
 
         body {
             width: 100%;
+
             font-family: Arial, Helvetica, sans-serif;
+
             background: #f2eee3;
             color: #171717;
+        }
+
+        body.cart-open {
+            overflow: hidden;
         }
 
         a {
@@ -66,6 +76,7 @@
 
         .nav {
             position: absolute;
+
             top: 0;
             left: 0;
 
@@ -82,16 +93,19 @@
 
         .nav-brand {
             color: #f4efdf;
+
             text-decoration: none;
 
             font-size: 22px;
             font-weight: 900;
+
             letter-spacing: -1px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
+
             gap: 34px;
         }
 
@@ -99,17 +113,22 @@
             position: relative;
 
             color: #f4efdf;
+
             text-decoration: none;
 
             font-size: 12px;
             font-weight: 700;
+
             letter-spacing: 1.5px;
+
+            cursor: pointer;
         }
 
         .nav-links a::after {
             content: "";
 
             position: absolute;
+
             left: 0;
             bottom: -5px;
 
@@ -139,6 +158,7 @@
             transform: translate(-50%, -50%);
 
             width: 100%;
+
             padding: 0 30px;
 
             text-align: center;
@@ -165,15 +185,18 @@
             display: inline-block;
 
             margin-top: 38px;
+
             padding: 14px 28px;
 
             border: 1px solid rgba(244, 239, 223, 0.9);
 
             color: #f4efdf;
+
             text-decoration: none;
 
             font-size: 11px;
             font-weight: 700;
+
             letter-spacing: 2.5px;
 
             transition: 0.25s ease;
@@ -193,6 +216,7 @@
             color: rgba(244, 239, 223, 0.65);
 
             font-size: 8px;
+
             letter-spacing: 0.5px;
 
             text-decoration: none;
@@ -224,9 +248,11 @@
 
         .brand-strip p {
             font-size: 11px;
+
             letter-spacing: 4px;
 
             text-align: center;
+
             white-space: nowrap;
         }
 
@@ -253,11 +279,13 @@
             font-size: clamp(42px, 5vw, 72px);
 
             line-height: 0.9;
+
             letter-spacing: -4px;
         }
 
         .drop-number {
             font-size: 11px;
+
             letter-spacing: 5px;
         }
 
@@ -282,6 +310,7 @@
             position: relative;
 
             width: 100%;
+
             aspect-ratio: 4 / 5;
 
             overflow: hidden;
@@ -304,7 +333,7 @@
 
 
         /* =========================
-           TEMPORARY TEE ART
+           TEMPORARY PRODUCT ART
         ========================= */
 
         .placeholder {
@@ -356,6 +385,7 @@
             margin-top: 7px;
 
             font-size: 10px;
+
             letter-spacing: 2px;
 
             opacity: 0.55;
@@ -368,17 +398,13 @@
             font-weight: 700;
         }
 
-
-        /* =========================
-           PRODUCT BUTTONS
-        ========================= */
-
         .product-button {
             display: block;
 
             width: 100%;
 
             margin-top: 17px;
+
             padding: 13px 15px;
 
             border: 1px solid #171717;
@@ -392,6 +418,7 @@
 
             font-size: 9px;
             font-weight: 700;
+
             letter-spacing: 2px;
 
             transition: 0.25s ease;
@@ -425,6 +452,7 @@
 
             font-size: 10px;
             font-weight: 700;
+
             letter-spacing: 3px;
 
             transition: opacity 0.25s ease;
@@ -459,103 +487,299 @@
             font-size: clamp(40px, 7vw, 100px);
 
             line-height: 0.9;
+
             letter-spacing: -5px;
         }
 
-/* =========================
-   SOCIAL
-========================= */
 
-.social {
-    padding: 90px 4% 100px;
-    background: #171717;
-    color: #f2eee3;
-}
+        /* =========================
+           SOCIAL
+        ========================= */
 
-.social-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+        .social {
+            padding: 90px 4% 100px;
 
-    margin-bottom: 40px;
-}
+            background: #171717;
+            color: #f2eee3;
+        }
 
-.social-title {
-    font-size: clamp(42px, 6vw, 82px);
-    line-height: 0.9;
-    letter-spacing: -4px;
-}
+        .social-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
 
-.social-handle {
-    font-size: 11px;
-    letter-spacing: 3px;
-    opacity: 0.65;
-}
+            margin-bottom: 40px;
+        }
 
-.social-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-}
+        .social-title {
+            font-size: clamp(42px, 6vw, 82px);
 
-.social-post {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
+            line-height: 0.9;
 
-    background: #292929;
-}
+            letter-spacing: -4px;
+        }
 
-.social-post::after {
-    content: "CATALA";
+        .social-handle {
+            font-size: 11px;
 
-    position: absolute;
-    left: 18px;
-    bottom: 16px;
+            letter-spacing: 3px;
 
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
+            opacity: 0.65;
+        }
 
-    opacity: 0.55;
-}
+        .social-grid {
+            display: grid;
 
-.social-post img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+            grid-template-columns: repeat(4, 1fr);
 
-    transition: transform 0.4s ease;
-}
+            gap: 10px;
+        }
 
-.social-post:hover img {
-    transform: scale(1.03);
-}
+        .social-post {
+            position: relative;
 
-.social-links {
-    display: flex;
-    gap: 40px;
+            aspect-ratio: 1 / 1;
 
-    margin-top: 35px;
-}
+            overflow: hidden;
 
-.social-links a {
-    color: #f2eee3;
+            background: #292929;
+        }
 
-    text-decoration: none;
+        .social-post::after {
+            content: "CATALA";
 
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
+            position: absolute;
 
-    border-bottom: 1px solid rgba(242, 238, 227, 0.35);
+            left: 18px;
+            bottom: 16px;
 
-    padding-bottom: 5px;
-}
+            font-size: 9px;
+            font-weight: 700;
 
-.social-links a:hover {
-    border-color: #f2eee3;
-}
+            letter-spacing: 2px;
+
+            opacity: 0.55;
+        }
+
+        .social-links {
+            display: flex;
+
+            gap: 40px;
+
+            margin-top: 35px;
+        }
+
+        .social-links a {
+            color: #f2eee3;
+
+            text-decoration: none;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            border-bottom:
+                1px solid rgba(242, 238, 227, 0.35);
+
+            padding-bottom: 5px;
+        }
+
+        .social-links a:hover {
+            border-color: #f2eee3;
+        }
+
+
+        /* =========================
+           CART OVERLAY
+        ========================= */
+
+        .cart-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.48);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease;
+
+            z-index: 998;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        /* =========================
+           CART DRAWER
+        ========================= */
+
+        .cart-drawer {
+            position: fixed;
+
+            top: 0;
+            right: 0;
+
+            width: min(470px, 92vw);
+            height: 100vh;
+
+            background: #f2eee3;
+            color: #171717;
+
+            transform: translateX(100%);
+
+            transition: transform 0.35s ease;
+
+            z-index: 999;
+
+            display: flex;
+            flex-direction: column;
+
+            box-shadow:
+                -20px 0 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .cart-drawer.active {
+            transform: translateX(0);
+        }
+
+
+        /* =========================
+           CART HEADER
+        ========================= */
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 28px;
+
+            border-bottom:
+                1px solid rgba(23, 23, 23, 0.2);
+        }
+
+        .cart-header h2 {
+            font-size: 22px;
+            font-weight: 900;
+
+            letter-spacing: -1px;
+        }
+
+        .cart-close {
+            border: none;
+
+            background: transparent;
+            color: #171717;
+
+            font-size: 30px;
+            font-weight: 300;
+
+            line-height: 1;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           CART BODY
+        ========================= */
+
+        .cart-body {
+            flex: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px 28px;
+        }
+
+        .empty-cart {
+            width: 100%;
+
+            text-align: center;
+        }
+
+        .empty-cart h3 {
+            font-size: clamp(34px, 4vw, 48px);
+
+            line-height: 0.95;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 15px;
+        }
+
+        .empty-cart p {
+            margin-bottom: 32px;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+
+            opacity: 0.6;
+        }
+
+        .continue-shopping {
+            display: block;
+
+            width: 100%;
+
+            padding: 16px;
+
+            border: 1px solid #171717;
+
+            background: #171717;
+            color: #f2eee3;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .continue-shopping:hover {
+            background: transparent;
+            color: #171717;
+        }
+
+
+        /* =========================
+           CART FOOTER
+        ========================= */
+
+        .cart-footer {
+            padding: 22px 28px 28px;
+
+            border-top:
+                1px solid rgba(23, 23, 23, 0.2);
+        }
+
+        .cart-note {
+            font-size: 9px;
+
+            line-height: 1.5;
+
+            letter-spacing: 1px;
+
+            text-align: center;
+
+            opacity: 0.45;
+        }
+
+
         /* =========================
            MOBILE
         ========================= */
@@ -567,28 +791,35 @@
             }
 
             .nav {
-                padding: 22px 20px;
+                padding: 22px 18px;
             }
 
             .nav-brand {
-                font-size: 19px;
+                font-size: 18px;
             }
 
             .nav-links {
-                gap: 18px;
+                gap: 13px;
             }
 
             .nav-links a {
-                font-size: 10px;
+                font-size: 9px;
+
+                letter-spacing: 0.8px;
             }
 
             .hero-content {
                 top: 55%;
+
                 padding: 0 18px;
             }
 
             .hero-logo {
                 width: 92vw;
+            }
+
+            .hero-button {
+                margin-top: 30px;
             }
 
             .brand-strip {
@@ -601,6 +832,7 @@
 
             .brand-strip p {
                 font-size: 9px;
+
                 letter-spacing: 2px;
 
                 white-space: normal;
@@ -612,7 +844,12 @@
 
             .drop-heading h2 {
                 font-size: 46px;
+
                 letter-spacing: -3px;
+            }
+
+            .drop-number {
+                font-size: 9px;
             }
 
             .product-grid {
@@ -631,7 +868,87 @@
 
             .statement h3 {
                 font-size: 14vw;
+
                 letter-spacing: -3px;
+            }
+
+
+            /* SOCIAL MOBILE */
+
+            .social {
+                padding: 65px 18px 70px;
+            }
+
+            .social-header {
+                display: block;
+            }
+
+            .social-title {
+                font-size: 13vw;
+
+                letter-spacing: -3px;
+            }
+
+            .social-handle {
+                margin-top: 18px;
+            }
+
+            .social-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .social-links {
+                gap: 25px;
+
+                flex-wrap: wrap;
+            }
+
+
+            /* CART MOBILE */
+
+            .cart-drawer {
+                width: 94vw;
+            }
+
+            .cart-header {
+                padding: 22px 20px;
+            }
+
+            .cart-body {
+                padding: 35px 20px;
+            }
+
+            .cart-footer {
+                padding: 20px;
+            }
+
+        }
+
+
+        /* =========================
+           VERY SMALL PHONES
+        ========================= */
+
+        @media (max-width: 390px) {
+
+            .nav {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 8px;
+
+                letter-spacing: 0.5px;
+            }
+
+            .nav-brand {
+                font-size: 17px;
             }
 
         }
@@ -650,11 +967,19 @@
 
     <section class="hero">
 
+
+        <!-- NAVIGATION -->
+
         <nav class="nav">
 
-            <a class="nav-brand" href="#">
+            <a
+                class="nav-brand"
+                href="index.html">
+
                 CATALA
+
             </a>
+
 
             <div class="nav-links">
 
@@ -663,11 +988,15 @@
                 </a>
 
                 <a href="about.html">
-    ABOUT
-</a>
+                    ABOUT
+                </a>
 
-                <a href="#">
+                <a
+                    href="#"
+                    id="cartOpen">
+
                     CART (0)
+
                 </a>
 
             </div>
@@ -675,12 +1004,16 @@
         </nav>
 
 
+
+        <!-- HERO LOGO -->
+
         <div class="hero-content">
 
             <img
                 class="hero-logo"
                 src="catala-logo.png"
                 alt="CATALA">
+
 
             <a
                 class="hero-button"
@@ -693,6 +1026,9 @@
         </div>
 
 
+
+        <!-- PHOTO CREDIT -->
+
         <a
             class="photo-credit"
             href="https://commons.wikimedia.org/wiki/File:Surfer_Cox_Bay_Tofino_2736.jpg"
@@ -702,6 +1038,7 @@
             PHOTO: IMAGEPERSON / CC BY 4.0
 
         </a>
+
 
     </section>
 
@@ -757,6 +1094,7 @@
 
             <article class="product-card">
 
+
                 <div class="product-image">
 
                     <div class="placeholder">
@@ -794,6 +1132,7 @@
 
                 </div>
 
+
             </article>
 
 
@@ -803,6 +1142,7 @@
             ====================== -->
 
             <article class="product-card">
+
 
                 <div class="product-image">
 
@@ -841,6 +1181,7 @@
 
                 </div>
 
+
             </article>
 
 
@@ -850,6 +1191,7 @@
             ====================== -->
 
             <article class="product-card">
+
 
                 <div class="product-image">
 
@@ -888,6 +1230,7 @@
 
                 </div>
 
+
             </article>
 
 
@@ -899,7 +1242,7 @@
 
             <a
                 class="shop-all"
-                href="#">
+                href="#shop">
 
                 SHOP ALL &nbsp; →
 
@@ -924,6 +1267,297 @@
         </h3>
 
     </section>
+
+
+
+    <!-- =========================
+         SOCIAL
+    ========================= -->
+
+    <section class="social">
+
+
+        <div class="social-header">
+
+            <h2 class="social-title">
+                FOLLOW THE<br>
+                GOOD DAYS
+            </h2>
+
+            <p class="social-handle">
+                @CATALA
+            </p>
+
+        </div>
+
+
+
+        <div class="social-grid">
+
+
+            <div class="social-post">
+            </div>
+
+
+            <div class="social-post">
+            </div>
+
+
+            <div class="social-post">
+            </div>
+
+
+            <div class="social-post">
+            </div>
+
+
+        </div>
+
+
+
+        <div class="social-links">
+
+            <a
+                href="#"
+                target="_blank">
+
+                INSTAGRAM ↗
+
+            </a>
+
+
+            <a
+                href="#"
+                target="_blank">
+
+                TIKTOK ↗
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         CART OVERLAY
+    ========================= -->
+
+    <div
+        class="cart-overlay"
+        id="cartOverlay">
+    </div>
+
+
+
+    <!-- =========================
+         CART DRAWER
+    ========================= -->
+
+    <aside
+        class="cart-drawer"
+        id="cartDrawer"
+        aria-hidden="true">
+
+
+        <!-- CART HEADER -->
+
+        <div class="cart-header">
+
+            <h2>
+                YOUR CART
+            </h2>
+
+
+            <button
+                class="cart-close"
+                id="cartClose"
+                aria-label="Close cart">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+
+        <!-- CART BODY -->
+
+        <div class="cart-body">
+
+
+            <div class="empty-cart">
+
+
+                <h3>
+                    YOUR CART<br>
+                    IS EMPTY.
+                </h3>
+
+
+                <p>
+                    GO FIND SOMETHING RAD.
+                </p>
+
+
+                <button
+                    class="continue-shopping"
+                    id="continueShopping">
+
+                    CONTINUE SHOPPING
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- CART FOOTER -->
+
+        <div class="cart-footer">
+
+            <p class="cart-note">
+                CATALA — BORN IN THE PNW.
+            </p>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =========================
+         CART JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        const cartOpen =
+            document.getElementById("cartOpen");
+
+        const cartClose =
+            document.getElementById("cartClose");
+
+        const cartDrawer =
+            document.getElementById("cartDrawer");
+
+        const cartOverlay =
+            document.getElementById("cartOverlay");
+
+        const continueShopping =
+            document.getElementById(
+                "continueShopping"
+            );
+
+
+        function openCart() {
+
+            cartDrawer.classList.add(
+                "active"
+            );
+
+            cartOverlay.classList.add(
+                "active"
+            );
+
+            document.body.classList.add(
+                "cart-open"
+            );
+
+            cartDrawer.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+        }
+
+
+        function closeCart() {
+
+            cartDrawer.classList.remove(
+                "active"
+            );
+
+            cartOverlay.classList.remove(
+                "active"
+            );
+
+            document.body.classList.remove(
+                "cart-open"
+            );
+
+            cartDrawer.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+        }
+
+
+        cartOpen.addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+                openCart();
+
+            }
+        );
+
+
+        cartClose.addEventListener(
+            "click",
+            closeCart
+        );
+
+
+        cartOverlay.addEventListener(
+            "click",
+            closeCart
+        );
+
+
+        continueShopping.addEventListener(
+            "click",
+            function() {
+
+                closeCart();
+
+                document
+                    .getElementById("shop")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeCart();
+
+                }
+
+            }
+        );
+
+    </script>
 
 
 </body>

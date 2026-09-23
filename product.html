@@ -1,929 +1,951 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>CATALA Product</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:#f2eee3;color:#171717}
+a{color:inherit}
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:28px 4%;
+    border-bottom:1px solid rgba(23,23,23,.18);
+}
+.nav-brand{
+    font-size:22px;
+    font-weight:900;
+    text-decoration:none;
+}
+.nav-links{
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+.nav-links a{
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-decoration:none;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-
-    background: #f2eee3;
-    color: #171717;
+.product{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    min-height:calc(100vh - 80px);
 }
 
-a {
-    color: inherit;
+/* GALLERY */
+.gallery{
+    position:relative;
+    min-height:720px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#ddd7ca;
+}
+.gallery-image{
+    width:65%;
+    max-height:620px;
+    object-fit:contain;
+}
+.gallery-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:48px;height:48px;
+    border:1px solid rgba(23,23,23,.3);
+    background:#f2eee3;
+    cursor:pointer;
+}
+.prev{left:25px}
+.next{right:25px}
+.gallery-count{
+    position:absolute;
+    left:28px;
+    bottom:25px;
+    font-size:10px;
+    letter-spacing:2px;
 }
 
-
-/* =========================
-   NAV
-========================= */
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 28px 4%;
-
-    border-bottom:
-        1px solid rgba(23, 23, 23, 0.18);
+/* DETAILS */
+.details{padding:70px 7% 80px}
+.eyebrow{
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:3px;
+    opacity:.5;
+    margin-bottom:18px;
+}
+.details h1{
+    font-size:clamp(42px,5vw,72px);
+    line-height:.9;
+    letter-spacing:-4px;
+}
+.price{
+    margin-top:22px;
+    font-size:15px;
+    font-weight:700;
+}
+.intro{
+    margin-top:35px;
+    font-size:14px;
+    line-height:1.7;
+}
+.option-title{
+    margin:35px 0 12px;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+.size-options{display:flex;gap:8px}
+.size-button{
+    width:48px;height:48px;
+    border:1px solid #171717;
+    background:transparent;
+    font-weight:700;
+    cursor:pointer;
+}
+.size-button.active{
+    background:#171717;
+    color:#f2eee3;
 }
 
-.nav-brand {
-    font-size: 22px;
-    font-weight: 900;
+.add-cart{
+    width:100%;
+    margin-top:28px;
+    padding:18px;
+    border:1px solid #171717;
+    background:#171717;
+    color:#f2eee3;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
+    cursor:pointer;
+}
+.add-cart:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+.add-confirmation{
+    display:none;
+    margin-top:12px;
+    padding:12px;
+    background:#d8d0c1;
+    font-size:9px;
+    letter-spacing:1px;
+    text-align:center;
+}
+.add-confirmation.show{display:block}
 
-    letter-spacing: -1px;
+/* INFO */
+.info{
+    margin-top:45px;
+    border-top:1px solid rgba(23,23,23,.2);
+}
+.info-section{
+    padding:24px 0;
+    border-bottom:1px solid rgba(23,23,23,.2);
+}
+.info-section h2{
+    margin-bottom:12px;
+    font-size:10px;
+    letter-spacing:2px;
+}
+.info-section p,.info-section li{
+    font-size:12px;
+    line-height:1.7;
+}
+.info-section ul{list-style:none}
 
-    text-decoration: none;
+.size-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+.size-table th,.size-table td{
+    padding:12px 5px;
+    border-bottom:1px solid rgba(23,23,23,.15);
+    text-align:left;
+    font-size:10px;
 }
 
-.nav-links {
-    display: flex;
-
-    gap: 30px;
+.shipping-note{
+    margin-top:25px;
+    padding:22px;
+    background:#d8d0c1;
+}
+.shipping-note strong{
+    display:block;
+    margin-bottom:8px;
+    font-size:10px;
+    letter-spacing:2px;
 }
 
-.nav-links a {
-    font-size: 10px;
-    font-weight: 700;
+/* CART DRAWER */
+.cart-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.48);
+    opacity:0;
+    visibility:hidden;
+    z-index:998;
+}
+.cart-overlay.active{opacity:1;visibility:visible}
 
-    letter-spacing: 1.5px;
+.cart-drawer{
+    position:fixed;
+    top:0;right:0;
+    width:min(500px,94vw);
+    height:100vh;
+    background:#f2eee3;
+    transform:translateX(100%);
+    transition:.35s;
+    z-index:999;
+    display:flex;
+    flex-direction:column;
+}
+.cart-drawer.active{transform:translateX(0)}
 
-    text-decoration: none;
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px;
+    border-bottom:1px solid rgba(23,23,23,.2);
+}
+.cart-close{
+    border:0;
+    background:none;
+    font-size:30px;
+    cursor:pointer;
 }
 
-
-/* =========================
-   PRODUCT
-========================= */
-
-.product {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.2fr)
-        minmax(350px, 0.8fr);
-
-    min-height: calc(100vh - 80px);
+.cart-items{
+    flex:1;
+    overflow:auto;
+    padding:0 25px;
+}
+.empty-cart{
+    padding:70px 0;
+    text-align:center;
+}
+.empty-cart p{
+    margin-top:12px;
+    font-size:10px;
+    opacity:.5;
 }
 
-
-/* =========================
-   GALLERY
-========================= */
-
-.gallery {
-    position: relative;
-
-    min-height: 720px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #ddd7ca;
-
-    overflow: hidden;
+.cart-item{
+    display:grid;
+    grid-template-columns:90px 1fr;
+    gap:17px;
+    padding:22px 0;
+    border-bottom:1px solid rgba(23,23,23,.18);
+}
+.cart-thumb{
+    width:90px;height:110px;
+    background:#ddd7ca;
+    padding:12px;
+}
+.cart-thumb img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+.cart-item-top{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+}
+.cart-item-name{
+    font-size:12px;
+    font-weight:800;
+}
+.cart-size{
+    margin-top:7px;
+    font-size:9px;
+    letter-spacing:1px;
+    opacity:.55;
+}
+.cart-item-price{
+    font-size:11px;
+    font-weight:700;
+}
+.cart-controls{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:18px;
+}
+.quantity{
+    display:flex;
+    border:1px solid rgba(23,23,23,.4);
+}
+.quantity button{
+    width:32px;height:32px;
+    border:0;background:none;
+    cursor:pointer;
+}
+.quantity span{
+    width:32px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:10px;
+}
+.remove-item{
+    border:0;
+    background:none;
+    font-size:8px;
+    letter-spacing:1px;
+    text-decoration:underline;
+    cursor:pointer;
 }
 
-.gallery-image {
-    width: 65%;
-    max-height: 620px;
-
-    object-fit: contain;
+.cart-summary{
+    padding:22px 25px;
+    border-top:1px solid rgba(23,23,23,.2);
+}
+.summary-title{
+    font-size:10px;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin:10px 0;
+    font-size:11px;
+}
+.summary-row.total{
+    margin-top:17px;
+    padding-top:17px;
+    border-top:1px solid rgba(23,23,23,.25);
+    font-weight:800;
+    font-size:14px;
+}
+.shipping-message{
+    margin:18px 0;
+    padding:14px;
+    background:#d8d0c1;
+    font-size:9px;
+    line-height:1.6;
+}
+.checkout-button{
+    width:100%;
+    padding:17px;
+    border:0;
+    background:#171717;
+    color:#f2eee3;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
+    opacity:.45;
 }
 
-.gallery-arrow {
-    position: absolute;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 48px;
-    height: 48px;
-
-    border: 1px solid rgba(23, 23, 23, 0.3);
-
-    background: rgba(242, 238, 227, 0.85);
-
-    font-size: 20px;
-
-    cursor: pointer;
+@media(max-width:800px){
+    .nav{padding:22px 18px}
+    .nav-links{gap:12px}
+    .nav-links a{font-size:8px}
+    .product{display:block}
+    .gallery{min-height:500px}
+    .gallery-image{width:70%}
+    .details{padding:45px 20px 70px}
+    .details h1{font-size:13vw}
 }
-
-.prev {
-    left: 25px;
-}
-
-.next {
-    right: 25px;
-}
-
-.gallery-count {
-    position: absolute;
-
-    left: 28px;
-    bottom: 25px;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-
-/* =========================
-   PRODUCT DETAILS
-========================= */
-
-.details {
-    padding: 70px 7% 80px;
-}
-
-.eyebrow {
-    margin-bottom: 18px;
-
-    font-size: 9px;
-    font-weight: 700;
-
-    letter-spacing: 3px;
-
-    opacity: 0.5;
-}
-
-.details h1 {
-    max-width: 500px;
-
-    font-size: clamp(42px, 5vw, 72px);
-
-    line-height: 0.9;
-
-    letter-spacing: -4px;
-}
-
-.price {
-    margin-top: 22px;
-
-    font-size: 15px;
-    font-weight: 700;
-}
-
-.intro {
-    max-width: 530px;
-
-    margin-top: 35px;
-
-    font-size: 14px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================
-   SIZE SELECTOR
-========================= */
-
-.option-title {
-    margin-top: 35px;
-    margin-bottom: 12px;
-
-    font-size: 9px;
-    font-weight: 700;
-
-    letter-spacing: 2px;
-}
-
-.size-options {
-    display: flex;
-
-    gap: 8px;
-}
-
-.size-button {
-    width: 48px;
-    height: 48px;
-
-    border: 1px solid #171717;
-
-    background: transparent;
-
-    font-size: 11px;
-    font-weight: 700;
-
-    cursor: pointer;
-}
-
-.size-button.active {
-    background: #171717;
-    color: #f2eee3;
-}
-
-
-/* =========================
-   ADD BUTTON
-========================= */
-
-.add-cart {
-    width: 100%;
-
-    margin-top: 28px;
-
-    padding: 18px;
-
-    border: 1px solid #171717;
-
-    background: #171717;
-    color: #f2eee3;
-
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    cursor: pointer;
-}
-
-
-/* =========================
-   INFORMATION
-========================= */
-
-.info {
-    margin-top: 45px;
-
-    border-top:
-        1px solid rgba(23, 23, 23, 0.2);
-}
-
-.info-section {
-    padding: 24px 0;
-
-    border-bottom:
-        1px solid rgba(23, 23, 23, 0.2);
-}
-
-.info-section h2 {
-    margin-bottom: 12px;
-
-    font-size: 10px;
-    font-weight: 800;
-
-    letter-spacing: 2px;
-}
-
-.info-section p,
-.info-section li {
-    font-size: 12px;
-
-    line-height: 1.7;
-}
-
-.info-section ul {
-    list-style: none;
-}
-
-
-/* =========================
-   SIZE GUIDE
-========================= */
-
-.size-table {
-    width: 100%;
-
-    border-collapse: collapse;
-
-    margin-top: 15px;
-}
-
-.size-table th,
-.size-table td {
-    padding: 12px 5px;
-
-    border-bottom:
-        1px solid rgba(23, 23, 23, 0.15);
-
-    text-align: left;
-
-    font-size: 10px;
-}
-
-.size-table th {
-    letter-spacing: 1px;
-}
-
-
-/* =========================
-   SHIPPING CALLOUT
-========================= */
-
-.shipping-note {
-    margin-top: 25px;
-
-    padding: 22px;
-
-    background: #d8d0c1;
-}
-
-.shipping-note strong {
-    display: block;
-
-    margin-bottom: 8px;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-.shipping-note p {
-    font-size: 11px;
-
-    line-height: 1.6;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 800px) {
-
-    .nav {
-        padding: 22px 18px;
-    }
-
-    .nav-links {
-        gap: 14px;
-    }
-
-    .nav-links a {
-        font-size: 9px;
-    }
-
-    .product {
-        display: block;
-    }
-
-    .gallery {
-        min-height: 500px;
-    }
-
-    .gallery-image {
-        width: 70%;
-        max-height: 400px;
-    }
-
-    .details {
-        padding: 45px 20px 70px;
-    }
-
-    .details h1 {
-        font-size: 13vw;
-
-        letter-spacing: -3px;
-    }
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
 <nav class="nav">
 
-<a
-    class="nav-brand"
-    href="index.html">
-
-    CATALA
-
-</a>
-
+<a class="nav-brand" href="index.html">CATALA</a>
 
 <div class="nav-links">
-
-    <a href="index.html#shop">
-        SHOP
-    </a>
-
-    <a href="about.html">
-        ABOUT
-    </a>
-
-    <a href="index.html">
-        ← BACK
-    </a>
-
+<a href="index.html#shop">SHOP</a>
+<a href="about.html">ABOUT</a>
+<a href="#" id="cartOpen">
+CART (<span id="cartCount">0</span>)
+</a>
 </div>
 
 </nav>
 
-
-
-<!-- =========================
-     PRODUCT
-========================= -->
-
 <main class="product">
-
-
-<!-- GALLERY -->
 
 <section class="gallery">
 
-    <button
-        class="gallery-arrow prev"
-        id="prevImage">
+<button class="gallery-arrow prev" id="prevImage">←</button>
 
-        ←
+<img
+class="gallery-image"
+id="productImage"
+src="catala-logo.png"
+alt="CATALA T-shirt">
 
-    </button>
+<button class="gallery-arrow next" id="nextImage">→</button>
 
-
-    <img
-        class="gallery-image"
-        id="productImage"
-        src="catala-logo.png"
-        alt="CATALA T-shirt">
-
-
-    <button
-        class="gallery-arrow next"
-        id="nextImage">
-
-        →
-
-    </button>
-
-
-    <span
-        class="gallery-count"
-        id="galleryCount">
-
-        01 / 03
-
-    </span>
+<span class="gallery-count" id="galleryCount">
+01 / 03
+</span>
 
 </section>
-
-
-
-<!-- DETAILS -->
 
 <section class="details">
 
-<p class="eyebrow">
-    CATALA / DROP 01
-</p>
+<p class="eyebrow">CATALA / DROP 01</p>
 
+<h1 id="productName">CATALA TEE 01</h1>
 
-<h1 id="productName">
-    CATALA TEE 01
-</h1>
-
-
-<p class="price">
-    $—
-</p>
-
+<p class="price" id="productPrice">$35 CAD</p>
 
 <p class="intro">
-    A straightforward everyday tee built for
-    beach days, road trips, late afternoons,
-    campfires and whatever comes after.
-    Printed with original CATALA artwork on
-    a classic white cotton base.
+A straightforward everyday tee made for beach days,
+road trips, late afternoons and whatever comes after.
+Original CATALA artwork printed on a classic white
+100% cotton base.
 </p>
 
-
-
-<p class="option-title">
-    SELECT SIZE
-</p>
-
+<p class="option-title">SELECT SIZE</p>
 
 <div class="size-options">
-
-    <button class="size-button">
-        S
-    </button>
-
-    <button class="size-button">
-        M
-    </button>
-
-    <button class="size-button">
-        L
-    </button>
-
+<button class="size-button">S</button>
+<button class="size-button">M</button>
+<button class="size-button">L</button>
 </div>
 
-
-
-<button
-    class="add-cart"
-    id="addCart">
-
-    SELECT A SIZE
-
+<button class="add-cart" id="addCart" disabled>
+SELECT A SIZE
 </button>
 
-
+<div class="add-confirmation" id="confirmation">
+ADDED TO YOUR CART ✓
+</div>
 
 <div class="info">
 
-
-<!-- MATERIAL -->
+<div class="info-section">
+<h2>MATERIAL</h2>
+<p>
+100% cotton white T-shirt base from George.
+Soft, straightforward and made for everyday wear.
+</p>
+</div>
 
 <div class="info-section">
 
-    <h2>
-        MATERIAL
-    </h2>
+<h2>FIT & SIZING</h2>
 
-    <p>
-        100% cotton white T-shirt base from George.
-        Soft, straightforward and made for everyday wear.
-    </p>
+<p>
+Available in S, M and L. Classic everyday T-shirt fit.
+For a looser fit, consider sizing up.
+</p>
+
+<table class="size-table">
+<tr>
+<th>SIZE</th>
+<th>FIT</th>
+</tr>
+<tr><td>S</td><td>SMALL</td></tr>
+<tr><td>M</td><td>MEDIUM</td></tr>
+<tr><td>L</td><td>LARGE</td></tr>
+</table>
 
 </div>
 
-
-
-<!-- FIT -->
+<div class="info-section">
+<h2>CARE</h2>
+<ul>
+<li>Turn shirt inside out before washing.</li>
+<li>Cold wash.</li>
+<li>Gentle cycle.</li>
+<li>Air dry.</li>
+</ul>
+</div>
 
 <div class="info-section">
 
-    <h2>
-        FIT & SIZING
-    </h2>
+<h2>SHIPPING</h2>
 
-    <p>
-        Available in S, M and L. Designed as a classic
-        everyday T-shirt fit. If you prefer a looser
-        fit, consider sizing up.
-    </p>
+<p>
+CATALA currently prepares customer orders in scheduled
+shipping batches.
+</p>
 
-
-    <table class="size-table">
-
-        <tr>
-            <th>SIZE</th>
-            <th>FIT</th>
-        </tr>
-
-        <tr>
-            <td>S</td>
-            <td>SMALL</td>
-        </tr>
-
-        <tr>
-            <td>M</td>
-            <td>MEDIUM</td>
-        </tr>
-
-        <tr>
-            <td>L</td>
-            <td>LARGE</td>
-        </tr>
-
-    </table>
-
+<div class="shipping-note">
+<strong>SHIPPING DAYS</strong>
+<p>
+Orders are prepared for shipment in larger batches on
+the 1st and 15th of each month. Orders placed after a
+shipping date will normally be included in the next
+scheduled batch.
+</p>
 </div>
 
-
-
-<!-- CARE -->
+</div>
 
 <div class="info-section">
-
-    <h2>
-        CARE
-    </h2>
-
-    <ul>
-
-        <li>
-            Turn shirt inside out before washing.
-        </li>
-
-        <li>
-            Cold wash.
-        </li>
-
-        <li>
-            Gentle cycle.
-        </li>
-
-        <li>
-            Air dry.
-        </li>
-
-    </ul>
-
+<h2>THE PRINT</h2>
+<p>
+Original CATALA artwork inspired by days around the
+water, the outdoors, travel and surf culture.
+</p>
 </div>
-
-
-
-<!-- SHIPPING -->
 
 <div class="info-section">
-
-    <h2>
-        SHIPPING
-    </h2>
-
-    <p>
-        CATALA currently ships orders in scheduled
-        batches rather than individually each day.
-    </p>
-
-
-    <div class="shipping-note">
-
-        <strong>
-            SHIPPING DAYS
-        </strong>
-
-        <p>
-            Orders are prepared for shipment in larger
-            batches on the 1st and 15th of each month.
-            Orders placed after a shipping date will
-            normally be included in the next scheduled
-            batch.
-        </p>
-
-    </div>
-
+<h2>GOOD TO KNOW</h2>
+<p>
+Colours may appear slightly different depending on
+your screen. Individual garments and prints may have
+minor natural variations.
+</p>
 </div>
-
-
-
-<!-- PRINT -->
-
-<div class="info-section">
-
-    <h2>
-        THE PRINT
-    </h2>
-
-    <p>
-        Original CATALA artwork designed around the
-        surf, outdoors and travel culture that inspired
-        the brand.
-    </p>
-
-</div>
-
-
-
-<!-- NOTE -->
-
-<div class="info-section">
-
-    <h2>
-        GOOD TO KNOW
-    </h2>
-
-    <p>
-        Colours may appear slightly different depending
-        on your screen and individual garments may have
-        minor natural variations.
-    </p>
-
-</div>
-
 
 </div>
 
 </section>
-
 </main>
 
+<!-- CART -->
 
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+
+<div class="cart-header">
+<h2>YOUR CART</h2>
+<button class="cart-close" id="cartClose">×</button>
+</div>
+
+<div class="cart-items" id="cartItems"></div>
+
+<div class="cart-summary">
+
+<h3 class="summary-title">CART SUMMARY</h3>
+
+<div class="summary-row">
+<span>SUBTOTAL</span>
+<span id="subtotal">$0.00 CAD</span>
+</div>
+
+<div class="summary-row">
+<span>SHIPPING</span>
+<span>CALCULATED AT CHECKOUT</span>
+</div>
+
+<div class="summary-row total">
+<span>ESTIMATED TOTAL</span>
+<span id="total">$0.00 CAD</span>
+</div>
+
+<div class="shipping-message">
+<strong>SHIPPING SCHEDULE</strong><br>
+Orders are prepared in shipping batches on the
+1st and 15th of each month.
+</div>
+
+<button class="checkout-button" disabled>
+CHECKOUT — COMING SOON
+</button>
+
+</div>
+
+</aside>
 
 <script>
 
-/* =========================
-   PRODUCTS
-========================= */
+/* PRODUCTS */
 
-const products = {
-
-    1: {
-        name: "CATALA TEE 01",
-
-        images: [
-            "catala-logo.png",
-            "catala-logo.png",
-            "catala-logo.png"
-        ]
-    },
-
-    2: {
-        name: "CATALA TEE 02",
-
-        images: [
-            "catala-logo.png",
-            "catala-logo.png",
-            "catala-logo.png"
-        ]
-    },
-
-    3: {
-        name: "CATALA TEE 03",
-
-        images: [
-            "catala-logo.png",
-            "catala-logo.png",
-            "catala-logo.png"
-        ]
-    }
-
+const products={
+1:{
+id:1,
+name:"CATALA TEE 01",
+price:35,
+colour:"White",
+images:["catala-logo.png","catala-logo.png","catala-logo.png"]
+},
+2:{
+id:2,
+name:"CATALA TEE 02",
+price:35,
+colour:"White",
+images:["catala-logo.png","catala-logo.png","catala-logo.png"]
+},
+3:{
+id:3,
+name:"CATALA TEE 03",
+price:35,
+colour:"White",
+images:["catala-logo.png","catala-logo.png","catala-logo.png"]
+}
 };
 
 
-/* READ PRODUCT FROM URL */
+/* CURRENT PRODUCT */
 
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
+const params=new URLSearchParams(window.location.search);
 
-const productNumber =
-    Number(
-        params.get("product")
-    ) || 1;
+const productId=Number(params.get("product"))||1;
 
-const product =
-    products[productNumber]
-    || products[1];
+const product=products[productId]||products[1];
+
+document.getElementById("productName").textContent=product.name;
+
+document.getElementById("productPrice").textContent=
+"$"+product.price.toFixed(2)+" CAD";
 
 
-document
-.getElementById("productName")
-.textContent =
-    product.name;
+/* GALLERY */
 
+let currentImage=0;
 
-/* =========================
-   IMAGE GALLERY
-========================= */
+function updateGallery(){
 
-let currentImage = 0;
+document.getElementById("productImage").src=
+product.images[currentImage];
 
-const productImage =
-    document.getElementById(
-        "productImage"
-    );
-
-const galleryCount =
-    document.getElementById(
-        "galleryCount"
-    );
-
-
-function updateGallery() {
-
-    productImage.src =
-        product.images[currentImage];
-
-    galleryCount.textContent =
-        String(
-            currentImage + 1
-        ).padStart(2, "0")
-        +
-        " / "
-        +
-        String(
-            product.images.length
-        ).padStart(2, "0");
+document.getElementById("galleryCount").textContent=
+String(currentImage+1).padStart(2,"0")
++" / "+
+String(product.images.length).padStart(2,"0");
 
 }
 
+document.getElementById("prevImage")
+.addEventListener("click",()=>{
 
-document
-.getElementById("prevImage")
-.addEventListener(
-    "click",
-    function() {
+currentImage=
+(currentImage-1+product.images.length)
+%product.images.length;
 
-        currentImage =
-            (
-                currentImage
-                - 1
-                + product.images.length
-            )
-            %
-            product.images.length;
+updateGallery();
 
-        updateGallery();
+});
 
-    }
-);
+document.getElementById("nextImage")
+.addEventListener("click",()=>{
 
+currentImage=
+(currentImage+1)
+%product.images.length;
 
-document
-.getElementById("nextImage")
-.addEventListener(
-    "click",
-    function() {
+updateGallery();
 
-        currentImage =
-            (
-                currentImage
-                + 1
-            )
-            %
-            product.images.length;
-
-        updateGallery();
-
-    }
-);
-
+});
 
 updateGallery();
 
 
-/* =========================
-   SIZE SELECTOR
-========================= */
+/* SIZE */
 
-const sizeButtons =
-    document.querySelectorAll(
-        ".size-button"
-    );
+let selectedSize=null;
 
-const addCart =
-    document.getElementById(
-        "addCart"
-    );
+const sizeButtons=document.querySelectorAll(".size-button");
 
-let selectedSize = null;
+const addCart=document.getElementById("addCart");
+
+sizeButtons.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+sizeButtons.forEach(b=>b.classList.remove("active"));
+
+button.classList.add("active");
+
+selectedSize=button.textContent.trim();
+
+addCart.disabled=false;
+
+addCart.textContent=
+"ADD TO CART — SIZE "+selectedSize;
+
+});
+
+});
 
 
-sizeButtons.forEach(
-    button => {
+/* STORAGE */
 
-        button.addEventListener(
-            "click",
-            function() {
+function getCart(){
 
-                sizeButtons.forEach(
-                    other => {
+try{
+return JSON.parse(localStorage.getItem("catalaCart"))||[];
+}catch{
+return [];
+}
 
-                        other.classList.remove(
-                            "active"
-                        );
+}
 
-                    }
-                );
+function saveCart(cart){
 
-                this.classList.add(
-                    "active"
-                );
-
-                selectedSize =
-                    this.textContent.trim();
-
-                addCart.textContent =
-                    "ADD TO CART — SIZE "
-                    + selectedSize;
-
-            }
-        );
-
-    }
+localStorage.setItem(
+"catalaCart",
+JSON.stringify(cart)
 );
 
-</script>
+renderCart();
 
+}
+
+function money(value){
+return "$"+value.toFixed(2)+" CAD";
+}
+
+
+/* ADD TO CART */
+
+addCart.addEventListener("click",()=>{
+
+if(!selectedSize)return;
+
+const cart=getCart();
+
+const existing=cart.find(item=>
+item.productId===product.id &&
+item.size===selectedSize
+);
+
+if(existing){
+
+existing.quantity++;
+
+}else{
+
+cart.push({
+productId:product.id,
+size:selectedSize,
+quantity:1
+});
+
+}
+
+saveCart(cart);
+
+const confirmation=
+document.getElementById("confirmation");
+
+confirmation.classList.add("show");
+
+setTimeout(()=>{
+confirmation.classList.remove("show");
+},1800);
+
+/* automatically show cart */
+openCart();
+
+});
+
+
+/* CART COUNT */
+
+function updateCartCount(){
+
+const count=getCart().reduce(
+(sum,item)=>sum+item.quantity,
+0
+);
+
+document.getElementById("cartCount").textContent=count;
+
+}
+
+
+/* RENDER CART */
+
+function renderCart(){
+
+const cart=getCart();
+
+const container=document.getElementById("cartItems");
+
+container.innerHTML="";
+
+if(cart.length===0){
+
+container.innerHTML=`
+<div class="empty-cart">
+<h3>YOUR CART IS EMPTY.</h3>
+<p>GO FIND SOMETHING RAD.</p>
+</div>
+`;
+
+}else{
+
+cart.forEach((item,index)=>{
+
+const p=products[item.productId];
+
+const row=document.createElement("div");
+
+row.className="cart-item";
+
+row.innerHTML=`
+
+<div class="cart-thumb">
+<img src="${p.images[0]}" alt="${p.name}">
+</div>
+
+<div>
+
+<div class="cart-item-top">
+
+<div>
+<div class="cart-item-name">
+${p.name}
+</div>
+
+<div class="cart-size">
+SIZE ${item.size} / ${p.colour.toUpperCase()}
+</div>
+</div>
+
+<div class="cart-item-price">
+${money(p.price*item.quantity)}
+</div>
+
+</div>
+
+<div class="cart-controls">
+
+<div class="quantity">
+
+<button data-action="minus" data-index="${index}">
+−
+</button>
+
+<span>${item.quantity}</span>
+
+<button data-action="plus" data-index="${index}">
++
+</button>
+
+</div>
+
+<button
+class="remove-item"
+data-action="remove"
+data-index="${index}">
+REMOVE
+</button>
+
+</div>
+
+</div>
+`;
+
+container.appendChild(row);
+
+});
+
+}
+
+const subtotal=cart.reduce((sum,item)=>{
+
+const p=products[item.productId];
+
+return sum+(p.price*item.quantity);
+
+},0);
+
+document.getElementById("subtotal").textContent=
+money(subtotal);
+
+document.getElementById("total").textContent=
+money(subtotal);
+
+updateCartCount();
+
+}
+
+
+/* CART CONTROLS */
+
+document.getElementById("cartItems")
+.addEventListener("click",event=>{
+
+const button=event.target.closest("[data-action]");
+
+if(!button)return;
+
+const cart=getCart();
+
+const index=Number(button.dataset.index);
+
+const action=button.dataset.action;
+
+if(action==="plus"){
+cart[index].quantity++;
+}
+
+if(action==="minus"){
+
+cart[index].quantity--;
+
+if(cart[index].quantity<=0){
+cart.splice(index,1);
+}
+
+}
+
+if(action==="remove"){
+cart.splice(index,1);
+}
+
+saveCart(cart);
+
+});
+
+
+/* CART DRAWER */
+
+const cartDrawer=document.getElementById("cartDrawer");
+const cartOverlay=document.getElementById("cartOverlay");
+
+function openCart(){
+
+renderCart();
+
+cartDrawer.classList.add("active");
+
+cartOverlay.classList.add("active");
+
+}
+
+function closeCart(){
+
+cartDrawer.classList.remove("active");
+
+cartOverlay.classList.remove("active");
+
+}
+
+document.getElementById("cartOpen")
+.addEventListener("click",event=>{
+
+event.preventDefault();
+
+openCart();
+
+});
+
+document.getElementById("cartClose")
+.addEventListener("click",closeCart);
+
+cartOverlay.addEventListener("click",closeCart);
+
+
+/* INITIALISE */
+
+renderCart();
+
+</script>
 
 </body>
 </html>

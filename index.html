@@ -4,12 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CATALA</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3efe5;
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 650px;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.08),
+                    rgba(0, 0, 0, 0.18)
+                ),
+                url("catala-hero.jpg");
+
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        /* NAVIGATION */
+        .nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 28px 40px;
+            z-index: 10;
+
+            color: white;
+        }
+
+        .nav-logo {
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* MAIN HERO CONTENT */
+        .hero-content {
+            position: absolute;
+            left: 0;
+            bottom: 7%;
+            width: 100%;
+
+            text-align: center;
+            color: white;
+
+            padding: 0 30px;
+        }
+
+        .hero-title {
+            font-size: clamp(85px, 15vw, 220px);
+            line-height: 0.8;
+            font-weight: 900;
+            letter-spacing: -0.07em;
+        }
+
+        .hero-subtitle {
+            margin-top: 32px;
+
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .shop-button {
+            display: inline-block;
+
+            margin-top: 25px;
+            padding: 13px 25px;
+
+            border: 1px solid white;
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+
+            transition: 0.25s ease;
+        }
+
+        .shop-button:hover {
+            background: white;
+            color: #111;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+
+            .hero {
+                min-height: 600px;
+                background-position: center;
+            }
+
+            .nav {
+                padding: 22px 20px;
+            }
+
+            .nav-links a:not(:last-child) {
+                display: none;
+            }
+
+            .hero-content {
+                bottom: 9%;
+            }
+
+            .hero-title {
+                font-size: 23vw;
+            }
+
+            .hero-subtitle {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>CATALA</h1>
-    <p>Website coming to life.</p>
+    <section class="hero">
+
+        <nav class="nav">
+
+            <div class="nav-logo">
+                CATALA
+            </div>
+
+            <div class="nav-links">
+                <a href="#">SHOP</a>
+                <a href="#">ABOUT</a>
+                <a href="#">CART (0)</a>
+            </div>
+
+        </nav>
+
+        <div class="hero-content">
+
+            <h1 class="hero-title">
+                CATALA
+            </h1>
+
+            <p class="hero-subtitle">
+                SURF / TRAVEL / GOOD DAYS
+            </p>
+
+            <a class="shop-button" href="#">
+                SHOP THE DROP
+            </a>
+
+        </div>
+
+    </section>
 
 </body>
 </html>

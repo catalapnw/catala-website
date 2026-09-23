@@ -3,957 +3,954 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-    <title>CATALA</title>
+<title>CATALA</title>
 
-    <style>
+<style>
 
-        /* =========================
-           RESET
-        ========================= */
+/* =========================
+   RESET
+========================= */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        body {
-            width: 100%;
+body {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2eee3;
+    color: #171717;
+}
 
-            font-family: Arial, Helvetica, sans-serif;
+body.cart-open {
+    overflow: hidden;
+}
 
-            background: #f2eee3;
-            color: #171717;
-        }
+a {
+    color: inherit;
+}
 
-        body.cart-open {
-            overflow: hidden;
-        }
 
-        a {
-            color: inherit;
-        }
+/* =========================
+   HERO
+========================= */
 
+.hero {
+    position: relative;
 
-        /* =========================
-           HERO
-        ========================= */
+    width: 100%;
+    height: 100vh;
+    min-height: 650px;
 
-        .hero {
-            position: relative;
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.05),
+            rgba(0, 0, 0, 0.14)
+        ),
+        url("catala-hero.jpg");
 
-            width: 100%;
-            height: 100vh;
-            min-height: 650px;
+    background-size: cover;
+    background-position: center;
 
-            background-image:
-                linear-gradient(
-                    rgba(0, 0, 0, 0.05),
-                    rgba(0, 0, 0, 0.14)
-                ),
-                url("catala-hero.jpg");
+    overflow: hidden;
+}
 
-            background-size: cover;
-            background-position: center;
 
-            overflow: hidden;
-        }
+/* =========================
+   NAVIGATION
+========================= */
 
+.nav {
+    position: absolute;
+    top: 0;
+    left: 0;
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+    width: 100%;
 
-        .nav {
-            position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-            top: 0;
-            left: 0;
+    padding: 30px 38px;
 
-            width: 100%;
+    z-index: 10;
+}
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+.nav-brand {
+    color: #f4efdf;
 
-            padding: 30px 38px;
+    text-decoration: none;
 
-            z-index: 10;
-        }
+    font-size: 22px;
+    font-weight: 900;
 
-        .nav-brand {
-            color: #f4efdf;
+    letter-spacing: -1px;
+}
 
-            text-decoration: none;
+.nav-links {
+    display: flex;
+    align-items: center;
 
-            font-size: 22px;
-            font-weight: 900;
+    gap: 34px;
+}
 
-            letter-spacing: -1px;
-        }
+.nav-links a {
+    position: relative;
 
-        .nav-links {
-            display: flex;
-            align-items: center;
+    color: #f4efdf;
 
-            gap: 34px;
-        }
+    text-decoration: none;
 
-        .nav-links a {
-            position: relative;
+    font-size: 12px;
+    font-weight: 700;
 
-            color: #f4efdf;
+    letter-spacing: 1.5px;
 
-            text-decoration: none;
+    cursor: pointer;
+}
 
-            font-size: 12px;
-            font-weight: 700;
+.nav-links a::after {
+    content: "";
 
-            letter-spacing: 1.5px;
+    position: absolute;
 
-            cursor: pointer;
-        }
+    left: 0;
+    bottom: -5px;
 
-        .nav-links a::after {
-            content: "";
+    width: 0;
+    height: 1px;
 
-            position: absolute;
+    background: #f4efdf;
 
-            left: 0;
-            bottom: -5px;
+    transition: width 0.25s ease;
+}
 
-            width: 0;
-            height: 1px;
+.nav-links a:hover::after {
+    width: 100%;
+}
 
-            background: #f4efdf;
 
-            transition: width 0.25s ease;
-        }
+/* =========================
+   HERO CONTENT
+========================= */
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+.hero-content {
+    position: absolute;
 
+    left: 50%;
+    top: 56%;
 
-        /* =========================
-           HERO CONTENT
-        ========================= */
+    transform: translate(-50%, -50%);
 
-        .hero-content {
-            position: absolute;
+    width: 100%;
 
-            left: 50%;
-            top: 56%;
+    padding: 0 30px;
 
-            transform: translate(-50%, -50%);
+    text-align: center;
+}
 
-            width: 100%;
+.hero-logo {
+    display: block;
 
-            padding: 0 30px;
+    width: min(780px, 72vw);
+    height: auto;
 
-            text-align: center;
-        }
+    margin: 0 auto;
 
-        .hero-logo {
-            display: block;
+    filter:
+        invert(96%)
+        sepia(13%)
+        saturate(447%)
+        hue-rotate(339deg)
+        brightness(105%)
+        contrast(91%);
+}
 
-            width: min(780px, 72vw);
-            height: auto;
+.hero-button {
+    display: inline-block;
 
-            margin: 0 auto;
+    margin-top: 38px;
+    padding: 14px 28px;
 
-            filter:
-                invert(96%)
-                sepia(13%)
-                saturate(447%)
-                hue-rotate(339deg)
-                brightness(105%)
-                contrast(91%);
-        }
+    border: 1px solid rgba(244, 239, 223, 0.9);
 
-        .hero-button {
-            display: inline-block;
+    color: #f4efdf;
 
-            margin-top: 38px;
+    text-decoration: none;
 
-            padding: 14px 28px;
+    font-size: 11px;
+    font-weight: 700;
 
-            border: 1px solid rgba(244, 239, 223, 0.9);
+    letter-spacing: 2.5px;
 
-            color: #f4efdf;
+    transition: 0.25s ease;
+}
 
-            text-decoration: none;
+.hero-button:hover {
+    background: #f4efdf;
+    color: #171717;
+}
 
-            font-size: 11px;
-            font-weight: 700;
+.photo-credit {
+    position: absolute;
 
-            letter-spacing: 2.5px;
+    right: 18px;
+    bottom: 14px;
 
-            transition: 0.25s ease;
-        }
+    color: rgba(244, 239, 223, 0.65);
 
-        .hero-button:hover {
-            background: #f4efdf;
-            color: #171717;
-        }
+    font-size: 8px;
 
-        .photo-credit {
-            position: absolute;
+    letter-spacing: 0.5px;
 
-            right: 18px;
-            bottom: 14px;
+    text-decoration: none;
+}
 
-            color: rgba(244, 239, 223, 0.65);
 
-            font-size: 8px;
+/* =========================
+   BRAND STRIP
+========================= */
 
-            letter-spacing: 0.5px;
+.brand-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            text-decoration: none;
-        }
+    gap: 30px;
 
+    padding: 34px 6%;
 
-        /* =========================
-           BRAND STRIP
-        ========================= */
+    background: #f2eee3;
+}
 
-        .brand-strip {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+.strip-line {
+    width: 18%;
+    height: 1px;
 
-            gap: 30px;
+    background: rgba(23, 23, 23, 0.25);
+}
 
-            padding: 34px 6%;
+.brand-strip p {
+    font-size: 11px;
 
-            background: #f2eee3;
-        }
+    letter-spacing: 4px;
 
-        .strip-line {
-            width: 18%;
-            height: 1px;
+    text-align: center;
 
-            background: rgba(23, 23, 23, 0.25);
-        }
+    white-space: nowrap;
+}
 
-        .brand-strip p {
-            font-size: 11px;
 
-            letter-spacing: 4px;
+/* =========================
+   NEW DROP
+========================= */
 
-            text-align: center;
+.new-drop {
+    padding: 55px 4% 95px;
 
-            white-space: nowrap;
-        }
+    background: #f2eee3;
+}
 
+.drop-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 
-        /* =========================
-           NEW DROP
-        ========================= */
+    margin-bottom: 35px;
+}
 
-        .new-drop {
-            padding: 55px 4% 95px;
+.drop-heading h2 {
+    font-size: clamp(42px, 5vw, 72px);
 
-            background: #f2eee3;
-        }
+    line-height: 0.9;
 
-        .drop-heading {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+    letter-spacing: -4px;
+}
 
-            margin-bottom: 35px;
-        }
+.drop-number {
+    font-size: 11px;
 
-        .drop-heading h2 {
-            font-size: clamp(42px, 5vw, 72px);
+    letter-spacing: 5px;
+}
 
-            line-height: 0.9;
 
-            letter-spacing: -4px;
-        }
+/* =========================
+   PRODUCT GRID
+========================= */
 
-        .drop-number {
-            font-size: 11px;
+.product-grid {
+    display: grid;
 
-            letter-spacing: 5px;
-        }
+    grid-template-columns: repeat(3, 1fr);
 
+    gap: 22px;
+}
 
-        /* =========================
-           PRODUCT GRID
-        ========================= */
+.product-card {
+    min-width: 0;
+}
 
-        .product-grid {
-            display: grid;
+.product-image {
+    position: relative;
 
-            grid-template-columns: repeat(3, 1fr);
+    width: 100%;
 
-            gap: 22px;
-        }
+    aspect-ratio: 4 / 5;
 
-        .product-card {
-            min-width: 0;
-        }
+    overflow: hidden;
 
-        .product-image {
-            position: relative;
+    background: #ded8ca;
+}
 
-            width: 100%;
+.product-image img {
+    width: 100%;
+    height: 100%;
 
-            aspect-ratio: 4 / 5;
+    object-fit: cover;
 
-            overflow: hidden;
+    transition: transform 0.5s ease;
+}
 
-            background: #ded8ca;
-        }
+.product-card:hover .product-image img {
+    transform: scale(1.025);
+}
 
-        .product-image img {
-            width: 100%;
-            height: 100%;
 
-            object-fit: cover;
+/* =========================
+   PRODUCT PLACEHOLDERS
+========================= */
 
-            transition: transform 0.5s ease;
-        }
+.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .product-card:hover .product-image img {
-            transform: scale(1.025);
-        }
+    width: 100%;
+    height: 100%;
 
+    padding: 40px;
 
-        /* =========================
-           TEMPORARY PRODUCT ART
-        ========================= */
+    background:
+        linear-gradient(
+            135deg,
+            #d9d2c4,
+            #eee9df
+        );
+}
 
-        .placeholder {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+.placeholder img {
+    width: 70%;
+    height: auto;
 
-            width: 100%;
-            height: 100%;
+    object-fit: contain;
 
-            padding: 40px;
+    opacity: 0.75;
+}
 
-            text-align: center;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #d9d2c4,
-                    #eee9df
-                );
-        }
+/* =========================
+   PRODUCT INFO
+========================= */
 
-        .placeholder img {
-            width: 70%;
-            height: auto;
+.product-info {
+    padding-top: 17px;
+}
 
-            object-fit: contain;
+.product-name {
+    font-size: 14px;
+    font-weight: 800;
 
-            opacity: 0.75;
-        }
+    letter-spacing: 0.5px;
+}
 
+.product-detail {
+    margin-top: 7px;
 
-        /* =========================
-           PRODUCT INFORMATION
-        ========================= */
+    font-size: 10px;
 
-        .product-info {
-            padding-top: 17px;
-        }
+    letter-spacing: 2px;
 
-        .product-name {
-            font-size: 14px;
-            font-weight: 800;
+    opacity: 0.55;
+}
 
-            letter-spacing: 0.5px;
-        }
+.product-price {
+    margin-top: 14px;
 
-        .product-detail {
-            margin-top: 7px;
+    font-size: 13px;
+    font-weight: 700;
+}
 
-            font-size: 10px;
+.product-button {
+    display: block;
 
-            letter-spacing: 2px;
+    width: 100%;
 
-            opacity: 0.55;
-        }
+    margin-top: 17px;
+    padding: 13px 15px;
 
-        .product-price {
-            margin-top: 14px;
+    border: 1px solid #171717;
 
-            font-size: 13px;
-            font-weight: 700;
-        }
+    background: transparent;
 
-        .product-button {
-            display: block;
+    color: #171717;
 
-            width: 100%;
+    text-align: center;
+    text-decoration: none;
 
-            margin-top: 17px;
+    font-size: 9px;
+    font-weight: 700;
 
-            padding: 13px 15px;
+    letter-spacing: 2px;
 
-            border: 1px solid #171717;
+    transition: 0.25s ease;
+}
 
-            background: transparent;
+.product-button:hover {
+    background: #171717;
+    color: #f2eee3;
+}
 
-            color: #171717;
 
-            text-align: center;
-            text-decoration: none;
+/* =========================
+   SHOP ALL
+========================= */
 
-            font-size: 9px;
-            font-weight: 700;
+.shop-all-wrap {
+    text-align: center;
 
-            letter-spacing: 2px;
+    margin-top: 60px;
+}
 
-            transition: 0.25s ease;
-        }
+.shop-all {
+    display: inline-block;
 
-        .product-button:hover {
-            background: #171717;
-            color: #f2eee3;
-        }
+    padding: 17px 60px;
 
+    background: #171717;
+    color: #f2eee3;
 
-        /* =========================
-           SHOP ALL
-        ========================= */
+    text-decoration: none;
 
-        .shop-all-wrap {
-            text-align: center;
+    font-size: 10px;
+    font-weight: 700;
 
-            margin-top: 60px;
-        }
+    letter-spacing: 3px;
 
-        .shop-all {
-            display: inline-block;
+    transition: opacity 0.25s ease;
+}
 
-            padding: 17px 60px;
+.shop-all:hover {
+    opacity: 0.82;
+}
 
-            background: #171717;
-            color: #f2eee3;
 
-            text-decoration: none;
+/* =========================
+   BRAND STATEMENT
+========================= */
 
-            font-size: 10px;
-            font-weight: 700;
+.statement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            letter-spacing: 3px;
+    min-height: 320px;
 
-            transition: opacity 0.25s ease;
-        }
+    padding: 60px 20px;
 
-        .shop-all:hover {
-            opacity: 0.82;
-        }
+    background: #d8d0c1;
 
+    text-align: center;
+}
 
-        /* =========================
-           BRAND STATEMENT
-        ========================= */
+.statement h3 {
+    max-width: 900px;
 
-        .statement {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    font-size: clamp(40px, 7vw, 100px);
 
-            min-height: 320px;
+    line-height: 0.9;
 
-            padding: 60px 20px;
+    letter-spacing: -5px;
+}
 
-            background: #d8d0c1;
 
-            text-align: center;
-        }
+/* =========================
+   SOCIAL
+========================= */
 
-        .statement h3 {
-            max-width: 900px;
+.social {
+    padding: 90px 4% 100px;
 
-            font-size: clamp(40px, 7vw, 100px);
+    background: #171717;
+    color: #f2eee3;
+}
 
-            line-height: 0.9;
+.social-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 
-            letter-spacing: -5px;
-        }
+    margin-bottom: 40px;
+}
 
+.social-title {
+    font-size: clamp(42px, 6vw, 82px);
 
-        /* =========================
-           SOCIAL
-        ========================= */
+    line-height: 0.9;
 
-        .social {
-            padding: 90px 4% 100px;
+    letter-spacing: -4px;
+}
 
-            background: #171717;
-            color: #f2eee3;
-        }
+.social-handle {
+    font-size: 11px;
 
-        .social-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+    letter-spacing: 3px;
 
-            margin-bottom: 40px;
-        }
+    opacity: 0.65;
+}
 
-        .social-title {
-            font-size: clamp(42px, 6vw, 82px);
+.social-grid {
+    display: grid;
 
-            line-height: 0.9;
+    grid-template-columns: repeat(4, 1fr);
 
-            letter-spacing: -4px;
-        }
+    gap: 10px;
+}
 
-        .social-handle {
-            font-size: 11px;
+.social-post {
+    position: relative;
 
-            letter-spacing: 3px;
+    aspect-ratio: 1 / 1;
 
-            opacity: 0.65;
-        }
+    overflow: hidden;
 
-        .social-grid {
-            display: grid;
+    background: #292929;
+}
 
-            grid-template-columns: repeat(4, 1fr);
+.social-post::after {
+    content: "CATALA";
 
-            gap: 10px;
-        }
+    position: absolute;
 
-        .social-post {
-            position: relative;
+    left: 18px;
+    bottom: 16px;
 
-            aspect-ratio: 1 / 1;
+    font-size: 9px;
+    font-weight: 700;
 
-            overflow: hidden;
+    letter-spacing: 2px;
 
-            background: #292929;
-        }
+    opacity: 0.55;
+}
 
-        .social-post::after {
-            content: "CATALA";
+.social-links {
+    display: flex;
 
-            position: absolute;
+    gap: 40px;
 
-            left: 18px;
-            bottom: 16px;
+    margin-top: 35px;
+}
 
-            font-size: 9px;
-            font-weight: 700;
+.social-links a {
+    color: #f2eee3;
 
-            letter-spacing: 2px;
+    text-decoration: none;
 
-            opacity: 0.55;
-        }
+    font-size: 11px;
+    font-weight: 700;
 
-        .social-links {
-            display: flex;
+    letter-spacing: 2px;
 
-            gap: 40px;
+    border-bottom:
+        1px solid rgba(242, 238, 227, 0.35);
 
-            margin-top: 35px;
-        }
+    padding-bottom: 5px;
 
-        .social-links a {
-            color: #f2eee3;
+    transition: 0.2s ease;
+}
 
-            text-decoration: none;
+.social-links a:hover {
+    border-color: #f2eee3;
 
-            font-size: 11px;
-            font-weight: 700;
+    opacity: 0.7;
+}
 
-            letter-spacing: 2px;
 
-            border-bottom:
-                1px solid rgba(242, 238, 227, 0.35);
+/* =========================
+   CART OVERLAY
+========================= */
 
-            padding-bottom: 5px;
-        }
+.cart-overlay {
+    position: fixed;
 
-        .social-links a:hover {
-            border-color: #f2eee3;
-        }
+    inset: 0;
 
+    background: rgba(0, 0, 0, 0.48);
 
-        /* =========================
-           CART OVERLAY
-        ========================= */
+    opacity: 0;
+    visibility: hidden;
 
-        .cart-overlay {
-            position: fixed;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
 
-            inset: 0;
+    z-index: 998;
+}
 
-            background: rgba(0, 0, 0, 0.48);
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
 
-            opacity: 0;
-            visibility: hidden;
 
-            transition:
-                opacity 0.3s ease,
-                visibility 0.3s ease;
+/* =========================
+   CART DRAWER
+========================= */
 
-            z-index: 998;
-        }
+.cart-drawer {
+    position: fixed;
 
-        .cart-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+    top: 0;
+    right: 0;
 
+    width: min(470px, 92vw);
+    height: 100vh;
 
-        /* =========================
-           CART DRAWER
-        ========================= */
+    background: #f2eee3;
+    color: #171717;
 
-        .cart-drawer {
-            position: fixed;
+    transform: translateX(100%);
 
-            top: 0;
-            right: 0;
+    transition: transform 0.35s ease;
 
-            width: min(470px, 92vw);
-            height: 100vh;
+    z-index: 999;
 
-            background: #f2eee3;
-            color: #171717;
+    display: flex;
+    flex-direction: column;
 
-            transform: translateX(100%);
+    box-shadow:
+        -20px 0 50px rgba(0, 0, 0, 0.12);
+}
 
-            transition: transform 0.35s ease;
+.cart-drawer.active {
+    transform: translateX(0);
+}
 
-            z-index: 999;
 
-            display: flex;
-            flex-direction: column;
+/* =========================
+   CART HEADER
+========================= */
 
-            box-shadow:
-                -20px 0 50px rgba(0, 0, 0, 0.12);
-        }
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        .cart-drawer.active {
-            transform: translateX(0);
-        }
+    padding: 28px;
 
+    border-bottom:
+        1px solid rgba(23, 23, 23, 0.2);
+}
 
-        /* =========================
-           CART HEADER
-        ========================= */
+.cart-header h2 {
+    font-size: 22px;
+    font-weight: 900;
 
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    letter-spacing: -1px;
+}
 
-            padding: 28px;
+.cart-close {
+    border: none;
 
-            border-bottom:
-                1px solid rgba(23, 23, 23, 0.2);
-        }
+    background: transparent;
+    color: #171717;
 
-        .cart-header h2 {
-            font-size: 22px;
-            font-weight: 900;
+    font-size: 30px;
+    font-weight: 300;
 
-            letter-spacing: -1px;
-        }
+    line-height: 1;
 
-        .cart-close {
-            border: none;
+    cursor: pointer;
+}
 
-            background: transparent;
-            color: #171717;
 
-            font-size: 30px;
-            font-weight: 300;
+/* =========================
+   CART BODY
+========================= */
 
-            line-height: 1;
+.cart-body {
+    flex: 1;
 
-            cursor: pointer;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    padding: 40px 28px;
+}
 
-        /* =========================
-           CART BODY
-        ========================= */
+.empty-cart {
+    width: 100%;
 
-        .cart-body {
-            flex: 1;
+    text-align: center;
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+.empty-cart h3 {
+    font-size: clamp(34px, 4vw, 48px);
 
-            padding: 40px 28px;
-        }
+    line-height: 0.95;
 
-        .empty-cart {
-            width: 100%;
+    letter-spacing: -2px;
 
-            text-align: center;
-        }
+    margin-bottom: 15px;
+}
 
-        .empty-cart h3 {
-            font-size: clamp(34px, 4vw, 48px);
+.empty-cart p {
+    margin-bottom: 32px;
 
-            line-height: 0.95;
+    font-size: 12px;
 
-            letter-spacing: -2px;
+    letter-spacing: 1px;
 
-            margin-bottom: 15px;
-        }
+    opacity: 0.6;
+}
 
-        .empty-cart p {
-            margin-bottom: 32px;
+.continue-shopping {
+    display: block;
 
-            font-size: 12px;
+    width: 100%;
 
-            letter-spacing: 1px;
+    padding: 16px;
 
-            opacity: 0.6;
-        }
+    border: 1px solid #171717;
 
-        .continue-shopping {
-            display: block;
+    background: #171717;
+    color: #f2eee3;
 
-            width: 100%;
+    font-size: 10px;
+    font-weight: 700;
 
-            padding: 16px;
+    letter-spacing: 2px;
 
-            border: 1px solid #171717;
+    cursor: pointer;
 
-            background: #171717;
-            color: #f2eee3;
+    transition: 0.2s ease;
+}
 
-            font-size: 10px;
-            font-weight: 700;
+.continue-shopping:hover {
+    background: transparent;
+    color: #171717;
+}
 
-            letter-spacing: 2px;
 
-            cursor: pointer;
+/* =========================
+   CART FOOTER
+========================= */
 
-            transition: 0.2s ease;
-        }
+.cart-footer {
+    padding: 22px 28px 28px;
 
-        .continue-shopping:hover {
-            background: transparent;
-            color: #171717;
-        }
+    border-top:
+        1px solid rgba(23, 23, 23, 0.2);
+}
 
+.cart-note {
+    font-size: 9px;
 
-        /* =========================
-           CART FOOTER
-        ========================= */
+    line-height: 1.5;
 
-        .cart-footer {
-            padding: 22px 28px 28px;
+    letter-spacing: 1px;
 
-            border-top:
-                1px solid rgba(23, 23, 23, 0.2);
-        }
+    text-align: center;
 
-        .cart-note {
-            font-size: 9px;
+    opacity: 0.45;
+}
 
-            line-height: 1.5;
 
-            letter-spacing: 1px;
+/* =========================
+   MOBILE
+========================= */
 
-            text-align: center;
+@media (max-width: 700px) {
 
-            opacity: 0.45;
-        }
+    .hero {
+        min-height: 620px;
+    }
 
+    .nav {
+        padding: 22px 18px;
+    }
 
-        /* =========================
-           MOBILE
-        ========================= */
+    .nav-brand {
+        font-size: 18px;
+    }
 
-        @media (max-width: 700px) {
+    .nav-links {
+        gap: 13px;
+    }
 
-            .hero {
-                min-height: 620px;
-            }
+    .nav-links a {
+        font-size: 9px;
 
-            .nav {
-                padding: 22px 18px;
-            }
+        letter-spacing: 0.8px;
+    }
 
-            .nav-brand {
-                font-size: 18px;
-            }
+    .hero-content {
+        top: 55%;
 
-            .nav-links {
-                gap: 13px;
-            }
+        padding: 0 18px;
+    }
 
-            .nav-links a {
-                font-size: 9px;
+    .hero-logo {
+        width: 92vw;
+    }
 
-                letter-spacing: 0.8px;
-            }
+    .hero-button {
+        margin-top: 30px;
+    }
 
-            .hero-content {
-                top: 55%;
+    .brand-strip {
+        padding: 25px 20px;
+    }
 
-                padding: 0 18px;
-            }
+    .strip-line {
+        display: none;
+    }
 
-            .hero-logo {
-                width: 92vw;
-            }
+    .brand-strip p {
+        font-size: 9px;
 
-            .hero-button {
-                margin-top: 30px;
-            }
+        letter-spacing: 2px;
 
-            .brand-strip {
-                padding: 25px 20px;
-            }
+        white-space: normal;
+    }
 
-            .strip-line {
-                display: none;
-            }
+    .new-drop {
+        padding: 45px 18px 70px;
+    }
 
-            .brand-strip p {
-                font-size: 9px;
+    .drop-heading h2 {
+        font-size: 46px;
 
-                letter-spacing: 2px;
+        letter-spacing: -3px;
+    }
 
-                white-space: normal;
-            }
+    .drop-number {
+        font-size: 9px;
+    }
 
-            .new-drop {
-                padding: 45px 18px 70px;
-            }
+    .product-grid {
+        grid-template-columns: 1fr;
 
-            .drop-heading h2 {
-                font-size: 46px;
+        gap: 50px;
+    }
 
-                letter-spacing: -3px;
-            }
+    .product-image {
+        aspect-ratio: 4 / 5;
+    }
 
-            .drop-number {
-                font-size: 9px;
-            }
+    .statement {
+        min-height: 250px;
+    }
 
-            .product-grid {
-                grid-template-columns: 1fr;
+    .statement h3 {
+        font-size: 14vw;
 
-                gap: 50px;
-            }
+        letter-spacing: -3px;
+    }
 
-            .product-image {
-                aspect-ratio: 4 / 5;
-            }
 
-            .statement {
-                min-height: 250px;
-            }
+    /* SOCIAL MOBILE */
 
-            .statement h3 {
-                font-size: 14vw;
+    .social {
+        padding: 65px 18px 70px;
+    }
 
-                letter-spacing: -3px;
-            }
+    .social-header {
+        display: block;
+    }
 
+    .social-title {
+        font-size: 13vw;
 
-            /* SOCIAL MOBILE */
+        letter-spacing: -3px;
+    }
 
-            .social {
-                padding: 65px 18px 70px;
-            }
+    .social-handle {
+        margin-top: 18px;
+    }
 
-            .social-header {
-                display: block;
-            }
+    .social-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
 
-            .social-title {
-                font-size: 13vw;
+    .social-links {
+        gap: 25px;
 
-                letter-spacing: -3px;
-            }
+        flex-wrap: wrap;
+    }
 
-            .social-handle {
-                margin-top: 18px;
-            }
 
-            .social-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
+    /* CART MOBILE */
 
-            .social-links {
-                gap: 25px;
+    .cart-drawer {
+        width: 94vw;
+    }
 
-                flex-wrap: wrap;
-            }
+    .cart-header {
+        padding: 22px 20px;
+    }
 
+    .cart-body {
+        padding: 35px 20px;
+    }
 
-            /* CART MOBILE */
+    .cart-footer {
+        padding: 20px;
+    }
 
-            .cart-drawer {
-                width: 94vw;
-            }
+}
 
-            .cart-header {
-                padding: 22px 20px;
-            }
 
-            .cart-body {
-                padding: 35px 20px;
-            }
+/* =========================
+   VERY SMALL PHONES
+========================= */
 
-            .cart-footer {
-                padding: 20px;
-            }
+@media (max-width: 390px) {
 
-        }
+    .nav {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
 
+    .nav-links {
+        gap: 10px;
+    }
 
-        /* =========================
-           VERY SMALL PHONES
-        ========================= */
+    .nav-links a {
+        font-size: 8px;
 
-        @media (max-width: 390px) {
+        letter-spacing: 0.5px;
+    }
 
-            .nav {
-                padding-left: 14px;
-                padding-right: 14px;
-            }
+    .nav-brand {
+        font-size: 17px;
+    }
 
-            .nav-links {
-                gap: 10px;
-            }
+}
 
-            .nav-links a {
-                font-size: 8px;
-
-                letter-spacing: 0.5px;
-            }
-
-            .nav-brand {
-                font-size: 17px;
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
 
@@ -961,603 +958,588 @@
 <body>
 
 
-    <!-- =========================
-         HERO
-    ========================= -->
+<!-- =========================
+     HERO
+========================= -->
 
-    <section class="hero">
-
-
-        <!-- NAVIGATION -->
-
-        <nav class="nav">
-
-            <a
-                class="nav-brand"
-                href="index.html">
-
-                CATALA
-
-            </a>
+<section class="hero">
 
 
-            <div class="nav-links">
+    <nav class="nav">
 
-                <a href="#shop">
-                    SHOP
-                </a>
-
-                <a href="about.html">
-                    ABOUT
-                </a>
-
-                <a
-                    href="#"
-                    id="cartOpen">
-
-                    CART (0)
-
-                </a>
-
-            </div>
-
-        </nav>
-
-
-
-        <!-- HERO LOGO -->
-
-        <div class="hero-content">
-
-            <img
-                class="hero-logo"
-                src="catala-logo.png"
-                alt="CATALA">
-
-
-            <a
-                class="hero-button"
-                href="#shop">
-
-                SHOP THE DROP
-
-            </a>
-
-        </div>
-
-
-
-        <!-- PHOTO CREDIT -->
 
         <a
-            class="photo-credit"
-            href="https://commons.wikimedia.org/wiki/File:Surfer_Cox_Bay_Tofino_2736.jpg"
-            target="_blank"
-            rel="noopener">
+            class="nav-brand"
+            href="index.html">
 
-            PHOTO: IMAGEPERSON / CC BY 4.0
+            CATALA
 
         </a>
 
 
-    </section>
+        <div class="nav-links">
 
-
-
-    <!-- =========================
-         BRAND STRIP
-    ========================= -->
-
-    <section class="brand-strip">
-
-        <div class="strip-line"></div>
-
-        <p>
-            CATALA — BUILT FOR DAYS AROUND THE WATER
-        </p>
-
-        <div class="strip-line"></div>
-
-    </section>
-
-
-
-    <!-- =========================
-         NEW DROP
-    ========================= -->
-
-    <section
-        class="new-drop"
-        id="shop">
-
-
-        <div class="drop-heading">
-
-            <h2>
-                NEW DROP
-            </h2>
-
-            <span class="drop-number">
-                01 / 03
-            </span>
-
-        </div>
-
-
-
-        <div class="product-grid">
-
-
-            <!-- =====================
-                 TEE 01
-            ====================== -->
-
-            <article class="product-card">
-
-
-                <div class="product-image">
-
-                    <div class="placeholder">
-
-                        <img
-                            src="catala-logo.png"
-                            alt="CATALA Tee 01">
-
-                    </div>
-
-                </div>
-
-
-                <div class="product-info">
-
-                    <h3 class="product-name">
-                        CATALA TEE 01
-                    </h3>
-
-                    <p class="product-detail">
-                        COLOUR TBC
-                    </p>
-
-                    <p class="product-price">
-                        $—
-                    </p>
-
-                    <a
-                        class="product-button"
-                        href="#">
-
-                        VIEW TEE
-
-                    </a>
-
-                </div>
-
-
-            </article>
-
-
-
-            <!-- =====================
-                 TEE 02
-            ====================== -->
-
-            <article class="product-card">
-
-
-                <div class="product-image">
-
-                    <div class="placeholder">
-
-                        <img
-                            src="catala-logo.png"
-                            alt="CATALA Tee 02">
-
-                    </div>
-
-                </div>
-
-
-                <div class="product-info">
-
-                    <h3 class="product-name">
-                        CATALA TEE 02
-                    </h3>
-
-                    <p class="product-detail">
-                        COLOUR TBC
-                    </p>
-
-                    <p class="product-price">
-                        $—
-                    </p>
-
-                    <a
-                        class="product-button"
-                        href="#">
-
-                        VIEW TEE
-
-                    </a>
-
-                </div>
-
-
-            </article>
-
-
-
-            <!-- =====================
-                 TEE 03
-            ====================== -->
-
-            <article class="product-card">
-
-
-                <div class="product-image">
-
-                    <div class="placeholder">
-
-                        <img
-                            src="catala-logo.png"
-                            alt="CATALA Tee 03">
-
-                    </div>
-
-                </div>
-
-
-                <div class="product-info">
-
-                    <h3 class="product-name">
-                        CATALA TEE 03
-                    </h3>
-
-                    <p class="product-detail">
-                        COLOUR TBC
-                    </p>
-
-                    <p class="product-price">
-                        $—
-                    </p>
-
-                    <a
-                        class="product-button"
-                        href="#">
-
-                        VIEW TEE
-
-                    </a>
-
-                </div>
-
-
-            </article>
-
-
-        </div>
-
-
-
-        <div class="shop-all-wrap">
-
-            <a
-                class="shop-all"
-                href="#shop">
-
-                SHOP ALL &nbsp; →
-
+            <a href="#shop">
+                SHOP
             </a>
 
-        </div>
-
-
-    </section>
-
-
-
-    <!-- =========================
-         BRAND STATEMENT
-    ========================= -->
-
-    <section class="statement">
-
-        <h3>
-            SURF MORE.<br>
-            EVERYTHING ELSE LESS.
-        </h3>
-
-    </section>
-
-
-
-    <!-- =========================
-         SOCIAL
-    ========================= -->
-
-    <section class="social">
-
-
-        <div class="social-header">
-
-            <h2 class="social-title">
-                FOLLOW THE<br>
-                GOOD DAYS
-            </h2>
-
-            <p class="social-handle">
-                @CATALA
-            </p>
-
-        </div>
-
-
-
-        <div class="social-grid">
-
-
-            <div class="social-post">
-            </div>
-
-
-            <div class="social-post">
-            </div>
-
-
-            <div class="social-post">
-            </div>
-
-
-            <div class="social-post">
-            </div>
-
-
-        </div>
-
-
-
-        <div class="social-links">
+            <a href="about.html">
+                ABOUT
+            </a>
 
             <a
                 href="#"
-                target="_blank">
+                id="cartOpen">
 
-                INSTAGRAM ↗
-
-            </a>
-
-
-            <a
-                href="#"
-                target="_blank">
-
-                TIKTOK ↗
+                CART (0)
 
             </a>
 
         </div>
 
 
-    </section>
+    </nav>
 
 
 
-    <!-- =========================
-         CART OVERLAY
-    ========================= -->
+    <div class="hero-content">
 
-    <div
-        class="cart-overlay"
-        id="cartOverlay">
+
+        <img
+            class="hero-logo"
+            src="catala-logo.png"
+            alt="CATALA">
+
+
+        <a
+            class="hero-button"
+            href="#shop">
+
+            SHOP THE DROP
+
+        </a>
+
+
     </div>
 
 
 
-    <!-- =========================
-         CART DRAWER
-    ========================= -->
+    <a
+        class="photo-credit"
+        href="https://commons.wikimedia.org/wiki/File:Surfer_Cox_Bay_Tofino_2736.jpg"
+        target="_blank"
+        rel="noopener">
 
-    <aside
-        class="cart-drawer"
-        id="cartDrawer"
-        aria-hidden="true">
+        PHOTO: IMAGEPERSON / CC BY 4.0
 
-
-        <!-- CART HEADER -->
-
-        <div class="cart-header">
-
-            <h2>
-                YOUR CART
-            </h2>
+    </a>
 
 
-            <button
-                class="cart-close"
-                id="cartClose"
-                aria-label="Close cart">
-
-                ×
-
-            </button>
-
-        </div>
+</section>
 
 
 
-        <!-- CART BODY -->
+<!-- =========================
+     BRAND STRIP
+========================= -->
 
-        <div class="cart-body">
-
-
-            <div class="empty-cart">
-
-
-                <h3>
-                    YOUR CART<br>
-                    IS EMPTY.
-                </h3>
+<section class="brand-strip">
 
 
-                <p>
-                    GO FIND SOMETHING RAD.
-                </p>
+    <div class="strip-line"></div>
 
 
-                <button
-                    class="continue-shopping"
-                    id="continueShopping">
+    <p>
+        CATALA — BUILT FOR DAYS AROUND THE WATER
+    </p>
 
-                    CONTINUE SHOPPING
 
-                </button>
+    <div class="strip-line"></div>
 
+
+</section>
+
+
+
+<!-- =========================
+     NEW DROP
+========================= -->
+
+<section
+    class="new-drop"
+    id="shop">
+
+
+    <div class="drop-heading">
+
+
+        <h2>
+            NEW DROP
+        </h2>
+
+
+        <span class="drop-number">
+            01 / 03
+        </span>
+
+
+    </div>
+
+
+
+    <div class="product-grid">
+
+
+        <!-- TEE 01 -->
+
+        <article class="product-card">
+
+
+            <div class="product-image">
+
+                <div class="placeholder">
+
+                    <img
+                        src="catala-logo.png"
+                        alt="CATALA Tee 01">
+
+                </div>
 
             </div>
 
 
-        </div>
+            <div class="product-info">
+
+                <h3 class="product-name">
+                    CATALA TEE 01
+                </h3>
+
+                <p class="product-detail">
+                    COLOUR TBC
+                </p>
+
+                <p class="product-price">
+                    $—
+                </p>
+
+                <a
+                    class="product-button"
+                    href="#">
+
+                    VIEW TEE
+
+                </a>
+
+            </div>
+
+
+        </article>
 
 
 
-        <!-- CART FOOTER -->
+        <!-- TEE 02 -->
 
-        <div class="cart-footer">
+        <article class="product-card">
 
-            <p class="cart-note">
-                CATALA — BORN IN THE PNW.
+
+            <div class="product-image">
+
+                <div class="placeholder">
+
+                    <img
+                        src="catala-logo.png"
+                        alt="CATALA Tee 02">
+
+                </div>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3 class="product-name">
+                    CATALA TEE 02
+                </h3>
+
+                <p class="product-detail">
+                    COLOUR TBC
+                </p>
+
+                <p class="product-price">
+                    $—
+                </p>
+
+                <a
+                    class="product-button"
+                    href="#">
+
+                    VIEW TEE
+
+                </a>
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- TEE 03 -->
+
+        <article class="product-card">
+
+
+            <div class="product-image">
+
+                <div class="placeholder">
+
+                    <img
+                        src="catala-logo.png"
+                        alt="CATALA Tee 03">
+
+                </div>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3 class="product-name">
+                    CATALA TEE 03
+                </h3>
+
+                <p class="product-detail">
+                    COLOUR TBC
+                </p>
+
+                <p class="product-price">
+                    $—
+                </p>
+
+                <a
+                    class="product-button"
+                    href="#">
+
+                    VIEW TEE
+
+                </a>
+
+            </div>
+
+
+        </article>
+
+
+    </div>
+
+
+
+    <div class="shop-all-wrap">
+
+
+        <a
+            class="shop-all"
+            href="#shop">
+
+            SHOP ALL &nbsp; →
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     BRAND STATEMENT
+========================= -->
+
+<section class="statement">
+
+
+    <h3>
+        SURF MORE.<br>
+        EVERYTHING ELSE LESS.
+    </h3>
+
+
+</section>
+
+
+
+<!-- =========================
+     SOCIAL
+========================= -->
+
+<section class="social">
+
+
+    <div class="social-header">
+
+
+        <h2 class="social-title">
+            FOLLOW THE<br>
+            GOOD DAYS
+        </h2>
+
+
+        <p class="social-handle">
+            @CATALA.PNW
+        </p>
+
+
+    </div>
+
+
+
+    <div class="social-grid">
+
+
+        <div class="social-post"></div>
+
+        <div class="social-post"></div>
+
+        <div class="social-post"></div>
+
+        <div class="social-post"></div>
+
+
+    </div>
+
+
+
+    <div class="social-links">
+
+
+        <a
+            href="https://www.instagram.com/catala.pnw?stkn=MWl4ZzV4OGFhNjJmNA%3D%3D&utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            INSTAGRAM ↗
+
+        </a>
+
+
+        <a
+            href="https://www.tiktok.com/@catala.pnw?_r=1&_t=ZS-99z02Tc4fga"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            TIKTOK ↗
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     CART OVERLAY
+========================= -->
+
+<div
+    class="cart-overlay"
+    id="cartOverlay">
+</div>
+
+
+
+<!-- =========================
+     CART DRAWER
+========================= -->
+
+<aside
+    class="cart-drawer"
+    id="cartDrawer"
+    aria-hidden="true">
+
+
+    <div class="cart-header">
+
+
+        <h2>
+            YOUR CART
+        </h2>
+
+
+        <button
+            class="cart-close"
+            id="cartClose"
+            aria-label="Close cart">
+
+            ×
+
+        </button>
+
+
+    </div>
+
+
+
+    <div class="cart-body">
+
+
+        <div class="empty-cart">
+
+
+            <h3>
+                YOUR CART<br>
+                IS EMPTY.
+            </h3>
+
+
+            <p>
+                GO FIND SOMETHING RAD.
             </p>
 
+
+            <button
+                class="continue-shopping"
+                id="continueShopping">
+
+                CONTINUE SHOPPING
+
+            </button>
+
+
         </div>
 
 
-    </aside>
+    </div>
 
 
 
-    <!-- =========================
-         CART JAVASCRIPT
-    ========================= -->
-
-    <script>
-
-        const cartOpen =
-            document.getElementById("cartOpen");
-
-        const cartClose =
-            document.getElementById("cartClose");
-
-        const cartDrawer =
-            document.getElementById("cartDrawer");
-
-        const cartOverlay =
-            document.getElementById("cartOverlay");
-
-        const continueShopping =
-            document.getElementById(
-                "continueShopping"
-            );
+    <div class="cart-footer">
 
 
-        function openCart() {
+        <p class="cart-note">
+            CATALA — BORN IN THE PNW.
+        </p>
 
-            cartDrawer.classList.add(
-                "active"
-            );
 
-            cartOverlay.classList.add(
-                "active"
-            );
+    </div>
 
-            document.body.classList.add(
-                "cart-open"
-            );
 
-            cartDrawer.setAttribute(
-                "aria-hidden",
-                "false"
-            );
+</aside>
+
+
+
+<!-- =========================
+     CART JAVASCRIPT
+========================= -->
+
+<script>
+
+const cartOpen =
+    document.getElementById("cartOpen");
+
+const cartClose =
+    document.getElementById("cartClose");
+
+const cartDrawer =
+    document.getElementById("cartDrawer");
+
+const cartOverlay =
+    document.getElementById("cartOverlay");
+
+const continueShopping =
+    document.getElementById("continueShopping");
+
+
+function openCart() {
+
+    cartDrawer.classList.add("active");
+
+    cartOverlay.classList.add("active");
+
+    document.body.classList.add("cart-open");
+
+    cartDrawer.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+}
+
+
+function closeCart() {
+
+    cartDrawer.classList.remove("active");
+
+    cartOverlay.classList.remove("active");
+
+    document.body.classList.remove("cart-open");
+
+    cartDrawer.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+}
+
+
+cartOpen.addEventListener(
+    "click",
+    function(event) {
+
+        event.preventDefault();
+
+        openCart();
+
+    }
+);
+
+
+cartClose.addEventListener(
+    "click",
+    closeCart
+);
+
+
+cartOverlay.addEventListener(
+    "click",
+    closeCart
+);
+
+
+continueShopping.addEventListener(
+    "click",
+    function() {
+
+        closeCart();
+
+        document
+            .getElementById("shop")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeCart();
 
         }
 
+    }
+);
 
-        function closeCart() {
-
-            cartDrawer.classList.remove(
-                "active"
-            );
-
-            cartOverlay.classList.remove(
-                "active"
-            );
-
-            document.body.classList.remove(
-                "cart-open"
-            );
-
-            cartDrawer.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-        }
-
-
-        cartOpen.addEventListener(
-            "click",
-            function(event) {
-
-                event.preventDefault();
-
-                openCart();
-
-            }
-        );
-
-
-        cartClose.addEventListener(
-            "click",
-            closeCart
-        );
-
-
-        cartOverlay.addEventListener(
-            "click",
-            closeCart
-        );
-
-
-        continueShopping.addEventListener(
-            "click",
-            function() {
-
-                closeCart();
-
-                document
-                    .getElementById("shop")
-                    .scrollIntoView({
-                        behavior: "smooth"
-                    });
-
-            }
-        );
-
-
-        document.addEventListener(
-            "keydown",
-            function(event) {
-
-                if (
-                    event.key === "Escape"
-                ) {
-
-                    closeCart();
-
-                }
-
-            }
-        );
-
-    </script>
+</script>
 
 
 </body>

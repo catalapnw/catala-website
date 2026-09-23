@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>CATALA Product</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f2eee3;
+    color: #171717;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* =========================
+   NAV
+========================= */
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 28px 4%;
+
+    border-bottom:
+        1px solid rgba(23, 23, 23, 0.18);
+}
+
+.nav-brand {
+    font-size: 22px;
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-decoration: none;
+}
+
+
+/* =========================
+   PRODUCT
+========================= */
+
+.product {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(350px, 0.8fr);
+
+    min-height: calc(100vh - 80px);
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+    position: relative;
+
+    min-height: 720px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ddd7ca;
+
+    overflow: hidden;
+}
+
+.gallery-image {
+    width: 65%;
+    max-height: 620px;
+
+    object-fit: contain;
+}
+
+.gallery-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid rgba(23, 23, 23, 0.3);
+
+    background: rgba(242, 238, 227, 0.85);
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.prev {
+    left: 25px;
+}
+
+.next {
+    right: 25px;
+}
+
+.gallery-count {
+    position: absolute;
+
+    left: 28px;
+    bottom: 25px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   PRODUCT DETAILS
+========================= */
+
+.details {
+    padding: 70px 7% 80px;
+}
+
+.eyebrow {
+    margin-bottom: 18px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+}
+
+.details h1 {
+    max-width: 500px;
+
+    font-size: clamp(42px, 5vw, 72px);
+
+    line-height: 0.9;
+
+    letter-spacing: -4px;
+}
+
+.price {
+    margin-top: 22px;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.intro {
+    max-width: 530px;
+
+    margin-top: 35px;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   SIZE SELECTOR
+========================= */
+
+.option-title {
+    margin-top: 35px;
+    margin-bottom: 12px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.size-options {
+    display: flex;
+
+    gap: 8px;
+}
+
+.size-button {
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid #171717;
+
+    background: transparent;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.size-button.active {
+    background: #171717;
+    color: #f2eee3;
+}
+
+
+/* =========================
+   ADD BUTTON
+========================= */
+
+.add-cart {
+    width: 100%;
+
+    margin-top: 28px;
+
+    padding: 18px;
+
+    border: 1px solid #171717;
+
+    background: #171717;
+    color: #f2eee3;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   INFORMATION
+========================= */
+
+.info {
+    margin-top: 45px;
+
+    border-top:
+        1px solid rgba(23, 23, 23, 0.2);
+}
+
+.info-section {
+    padding: 24px 0;
+
+    border-bottom:
+        1px solid rgba(23, 23, 23, 0.2);
+}
+
+.info-section h2 {
+    margin-bottom: 12px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.info-section p,
+.info-section li {
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.info-section ul {
+    list-style: none;
+}
+
+
+/* =========================
+   SIZE GUIDE
+========================= */
+
+.size-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 15px;
+}
+
+.size-table th,
+.size-table td {
+    padding: 12px 5px;
+
+    border-bottom:
+        1px solid rgba(23, 23, 23, 0.15);
+
+    text-align: left;
+
+    font-size: 10px;
+}
+
+.size-table th {
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   SHIPPING CALLOUT
+========================= */
+
+.shipping-note {
+    margin-top: 25px;
+
+    padding: 22px;
+
+    background: #d8d0c1;
+}
+
+.shipping-note strong {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.shipping-note p {
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .nav {
+        padding: 22px 18px;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+    }
+
+    .product {
+        display: block;
+    }
+
+    .gallery {
+        min-height: 500px;
+    }
+
+    .gallery-image {
+        width: 70%;
+        max-height: 400px;
+    }
+
+    .details {
+        padding: 45px 20px 70px;
+    }
+
+    .details h1 {
+        font-size: 13vw;
+
+        letter-spacing: -3px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="nav">
+
+<a
+    class="nav-brand"
+    href="index.html">
+
+    CATALA
+
+</a>
+
+
+<div class="nav-links">
+
+    <a href="index.html#shop">
+        SHOP
+    </a>
+
+    <a href="about.html">
+        ABOUT
+    </a>
+
+    <a href="index.html">
+        ← BACK
+    </a>
+
+</div>
+
+</nav>
+
+
+
+<!-- =========================
+     PRODUCT
+========================= -->
+
+<main class="product">
+
+
+<!-- GALLERY -->
+
+<section class="gallery">
+
+    <button
+        class="gallery-arrow prev"
+        id="prevImage">
+
+        ←
+
+    </button>
+
+
+    <img
+        class="gallery-image"
+        id="productImage"
+        src="catala-logo.png"
+        alt="CATALA T-shirt">
+
+
+    <button
+        class="gallery-arrow next"
+        id="nextImage">
+
+        →
+
+    </button>
+
+
+    <span
+        class="gallery-count"
+        id="galleryCount">
+
+        01 / 03
+
+    </span>
+
+</section>
+
+
+
+<!-- DETAILS -->
+
+<section class="details">
+
+<p class="eyebrow">
+    CATALA / DROP 01
+</p>
+
+
+<h1 id="productName">
+    CATALA TEE 01
+</h1>
+
+
+<p class="price">
+    $—
+</p>
+
+
+<p class="intro">
+    A straightforward everyday tee built for
+    beach days, road trips, late afternoons,
+    campfires and whatever comes after.
+    Printed with original CATALA artwork on
+    a classic white cotton base.
+</p>
+
+
+
+<p class="option-title">
+    SELECT SIZE
+</p>
+
+
+<div class="size-options">
+
+    <button class="size-button">
+        S
+    </button>
+
+    <button class="size-button">
+        M
+    </button>
+
+    <button class="size-button">
+        L
+    </button>
+
+</div>
+
+
+
+<button
+    class="add-cart"
+    id="addCart">
+
+    SELECT A SIZE
+
+</button>
+
+
+
+<div class="info">
+
+
+<!-- MATERIAL -->
+
+<div class="info-section">
+
+    <h2>
+        MATERIAL
+    </h2>
+
+    <p>
+        100% cotton white T-shirt base from George.
+        Soft, straightforward and made for everyday wear.
+    </p>
+
+</div>
+
+
+
+<!-- FIT -->
+
+<div class="info-section">
+
+    <h2>
+        FIT & SIZING
+    </h2>
+
+    <p>
+        Available in S, M and L. Designed as a classic
+        everyday T-shirt fit. If you prefer a looser
+        fit, consider sizing up.
+    </p>
+
+
+    <table class="size-table">
+
+        <tr>
+            <th>SIZE</th>
+            <th>FIT</th>
+        </tr>
+
+        <tr>
+            <td>S</td>
+            <td>SMALL</td>
+        </tr>
+
+        <tr>
+            <td>M</td>
+            <td>MEDIUM</td>
+        </tr>
+
+        <tr>
+            <td>L</td>
+            <td>LARGE</td>
+        </tr>
+
+    </table>
+
+</div>
+
+
+
+<!-- CARE -->
+
+<div class="info-section">
+
+    <h2>
+        CARE
+    </h2>
+
+    <ul>
+
+        <li>
+            Turn shirt inside out before washing.
+        </li>
+
+        <li>
+            Cold wash.
+        </li>
+
+        <li>
+            Gentle cycle.
+        </li>
+
+        <li>
+            Air dry.
+        </li>
+
+    </ul>
+
+</div>
+
+
+
+<!-- SHIPPING -->
+
+<div class="info-section">
+
+    <h2>
+        SHIPPING
+    </h2>
+
+    <p>
+        CATALA currently ships orders in scheduled
+        batches rather than individually each day.
+    </p>
+
+
+    <div class="shipping-note">
+
+        <strong>
+            SHIPPING DAYS
+        </strong>
+
+        <p>
+            Orders are prepared for shipment in larger
+            batches on the 1st and 15th of each month.
+            Orders placed after a shipping date will
+            normally be included in the next scheduled
+            batch.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- PRINT -->
+
+<div class="info-section">
+
+    <h2>
+        THE PRINT
+    </h2>
+
+    <p>
+        Original CATALA artwork designed around the
+        surf, outdoors and travel culture that inspired
+        the brand.
+    </p>
+
+</div>
+
+
+
+<!-- NOTE -->
+
+<div class="info-section">
+
+    <h2>
+        GOOD TO KNOW
+    </h2>
+
+    <p>
+        Colours may appear slightly different depending
+        on your screen and individual garments may have
+        minor natural variations.
+    </p>
+
+</div>
+
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<script>
+
+/* =========================
+   PRODUCTS
+========================= */
+
+const products = {
+
+    1: {
+        name: "CATALA TEE 01",
+
+        images: [
+            "catala-logo.png",
+            "catala-logo.png",
+            "catala-logo.png"
+        ]
+    },
+
+    2: {
+        name: "CATALA TEE 02",
+
+        images: [
+            "catala-logo.png",
+            "catala-logo.png",
+            "catala-logo.png"
+        ]
+    },
+
+    3: {
+        name: "CATALA TEE 03",
+
+        images: [
+            "catala-logo.png",
+            "catala-logo.png",
+            "catala-logo.png"
+        ]
+    }
+
+};
+
+
+/* READ PRODUCT FROM URL */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const productNumber =
+    Number(
+        params.get("product")
+    ) || 1;
+
+const product =
+    products[productNumber]
+    || products[1];
+
+
+document
+.getElementById("productName")
+.textContent =
+    product.name;
+
+
+/* =========================
+   IMAGE GALLERY
+========================= */
+
+let currentImage = 0;
+
+const productImage =
+    document.getElementById(
+        "productImage"
+    );
+
+const galleryCount =
+    document.getElementById(
+        "galleryCount"
+    );
+
+
+function updateGallery() {
+
+    productImage.src =
+        product.images[currentImage];
+
+    galleryCount.textContent =
+        String(
+            currentImage + 1
+        ).padStart(2, "0")
+        +
+        " / "
+        +
+        String(
+            product.images.length
+        ).padStart(2, "0");
+
+}
+
+
+document
+.getElementById("prevImage")
+.addEventListener(
+    "click",
+    function() {
+
+        currentImage =
+            (
+                currentImage
+                - 1
+                + product.images.length
+            )
+            %
+            product.images.length;
+
+        updateGallery();
+
+    }
+);
+
+
+document
+.getElementById("nextImage")
+.addEventListener(
+    "click",
+    function() {
+
+        currentImage =
+            (
+                currentImage
+                + 1
+            )
+            %
+            product.images.length;
+
+        updateGallery();
+
+    }
+);
+
+
+updateGallery();
+
+
+/* =========================
+   SIZE SELECTOR
+========================= */
+
+const sizeButtons =
+    document.querySelectorAll(
+        ".size-button"
+    );
+
+const addCart =
+    document.getElementById(
+        "addCart"
+    );
+
+let selectedSize = null;
+
+
+sizeButtons.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                sizeButtons.forEach(
+                    other => {
+
+                        other.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+                this.classList.add(
+                    "active"
+                );
+
+                selectedSize =
+                    this.textContent.trim();
+
+                addCart.textContent =
+                    "ADD TO CART — SIZE "
+                    + selectedSize;
+
+            }
+        );
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>

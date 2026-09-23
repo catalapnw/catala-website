@@ -2,12 +2,8 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>CATALA</title>
 
@@ -34,7 +30,7 @@ body {
     color: #171717;
 }
 
-body.cart-open {
+body.no-scroll {
     overflow: hidden;
 }
 
@@ -49,7 +45,6 @@ a {
 
 .hero {
     position: relative;
-
     width: 100%;
     height: 100vh;
     min-height: 650px;
@@ -63,7 +58,6 @@ a {
 
     background-size: cover;
     background-position: center;
-
     overflow: hidden;
 }
 
@@ -90,19 +84,16 @@ a {
 
 .nav-brand {
     color: #f4efdf;
-
     text-decoration: none;
 
     font-size: 22px;
     font-weight: 900;
-
     letter-spacing: -1px;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-
     gap: 34px;
 }
 
@@ -110,22 +101,17 @@ a {
     position: relative;
 
     color: #f4efdf;
-
     text-decoration: none;
 
     font-size: 12px;
     font-weight: 700;
-
     letter-spacing: 1.5px;
-
-    cursor: pointer;
 }
 
 .nav-links a::after {
     content: "";
 
     position: absolute;
-
     left: 0;
     bottom: -5px;
 
@@ -187,12 +173,10 @@ a {
     border: 1px solid rgba(244, 239, 223, 0.9);
 
     color: #f4efdf;
-
     text-decoration: none;
 
     font-size: 11px;
     font-weight: 700;
-
     letter-spacing: 2.5px;
 
     transition: 0.25s ease;
@@ -212,7 +196,6 @@ a {
     color: rgba(244, 239, 223, 0.65);
 
     font-size: 8px;
-
     letter-spacing: 0.5px;
 
     text-decoration: none;
@@ -244,11 +227,8 @@ a {
 
 .brand-strip p {
     font-size: 11px;
-
     letter-spacing: 4px;
-
     text-align: center;
-
     white-space: nowrap;
 }
 
@@ -259,7 +239,6 @@ a {
 
 .new-drop {
     padding: 55px 4% 95px;
-
     background: #f2eee3;
 }
 
@@ -273,64 +252,36 @@ a {
 
 .drop-heading h2 {
     font-size: clamp(42px, 5vw, 72px);
-
     line-height: 0.9;
-
     letter-spacing: -4px;
 }
 
 .drop-number {
     font-size: 11px;
-
     letter-spacing: 5px;
 }
 
 
 /* =========================
-   PRODUCT GRID
+   PRODUCTS
 ========================= */
 
 .product-grid {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 22px;
-}
-
-.product-card {
-    min-width: 0;
 }
 
 .product-image {
     position: relative;
 
     width: 100%;
-
     aspect-ratio: 4 / 5;
 
     overflow: hidden;
 
     background: #ded8ca;
 }
-
-.product-image img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    transition: transform 0.5s ease;
-}
-
-.product-card:hover .product-image img {
-    transform: scale(1.025);
-}
-
-
-/* =========================
-   PRODUCT PLACEHOLDERS
-========================= */
 
 .placeholder {
     display: flex;
@@ -353,10 +304,42 @@ a {
 .placeholder img {
     width: 70%;
     height: auto;
-
     object-fit: contain;
-
     opacity: 0.75;
+}
+
+
+/* =========================
+   QUICK LOOK BUTTON
+========================= */
+
+.quick-look-button {
+    position: absolute;
+
+    right: 12px;
+    bottom: 12px;
+
+    z-index: 5;
+
+    padding: 12px 15px;
+
+    border: 0;
+
+    background: #f2eee3;
+    color: #171717;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.quick-look-button:hover {
+    background: #171717;
+    color: #f2eee3;
 }
 
 
@@ -371,7 +354,6 @@ a {
 .product-name {
     font-size: 14px;
     font-weight: 800;
-
     letter-spacing: 0.5px;
 }
 
@@ -379,7 +361,6 @@ a {
     margin-top: 7px;
 
     font-size: 10px;
-
     letter-spacing: 2px;
 
     opacity: 0.55;
@@ -403,7 +384,6 @@ a {
     border: 1px solid #171717;
 
     background: transparent;
-
     color: #171717;
 
     text-align: center;
@@ -411,7 +391,6 @@ a {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: 2px;
 
     transition: 0.25s ease;
@@ -428,9 +407,8 @@ a {
 ========================= */
 
 .shop-all-wrap {
-    text-align: center;
-
     margin-top: 60px;
+    text-align: center;
 }
 
 .shop-all {
@@ -445,19 +423,12 @@ a {
 
     font-size: 10px;
     font-weight: 700;
-
     letter-spacing: 3px;
-
-    transition: opacity 0.25s ease;
-}
-
-.shop-all:hover {
-    opacity: 0.82;
 }
 
 
 /* =========================
-   BRAND STATEMENT
+   STATEMENT
 ========================= */
 
 .statement {
@@ -480,7 +451,6 @@ a {
     font-size: clamp(40px, 7vw, 100px);
 
     line-height: 0.9;
-
     letter-spacing: -5px;
 }
 
@@ -508,23 +478,18 @@ a {
     font-size: clamp(42px, 6vw, 82px);
 
     line-height: 0.9;
-
     letter-spacing: -4px;
 }
 
 .social-handle {
     font-size: 11px;
-
     letter-spacing: 3px;
-
     opacity: 0.65;
 }
 
 .social-grid {
     display: grid;
-
     grid-template-columns: repeat(4, 1fr);
-
     gap: 10px;
 }
 
@@ -532,8 +497,6 @@ a {
     position: relative;
 
     aspect-ratio: 1 / 1;
-
-    overflow: hidden;
 
     background: #292929;
 }
@@ -548,7 +511,6 @@ a {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: 2px;
 
     opacity: 0.55;
@@ -556,7 +518,6 @@ a {
 
 .social-links {
     display: flex;
-
     gap: 40px;
 
     margin-top: 35px;
@@ -569,26 +530,252 @@ a {
 
     font-size: 11px;
     font-weight: 700;
-
     letter-spacing: 2px;
 
     border-bottom:
         1px solid rgba(242, 238, 227, 0.35);
 
     padding-bottom: 5px;
-
-    transition: 0.2s ease;
-}
-
-.social-links a:hover {
-    border-color: #f2eee3;
-
-    opacity: 0.7;
 }
 
 
 /* =========================
-   CART OVERLAY
+   QUICK LOOK OVERLAY
+========================= */
+
+.quick-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(0, 0, 0, 0.62);
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 1100;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.quick-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.quick-modal {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+
+    width: min(900px, 94vw);
+    max-height: 88vh;
+
+    overflow: auto;
+
+    background: #f2eee3;
+
+    transform: translateY(15px);
+
+    transition: transform 0.25s ease;
+}
+
+.quick-overlay.active .quick-modal {
+    transform: translateY(0);
+}
+
+.quick-close {
+    position: absolute;
+
+    top: 14px;
+    right: 17px;
+
+    z-index: 10;
+
+    border: 0;
+
+    background: transparent;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   QUICK LOOK GALLERY
+========================= */
+
+.quick-gallery {
+    position: relative;
+
+    min-height: 530px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 45px;
+
+    background: #ddd7ca;
+}
+
+.quick-gallery img {
+    width: 75%;
+    max-height: 420px;
+
+    object-fit: contain;
+
+    opacity: 0.8;
+}
+
+.gallery-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(23, 23, 23, 0.35);
+
+    background: rgba(242, 238, 227, 0.85);
+
+    color: #171717;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.gallery-prev {
+    left: 15px;
+}
+
+.gallery-next {
+    right: 15px;
+}
+
+.gallery-count {
+    position: absolute;
+
+    left: 18px;
+    bottom: 17px;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   QUICK LOOK DETAILS
+========================= */
+
+.quick-details {
+    padding: 70px 45px 45px;
+}
+
+.quick-label {
+    margin-bottom: 15px;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+}
+
+.quick-details h2 {
+    margin-bottom: 10px;
+
+    font-size: clamp(30px, 4vw, 48px);
+
+    line-height: 0.95;
+    letter-spacing: -2px;
+}
+
+.quick-price {
+    margin-bottom: 35px;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.quick-specs {
+    border-top: 1px solid rgba(23, 23, 23, 0.2);
+}
+
+.quick-spec {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid rgba(23, 23, 23, 0.2);
+
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.quick-spec span:first-child {
+    opacity: 0.5;
+}
+
+.quick-sizes {
+    display: flex;
+    gap: 8px;
+
+    margin: 25px 0;
+}
+
+.quick-size {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #171717;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.full-product-link {
+    display: block;
+
+    width: 100%;
+
+    padding: 16px;
+
+    background: #171717;
+    color: #f2eee3;
+
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   CART
 ========================= */
 
 .cart-overlay {
@@ -601,9 +788,7 @@ a {
     opacity: 0;
     visibility: hidden;
 
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+    transition: 0.3s ease;
 
     z-index: 998;
 }
@@ -613,44 +798,30 @@ a {
     visibility: visible;
 }
 
-
-/* =========================
-   CART DRAWER
-========================= */
-
 .cart-drawer {
     position: fixed;
 
     top: 0;
     right: 0;
 
-    width: min(470px, 92vw);
+    width: min(470px, 94vw);
     height: 100vh;
 
+    display: flex;
+    flex-direction: column;
+
     background: #f2eee3;
-    color: #171717;
 
     transform: translateX(100%);
 
     transition: transform 0.35s ease;
 
     z-index: 999;
-
-    display: flex;
-    flex-direction: column;
-
-    box-shadow:
-        -20px 0 50px rgba(0, 0, 0, 0.12);
 }
 
 .cart-drawer.active {
     transform: translateX(0);
 }
-
-
-/* =========================
-   CART HEADER
-========================= */
 
 .cart-header {
     display: flex;
@@ -659,35 +830,22 @@ a {
 
     padding: 28px;
 
-    border-bottom:
-        1px solid rgba(23, 23, 23, 0.2);
+    border-bottom: 1px solid rgba(23, 23, 23, 0.2);
 }
 
 .cart-header h2 {
     font-size: 22px;
-    font-weight: 900;
-
-    letter-spacing: -1px;
 }
 
 .cart-close {
-    border: none;
+    border: 0;
 
     background: transparent;
-    color: #171717;
 
     font-size: 30px;
-    font-weight: 300;
-
-    line-height: 1;
 
     cursor: pointer;
 }
-
-
-/* =========================
-   CART BODY
-========================= */
 
 .cart-body {
     flex: 1;
@@ -706,28 +864,23 @@ a {
 }
 
 .empty-cart h3 {
-    font-size: clamp(34px, 4vw, 48px);
-
-    line-height: 0.95;
-
-    letter-spacing: -2px;
-
     margin-bottom: 15px;
+
+    font-size: 42px;
+    line-height: 0.95;
+    letter-spacing: -2px;
 }
 
 .empty-cart p {
-    margin-bottom: 32px;
+    margin-bottom: 30px;
 
-    font-size: 12px;
-
+    font-size: 11px;
     letter-spacing: 1px;
 
-    opacity: 0.6;
+    opacity: 0.55;
 }
 
 .continue-shopping {
-    display: block;
-
     width: 100%;
 
     padding: 16px;
@@ -739,41 +892,22 @@ a {
 
     font-size: 10px;
     font-weight: 700;
-
     letter-spacing: 2px;
 
     cursor: pointer;
-
-    transition: 0.2s ease;
 }
-
-.continue-shopping:hover {
-    background: transparent;
-    color: #171717;
-}
-
-
-/* =========================
-   CART FOOTER
-========================= */
 
 .cart-footer {
-    padding: 22px 28px 28px;
+    padding: 22px 28px;
 
-    border-top:
-        1px solid rgba(23, 23, 23, 0.2);
-}
-
-.cart-note {
-    font-size: 9px;
-
-    line-height: 1.5;
-
-    letter-spacing: 1px;
+    border-top: 1px solid rgba(23, 23, 23, 0.2);
 
     text-align: center;
 
-    opacity: 0.45;
+    font-size: 9px;
+    letter-spacing: 1px;
+
+    opacity: 0.5;
 }
 
 
@@ -782,10 +916,6 @@ a {
 ========================= */
 
 @media (max-width: 700px) {
-
-    .hero {
-        min-height: 620px;
-    }
 
     .nav {
         padding: 22px 18px;
@@ -801,22 +931,11 @@ a {
 
     .nav-links a {
         font-size: 9px;
-
         letter-spacing: 0.8px;
-    }
-
-    .hero-content {
-        top: 55%;
-
-        padding: 0 18px;
     }
 
     .hero-logo {
         width: 92vw;
-    }
-
-    .hero-button {
-        margin-top: 30px;
     }
 
     .brand-strip {
@@ -829,9 +948,7 @@ a {
 
     .brand-strip p {
         font-size: 9px;
-
         letter-spacing: 2px;
-
         white-space: normal;
     }
 
@@ -841,36 +958,16 @@ a {
 
     .drop-heading h2 {
         font-size: 46px;
-
-        letter-spacing: -3px;
-    }
-
-    .drop-number {
-        font-size: 9px;
     }
 
     .product-grid {
         grid-template-columns: 1fr;
-
         gap: 50px;
-    }
-
-    .product-image {
-        aspect-ratio: 4 / 5;
-    }
-
-    .statement {
-        min-height: 250px;
     }
 
     .statement h3 {
         font-size: 14vw;
-
-        letter-spacing: -3px;
     }
-
-
-    /* SOCIAL MOBILE */
 
     .social {
         padding: 65px 18px 70px;
@@ -882,8 +979,6 @@ a {
 
     .social-title {
         font-size: 13vw;
-
-        letter-spacing: -3px;
     }
 
     .social-handle {
@@ -891,61 +986,34 @@ a {
     }
 
     .social-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .social-links {
-        gap: 25px;
-
-        flex-wrap: wrap;
+    .quick-overlay {
+        padding: 10px;
     }
 
+    .quick-modal {
+        display: block;
 
-    /* CART MOBILE */
+        width: 100%;
 
-    .cart-drawer {
-        width: 94vw;
+        max-height: 94vh;
     }
 
-    .cart-header {
-        padding: 22px 20px;
+    .quick-gallery {
+        min-height: 380px;
+
+        padding: 40px;
     }
 
-    .cart-body {
-        padding: 35px 20px;
+    .quick-gallery img {
+        width: 70%;
+        max-height: 300px;
     }
 
-    .cart-footer {
-        padding: 20px;
-    }
-
-}
-
-
-/* =========================
-   VERY SMALL PHONES
-========================= */
-
-@media (max-width: 390px) {
-
-    .nav {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-
-    .nav-links {
-        gap: 10px;
-    }
-
-    .nav-links a {
-        font-size: 8px;
-
-        letter-spacing: 0.5px;
-    }
-
-    .nav-brand {
-        font-size: 17px;
+    .quick-details {
+        padding: 35px 22px 25px;
     }
 
 }
@@ -964,76 +1032,58 @@ a {
 
 <section class="hero">
 
+<nav class="nav">
 
-    <nav class="nav">
+    <a class="nav-brand" href="index.html">
+        CATALA
+    </a>
 
+    <div class="nav-links">
 
-        <a
-            class="nav-brand"
-            href="index.html">
-
-            CATALA
-
+        <a href="#shop">
+            SHOP
         </a>
 
-
-        <div class="nav-links">
-
-            <a href="#shop">
-                SHOP
-            </a>
-
-            <a href="about.html">
-                ABOUT
-            </a>
-
-            <a
-                href="#"
-                id="cartOpen">
-
-                CART (0)
-
-            </a>
-
-        </div>
-
-
-    </nav>
-
-
-
-    <div class="hero-content">
-
-
-        <img
-            class="hero-logo"
-            src="catala-logo.png"
-            alt="CATALA">
-
-
-        <a
-            class="hero-button"
-            href="#shop">
-
-            SHOP THE DROP
-
+        <a href="about.html">
+            ABOUT
         </a>
 
+        <a href="#" id="cartOpen">
+            CART (0)
+        </a>
 
     </div>
 
+</nav>
 
+
+<div class="hero-content">
+
+    <img
+        class="hero-logo"
+        src="catala-logo.png"
+        alt="CATALA">
 
     <a
-        class="photo-credit"
-        href="https://commons.wikimedia.org/wiki/File:Surfer_Cox_Bay_Tofino_2736.jpg"
-        target="_blank"
-        rel="noopener">
+        class="hero-button"
+        href="#shop">
 
-        PHOTO: IMAGEPERSON / CC BY 4.0
+        SHOP THE DROP
 
     </a>
 
+</div>
+
+
+<a
+    class="photo-credit"
+    href="https://commons.wikimedia.org/wiki/File:Surfer_Cox_Bay_Tofino_2736.jpg"
+    target="_blank"
+    rel="noopener">
+
+    PHOTO: IMAGEPERSON / CC BY 4.0
+
+</a>
 
 </section>
 
@@ -1045,226 +1095,226 @@ a {
 
 <section class="brand-strip">
 
-
     <div class="strip-line"></div>
-
 
     <p>
         CATALA — BUILT FOR DAYS AROUND THE WATER
     </p>
 
-
     <div class="strip-line"></div>
-
 
 </section>
 
 
 
 <!-- =========================
-     NEW DROP
+     PRODUCTS
 ========================= -->
 
 <section
     class="new-drop"
     id="shop">
 
+<div class="drop-heading">
 
-    <div class="drop-heading">
+    <h2>
+        NEW DROP
+    </h2>
+
+    <span class="drop-number">
+        01 / 03
+    </span>
+
+</div>
 
 
-        <h2>
-            NEW DROP
-        </h2>
+<div class="product-grid">
 
 
-        <span class="drop-number">
-            01 / 03
-        </span>
+<!-- PRODUCT 1 -->
 
+<article class="product-card">
+
+    <div class="product-image">
+
+        <div class="placeholder">
+
+            <img
+                src="catala-logo.png"
+                alt="CATALA Tee 01">
+
+        </div>
+
+        <button
+            class="quick-look-button"
+            data-product="1">
+
+            QUICK LOOK
+
+        </button>
 
     </div>
 
-
-
-    <div class="product-grid">
-
-
-        <!-- TEE 01 -->
-
-        <article class="product-card">
-
-
-            <div class="product-image">
-
-                <div class="placeholder">
-
-                    <img
-                        src="catala-logo.png"
-                        alt="CATALA Tee 01">
-
-                </div>
-
-            </div>
-
-
-            <div class="product-info">
-
-                <h3 class="product-name">
-                    CATALA TEE 01
-                </h3>
-
-                <p class="product-detail">
-                    COLOUR TBC
-                </p>
-
-                <p class="product-price">
-                    $—
-                </p>
-
-                <a
-                    class="product-button"
-                    href="#">
-
-                    VIEW TEE
-
-                </a>
-
-            </div>
-
-
-        </article>
-
-
-
-        <!-- TEE 02 -->
-
-        <article class="product-card">
-
-
-            <div class="product-image">
-
-                <div class="placeholder">
-
-                    <img
-                        src="catala-logo.png"
-                        alt="CATALA Tee 02">
-
-                </div>
-
-            </div>
-
-
-            <div class="product-info">
-
-                <h3 class="product-name">
-                    CATALA TEE 02
-                </h3>
-
-                <p class="product-detail">
-                    COLOUR TBC
-                </p>
-
-                <p class="product-price">
-                    $—
-                </p>
-
-                <a
-                    class="product-button"
-                    href="#">
-
-                    VIEW TEE
-
-                </a>
-
-            </div>
-
-
-        </article>
-
-
-
-        <!-- TEE 03 -->
-
-        <article class="product-card">
-
-
-            <div class="product-image">
-
-                <div class="placeholder">
-
-                    <img
-                        src="catala-logo.png"
-                        alt="CATALA Tee 03">
-
-                </div>
-
-            </div>
-
-
-            <div class="product-info">
-
-                <h3 class="product-name">
-                    CATALA TEE 03
-                </h3>
-
-                <p class="product-detail">
-                    COLOUR TBC
-                </p>
-
-                <p class="product-price">
-                    $—
-                </p>
-
-                <a
-                    class="product-button"
-                    href="#">
-
-                    VIEW TEE
-
-                </a>
-
-            </div>
-
-
-        </article>
-
-
-    </div>
-
-
-
-    <div class="shop-all-wrap">
-
+    <div class="product-info">
+
+        <h3 class="product-name">
+            CATALA TEE 01
+        </h3>
+
+        <p class="product-detail">
+            WHITE / 100% COTTON
+        </p>
+
+        <p class="product-price">
+            $—
+        </p>
 
         <a
-            class="shop-all"
-            href="#shop">
+            class="product-button"
+            href="product.html?product=1">
 
-            SHOP ALL &nbsp; →
+            VIEW TEE
 
         </a>
 
+    </div>
+
+</article>
+
+
+
+<!-- PRODUCT 2 -->
+
+<article class="product-card">
+
+    <div class="product-image">
+
+        <div class="placeholder">
+
+            <img
+                src="catala-logo.png"
+                alt="CATALA Tee 02">
+
+        </div>
+
+        <button
+            class="quick-look-button"
+            data-product="2">
+
+            QUICK LOOK
+
+        </button>
 
     </div>
 
+    <div class="product-info">
+
+        <h3 class="product-name">
+            CATALA TEE 02
+        </h3>
+
+        <p class="product-detail">
+            WHITE / 100% COTTON
+        </p>
+
+        <p class="product-price">
+            $—
+        </p>
+
+        <a
+            class="product-button"
+            href="product.html?product=2">
+
+            VIEW TEE
+
+        </a>
+
+    </div>
+
+</article>
+
+
+
+<!-- PRODUCT 3 -->
+
+<article class="product-card">
+
+    <div class="product-image">
+
+        <div class="placeholder">
+
+            <img
+                src="catala-logo.png"
+                alt="CATALA Tee 03">
+
+        </div>
+
+        <button
+            class="quick-look-button"
+            data-product="3">
+
+            QUICK LOOK
+
+        </button>
+
+    </div>
+
+    <div class="product-info">
+
+        <h3 class="product-name">
+            CATALA TEE 03
+        </h3>
+
+        <p class="product-detail">
+            WHITE / 100% COTTON
+        </p>
+
+        <p class="product-price">
+            $—
+        </p>
+
+        <a
+            class="product-button"
+            href="product.html?product=3">
+
+            VIEW TEE
+
+        </a>
+
+    </div>
+
+</article>
+
+
+</div>
+
+
+<div class="shop-all-wrap">
+
+    <a
+        class="shop-all"
+        href="#shop">
+
+        SHOP ALL →
+
+    </a>
+
+</div>
 
 </section>
 
 
 
 <!-- =========================
-     BRAND STATEMENT
+     STATEMENT
 ========================= -->
 
 <section class="statement">
 
-
-    <h3>
-        SURF MORE.<br>
-        EVERYTHING ELSE LESS.
-    </h3>
-
+<h3>
+    SURF MORE.<br>
+    EVERYTHING ELSE LESS.
+</h3>
 
 </section>
 
@@ -1276,73 +1326,174 @@ a {
 
 <section class="social">
 
+<div class="social-header">
 
-    <div class="social-header">
+    <h2 class="social-title">
+        FOLLOW THE<br>
+        GOOD DAYS
+    </h2>
 
+    <p class="social-handle">
+        @CATALA.PNW
+    </p>
 
-        <h2 class="social-title">
-            FOLLOW THE<br>
-            GOOD DAYS
-        </h2>
-
-
-        <p class="social-handle">
-            @CATALA.PNW
-        </p>
-
-
-    </div>
+</div>
 
 
+<div class="social-grid">
 
-    <div class="social-grid">
+    <div class="social-post"></div>
+    <div class="social-post"></div>
+    <div class="social-post"></div>
+    <div class="social-post"></div>
 
-
-        <div class="social-post"></div>
-
-        <div class="social-post"></div>
-
-        <div class="social-post"></div>
-
-        <div class="social-post"></div>
+</div>
 
 
-    </div>
+<div class="social-links">
 
+    <a
+        href="https://www.instagram.com/catala.pnw?stkn=MWl4ZzV4OGFhNjJmNA%3D%3D&utm_source=qr"
+        target="_blank"
+        rel="noopener noreferrer">
 
+        INSTAGRAM ↗
 
-    <div class="social-links">
+    </a>
 
+    <a
+        href="https://www.tiktok.com/@catala.pnw?_r=1&_t=ZS-99z02Tc4fga"
+        target="_blank"
+        rel="noopener noreferrer">
 
-        <a
-            href="https://www.instagram.com/catala.pnw?stkn=MWl4ZzV4OGFhNjJmNA%3D%3D&utm_source=qr"
-            target="_blank"
-            rel="noopener noreferrer">
+        TIKTOK ↗
 
-            INSTAGRAM ↗
+    </a>
 
-        </a>
-
-
-        <a
-            href="https://www.tiktok.com/@catala.pnw?_r=1&_t=ZS-99z02Tc4fga"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            TIKTOK ↗
-
-        </a>
-
-
-    </div>
-
+</div>
 
 </section>
 
 
 
 <!-- =========================
-     CART OVERLAY
+     QUICK LOOK
+========================= -->
+
+<div
+    class="quick-overlay"
+    id="quickOverlay">
+
+<div class="quick-modal">
+
+    <button
+        class="quick-close"
+        id="quickClose">
+
+        ×
+
+    </button>
+
+
+    <div class="quick-gallery">
+
+        <button
+            class="gallery-arrow gallery-prev"
+            id="quickPrev">
+
+            ←
+
+        </button>
+
+        <img
+            id="quickImage"
+            src="catala-logo.png"
+            alt="CATALA product">
+
+        <button
+            class="gallery-arrow gallery-next"
+            id="quickNext">
+
+            →
+
+        </button>
+
+        <span
+            class="gallery-count"
+            id="quickCount">
+
+            01 / 03
+
+        </span>
+
+    </div>
+
+
+    <div class="quick-details">
+
+        <p class="quick-label">
+            QUICK LOOK
+        </p>
+
+        <h2 id="quickName">
+            CATALA TEE 01
+        </h2>
+
+        <p class="quick-price">
+            $—
+        </p>
+
+
+        <div class="quick-specs">
+
+            <div class="quick-spec">
+                <span>COLOUR</span>
+                <strong>WHITE</strong>
+            </div>
+
+            <div class="quick-spec">
+                <span>MATERIAL</span>
+                <strong>100% COTTON</strong>
+            </div>
+
+            <div class="quick-spec">
+                <span>FIT</span>
+                <strong>CLASSIC / EVERYDAY</strong>
+            </div>
+
+        </div>
+
+
+        <div class="quick-sizes">
+
+            <span class="quick-size">S</span>
+
+            <span class="quick-size">M</span>
+
+            <span class="quick-size">L</span>
+
+        </div>
+
+
+        <a
+            class="full-product-link"
+            id="quickProductLink"
+            href="product.html?product=1">
+
+            VIEW FULL PRODUCT →
+
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     CART
 ========================= -->
 
 <div
@@ -1351,92 +1502,249 @@ a {
 </div>
 
 
-
-<!-- =========================
-     CART DRAWER
-========================= -->
-
 <aside
     class="cart-drawer"
     id="cartDrawer"
     aria-hidden="true">
 
+<div class="cart-header">
 
-    <div class="cart-header">
+    <h2>
+        YOUR CART
+    </h2>
+
+    <button
+        class="cart-close"
+        id="cartClose">
+
+        ×
+
+    </button>
+
+</div>
 
 
-        <h2>
-            YOUR CART
-        </h2>
+<div class="cart-body">
 
+    <div class="empty-cart">
+
+        <h3>
+            YOUR CART<br>
+            IS EMPTY.
+        </h3>
+
+        <p>
+            GO FIND SOMETHING RAD.
+        </p>
 
         <button
-            class="cart-close"
-            id="cartClose"
-            aria-label="Close cart">
+            class="continue-shopping"
+            id="continueShopping">
 
-            ×
+            CONTINUE SHOPPING
 
         </button>
 
-
     </div>
 
+</div>
 
 
-    <div class="cart-body">
-
-
-        <div class="empty-cart">
-
-
-            <h3>
-                YOUR CART<br>
-                IS EMPTY.
-            </h3>
-
-
-            <p>
-                GO FIND SOMETHING RAD.
-            </p>
-
-
-            <button
-                class="continue-shopping"
-                id="continueShopping">
-
-                CONTINUE SHOPPING
-
-            </button>
-
-
-        </div>
-
-
-    </div>
-
-
-
-    <div class="cart-footer">
-
-
-        <p class="cart-note">
-            CATALA — BORN IN THE PNW.
-        </p>
-
-
-    </div>
-
+<div class="cart-footer">
+    CATALA — BORN IN THE PNW.
+</div>
 
 </aside>
 
 
 
 <!-- =========================
-     CART JAVASCRIPT
+     JAVASCRIPT
 ========================= -->
 
 <script>
+
+/* PRODUCT DATA */
+
+const products = {
+
+    1: {
+        name: "CATALA TEE 01",
+        images: [
+            "catala-logo.png",
+            "catala-logo.png",
+            "catala-logo.png"
+        ]
+    },
+
+    2: {
+        name: "CATALA TEE 02",
+        images: [
+            "catala-logo.png",
+            "catala-logo.png",
+            "catala-logo.png"
+        ]
+    },
+
+    3: {
+        name: "CATALA TEE 03",
+        images: [
+            "catala-logo.png",
+            "catala-logo.png",
+            "catala-logo.png"
+        ]
+    }
+
+};
+
+
+/* QUICK LOOK */
+
+const quickOverlay =
+    document.getElementById("quickOverlay");
+
+const quickClose =
+    document.getElementById("quickClose");
+
+const quickImage =
+    document.getElementById("quickImage");
+
+const quickName =
+    document.getElementById("quickName");
+
+const quickCount =
+    document.getElementById("quickCount");
+
+const quickProductLink =
+    document.getElementById("quickProductLink");
+
+let currentProduct = 1;
+let currentImage = 0;
+
+
+function updateQuickGallery() {
+
+    const product =
+        products[currentProduct];
+
+    quickImage.src =
+        product.images[currentImage];
+
+    quickCount.textContent =
+        String(currentImage + 1).padStart(2, "0")
+        + " / "
+        + String(product.images.length).padStart(2, "0");
+
+}
+
+
+function openQuickLook(productNumber) {
+
+    currentProduct =
+        productNumber;
+
+    currentImage = 0;
+
+    quickName.textContent =
+        products[currentProduct].name;
+
+    quickProductLink.href =
+        "product.html?product="
+        + currentProduct;
+
+    updateQuickGallery();
+
+    quickOverlay.classList.add("active");
+
+    document.body.classList.add("no-scroll");
+
+}
+
+
+function closeQuickLook() {
+
+    quickOverlay.classList.remove("active");
+
+    document.body.classList.remove("no-scroll");
+
+}
+
+
+document
+.querySelectorAll(".quick-look-button")
+.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function() {
+
+            openQuickLook(
+                Number(this.dataset.product)
+            );
+
+        }
+    );
+
+});
+
+
+quickClose.addEventListener(
+    "click",
+    closeQuickLook
+);
+
+
+quickOverlay.addEventListener(
+    "click",
+    function(event) {
+
+        if (event.target === quickOverlay) {
+            closeQuickLook();
+        }
+
+    }
+);
+
+
+document
+.getElementById("quickPrev")
+.addEventListener(
+    "click",
+    function() {
+
+        const images =
+            products[currentProduct].images;
+
+        currentImage =
+            (currentImage - 1 + images.length)
+            % images.length;
+
+        updateQuickGallery();
+
+    }
+);
+
+
+document
+.getElementById("quickNext")
+.addEventListener(
+    "click",
+    function() {
+
+        const images =
+            products[currentProduct].images;
+
+        currentImage =
+            (currentImage + 1)
+            % images.length;
+
+        updateQuickGallery();
+
+    }
+);
+
+
+/* CART */
 
 const cartOpen =
     document.getElementById("cartOpen");
@@ -1460,12 +1768,7 @@ function openCart() {
 
     cartOverlay.classList.add("active");
 
-    document.body.classList.add("cart-open");
-
-    cartDrawer.setAttribute(
-        "aria-hidden",
-        "false"
-    );
+    document.body.classList.add("no-scroll");
 
 }
 
@@ -1476,12 +1779,7 @@ function closeCart() {
 
     cartOverlay.classList.remove("active");
 
-    document.body.classList.remove("cart-open");
-
-    cartDrawer.setAttribute(
-        "aria-hidden",
-        "true"
-    );
+    document.body.classList.remove("no-scroll");
 
 }
 
@@ -1532,6 +1830,7 @@ document.addEventListener(
 
         if (event.key === "Escape") {
 
+            closeQuickLook();
             closeCart();
 
         }
@@ -1543,5 +1842,4 @@ document.addEventListener(
 
 
 </body>
-
 </html>

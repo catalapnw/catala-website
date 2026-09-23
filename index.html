@@ -1,1768 +1,1055 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>CATALA</title>
 
 <style>
-
-/* =========================
-   RESET
-========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f2eee3;
-    color: #171717;
-}
-
-body.no-scroll {
-    overflow: hidden;
-}
-
-a {
-    color: inherit;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 650px;
-
-    background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.05),
-            rgba(0, 0, 0, 0.14)
-        ),
-        url("catala-hero.jpg");
-
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-}
-
-
-/* =========================
-   NAVIGATION
-========================= */
-
-.nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 30px 38px;
-
-    z-index: 10;
-}
-
-.nav-brand {
-    color: #f4efdf;
-    text-decoration: none;
-
-    font-size: 22px;
-    font-weight: 900;
-    letter-spacing: -1px;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 34px;
-}
-
-.nav-links a {
-    position: relative;
-
-    color: #f4efdf;
-    text-decoration: none;
-
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-}
-
-.nav-links a::after {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-
-    width: 0;
-    height: 1px;
-
-    background: #f4efdf;
-
-    transition: width 0.25s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-
-/* =========================
-   HERO CONTENT
-========================= */
-
-.hero-content {
-    position: absolute;
-
-    left: 50%;
-    top: 56%;
-
-    transform: translate(-50%, -50%);
-
-    width: 100%;
-
-    padding: 0 30px;
-
-    text-align: center;
-}
-
-.hero-logo {
-    display: block;
-
-    width: min(780px, 72vw);
-    height: auto;
-
-    margin: 0 auto;
-
-    filter:
-        invert(96%)
-        sepia(13%)
-        saturate(447%)
-        hue-rotate(339deg)
-        brightness(105%)
-        contrast(91%);
-}
-
-.hero-button {
-    display: inline-block;
-
-    margin-top: 38px;
-    padding: 14px 28px;
-
-    border: 1px solid rgba(244, 239, 223, 0.9);
-
-    color: #f4efdf;
-    text-decoration: none;
-
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-
-    transition: 0.25s ease;
-}
-
-.hero-button:hover {
-    background: #f4efdf;
-    color: #171717;
-}
-
-.photo-credit {
-    position: absolute;
-
-    right: 18px;
-    bottom: 14px;
-
-    color: rgba(244, 239, 223, 0.65);
-
-    font-size: 8px;
-    letter-spacing: 0.5px;
-
-    text-decoration: none;
-}
-
-
-/* =========================
-   BRAND STRIP
-========================= */
-
-.brand-strip {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 30px;
-
-    padding: 34px 6%;
-
-    background: #f2eee3;
-}
-
-.strip-line {
-    width: 18%;
-    height: 1px;
-
-    background: rgba(23, 23, 23, 0.25);
-}
-
-.brand-strip p {
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-align: center;
-    white-space: nowrap;
-}
-
-
-/* =========================
-   NEW DROP
-========================= */
-
-.new-drop {
-    padding: 55px 4% 95px;
-    background: #f2eee3;
-}
-
-.drop-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-
-    margin-bottom: 35px;
-}
-
-.drop-heading h2 {
-    font-size: clamp(42px, 5vw, 72px);
-    line-height: 0.9;
-    letter-spacing: -4px;
-}
-
-.drop-number {
-    font-size: 11px;
-    letter-spacing: 5px;
-}
-
-
-/* =========================
-   PRODUCTS
-========================= */
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.product-image {
-    position: relative;
-
-    width: 100%;
-    aspect-ratio: 4 / 5;
-
-    overflow: hidden;
-
-    background: #ded8ca;
-}
-
-.placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 100%;
-
-    padding: 40px;
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#f2eee3;color:#171717}
+body.no-scroll{overflow:hidden}
+a{color:inherit}
+
+/* HERO */
+.hero{
+    position:relative;
+    height:100vh;
+    min-height:650px;
     background:
-        linear-gradient(
-            135deg,
-            #d9d2c4,
-            #eee9df
-        );
+        linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.14)),
+        url("catala-hero.jpg") center/cover;
+}
+.nav{
+    position:absolute;
+    top:0;left:0;width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:30px 38px;
+    z-index:10;
+}
+.nav-brand{
+    color:#f4efdf;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:900;
+}
+.nav-links{display:flex;gap:34px}
+.nav-links a{
+    color:#f4efdf;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.5px;
+}
+.hero-content{
+    position:absolute;
+    left:50%;top:56%;
+    transform:translate(-50%,-50%);
+    width:100%;
+    text-align:center;
+}
+.hero-logo{
+    width:min(780px,72vw);
+    filter:invert(96%) sepia(13%) saturate(447%) hue-rotate(339deg) brightness(105%) contrast(91%);
+}
+.hero-button{
+    display:inline-block;
+    margin-top:38px;
+    padding:14px 28px;
+    border:1px solid #f4efdf;
+    color:#f4efdf;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2.5px;
+}
+.hero-button:hover{background:#f4efdf;color:#171717}
+.photo-credit{
+    position:absolute;
+    right:18px;
+    bottom:14px;
+    color:rgba(244,239,223,.65);
+    font-size:8px;
+    text-decoration:none;
 }
 
-.placeholder img {
-    width: 70%;
-    height: auto;
-    object-fit: contain;
-    opacity: 0.75;
+/* STRIP */
+.brand-strip{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    padding:34px 6%;
+}
+.strip-line{
+    width:18%;
+    height:1px;
+    background:rgba(23,23,23,.25);
+}
+.brand-strip p{
+    font-size:11px;
+    letter-spacing:4px;
 }
 
+/* DROP */
+.new-drop{padding:55px 4% 95px}
+.drop-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:35px;
+}
+.drop-heading h2{
+    font-size:clamp(42px,5vw,72px);
+    line-height:.9;
+    letter-spacing:-4px;
+}
+.drop-number{font-size:11px;letter-spacing:5px}
 
-/* =========================
-   QUICK LOOK BUTTON
-========================= */
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+.product-image{
+    position:relative;
+    aspect-ratio:4/5;
+    background:#ded8ca;
+    overflow:hidden;
+}
+.placeholder{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+    background:linear-gradient(135deg,#d9d2c4,#eee9df);
+}
+.placeholder img{
+    width:70%;
+    opacity:.75;
+}
+.quick-look-button{
+    position:absolute;
+    right:12px;
+    bottom:12px;
+    padding:12px 15px;
+    border:0;
+    background:#f2eee3;
+    color:#171717;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1.7px;
+    cursor:pointer;
+}
+.quick-look-button:hover{background:#171717;color:#f2eee3}
 
-.quick-look-button {
-    position: absolute;
+.product-info{padding-top:17px}
+.product-name{font-size:14px;font-weight:800}
+.product-detail{
+    margin-top:7px;
+    font-size:10px;
+    letter-spacing:2px;
+    opacity:.55;
+}
+.product-price{
+    margin-top:14px;
+    font-size:13px;
+    font-weight:700;
+}
+.product-button{
+    display:block;
+    width:100%;
+    margin-top:17px;
+    padding:13px;
+    border:1px solid #171717;
+    text-align:center;
+    text-decoration:none;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+.product-button:hover{background:#171717;color:#f2eee3}
 
-    right: 12px;
-    bottom: 12px;
-
-    z-index: 5;
-
-    padding: 12px 15px;
-
-    border: 0;
-
-    background: #f2eee3;
-    color: #171717;
-
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 1.7px;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
+.shop-all-wrap{text-align:center;margin-top:60px}
+.shop-all{
+    display:inline-block;
+    padding:17px 60px;
+    background:#171717;
+    color:#f2eee3;
+    text-decoration:none;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:3px;
 }
 
-.quick-look-button:hover {
-    background: #171717;
-    color: #f2eee3;
+/* STATEMENT */
+.statement{
+    min-height:320px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px 20px;
+    background:#d8d0c1;
+    text-align:center;
+}
+.statement h3{
+    font-size:clamp(40px,7vw,100px);
+    line-height:.9;
+    letter-spacing:-5px;
 }
 
-
-/* =========================
-   PRODUCT INFO
-========================= */
-
-.product-info {
-    padding-top: 17px;
+/* SOCIAL */
+.social{
+    padding:90px 4% 100px;
+    background:#171717;
+    color:#f2eee3;
+}
+.social-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:40px;
+}
+.social-title{
+    font-size:clamp(42px,6vw,82px);
+    line-height:.9;
+    letter-spacing:-4px;
+}
+.social-handle{font-size:11px;letter-spacing:3px;opacity:.65}
+.social-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+.social-post{
+    aspect-ratio:1;
+    background:#292929;
+    position:relative;
+}
+.social-post:after{
+    content:"CATALA";
+    position:absolute;
+    left:18px;
+    bottom:16px;
+    font-size:9px;
+    letter-spacing:2px;
+    opacity:.55;
+}
+.social-links{display:flex;gap:40px;margin-top:35px}
+.social-links a{
+    color:#f2eee3;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2px;
 }
 
-.product-name {
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
+/* QUICK LOOK */
+.quick-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.62);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    opacity:0;
+    visibility:hidden;
+    z-index:1100;
+}
+.quick-overlay.active{opacity:1;visibility:visible}
+.quick-modal{
+    position:relative;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    width:min(900px,94vw);
+    max-height:88vh;
+    overflow:auto;
+    background:#f2eee3;
+}
+.quick-close{
+    position:absolute;
+    top:14px;
+    right:17px;
+    z-index:10;
+    border:0;
+    background:transparent;
+    font-size:30px;
+    cursor:pointer;
+}
+.quick-gallery{
+    position:relative;
+    min-height:530px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#ddd7ca;
+}
+.quick-gallery img{width:70%;max-height:420px;object-fit:contain}
+.gallery-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:42px;height:42px;
+    border:1px solid rgba(23,23,23,.3);
+    background:#f2eee3;
+    cursor:pointer;
+}
+.gallery-prev{left:15px}
+.gallery-next{right:15px}
+.gallery-count{
+    position:absolute;
+    left:18px;
+    bottom:17px;
+    font-size:9px;
+    letter-spacing:2px;
+}
+.quick-details{padding:70px 45px 45px}
+.quick-label{
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:3px;
+    opacity:.5;
+    margin-bottom:15px;
+}
+.quick-details h2{
+    font-size:clamp(30px,4vw,48px);
+    line-height:.95;
+    letter-spacing:-2px;
+}
+.quick-price{margin:12px 0 30px;font-weight:700}
+.quick-spec{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+    border-top:1px solid rgba(23,23,23,.2);
+    font-size:10px;
+}
+.quick-sizes{display:flex;gap:8px;margin:25px 0}
+.quick-size{
+    width:42px;height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #171717;
+    font-size:10px;
+    font-weight:700;
+}
+.full-product-link{
+    display:block;
+    padding:16px;
+    background:#171717;
+    color:#f2eee3;
+    text-align:center;
+    text-decoration:none;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
 }
 
-.product-detail {
-    margin-top: 7px;
-
-    font-size: 10px;
-    letter-spacing: 2px;
-
-    opacity: 0.55;
+/* CART */
+.cart-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.48);
+    opacity:0;
+    visibility:hidden;
+    z-index:998;
+}
+.cart-overlay.active{opacity:1;visibility:visible}
+.cart-drawer{
+    position:fixed;
+    top:0;right:0;
+    width:min(500px,94vw);
+    height:100vh;
+    background:#f2eee3;
+    transform:translateX(100%);
+    transition:.35s;
+    z-index:999;
+    display:flex;
+    flex-direction:column;
+}
+.cart-drawer.active{transform:translateX(0)}
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px;
+    border-bottom:1px solid rgba(23,23,23,.2);
+}
+.cart-header h2{font-size:24px}
+.cart-close{
+    border:0;background:none;
+    font-size:30px;
+    cursor:pointer;
 }
 
-.product-price {
-    margin-top: 14px;
-
-    font-size: 13px;
-    font-weight: 700;
+/* CART ITEMS */
+.cart-items{
+    flex:1;
+    overflow:auto;
+    padding:0 25px;
+}
+.empty-cart{
+    padding:70px 10px;
+    text-align:center;
+}
+.empty-cart h3{
+    font-size:35px;
+    line-height:.95;
+}
+.empty-cart p{
+    margin-top:15px;
+    font-size:11px;
+    opacity:.55;
 }
 
-.product-button {
-    display: block;
-
-    width: 100%;
-
-    margin-top: 17px;
-    padding: 13px 15px;
-
-    border: 1px solid #171717;
-
-    background: transparent;
-    color: #171717;
-
-    text-align: center;
-    text-decoration: none;
-
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-
-    transition: 0.25s ease;
+.cart-item{
+    display:grid;
+    grid-template-columns:90px 1fr;
+    gap:17px;
+    padding:22px 0;
+    border-bottom:1px solid rgba(23,23,23,.18);
+}
+.cart-thumb{
+    width:90px;
+    height:110px;
+    background:#ddd7ca;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px;
+}
+.cart-thumb img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+.cart-item-top{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+}
+.cart-item-name{
+    font-size:12px;
+    font-weight:800;
+}
+.cart-item-price{
+    font-size:11px;
+    font-weight:700;
+}
+.cart-size{
+    margin-top:7px;
+    font-size:9px;
+    letter-spacing:1.5px;
+    opacity:.55;
+}
+.cart-controls{
+    margin-top:18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.quantity{
+    display:flex;
+    border:1px solid rgba(23,23,23,.4);
+}
+.quantity button{
+    width:32px;
+    height:32px;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+}
+.quantity span{
+    width:32px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:10px;
+}
+.remove-item{
+    border:0;
+    background:none;
+    font-size:8px;
+    letter-spacing:1.5px;
+    text-decoration:underline;
+    cursor:pointer;
 }
 
-.product-button:hover {
-    background: #171717;
-    color: #f2eee3;
+/* CART SUMMARY */
+.cart-summary{
+    padding:22px 25px 25px;
+    border-top:1px solid rgba(23,23,23,.2);
+}
+.summary-title{
+    font-size:10px;
+    letter-spacing:2px;
+    margin-bottom:16px;
+}
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin:10px 0;
+    font-size:11px;
+}
+.summary-row.total{
+    margin-top:17px;
+    padding-top:17px;
+    border-top:1px solid rgba(23,23,23,.25);
+    font-size:14px;
+    font-weight:800;
+}
+.shipping-message{
+    margin:18px 0;
+    padding:14px;
+    background:#d8d0c1;
+    font-size:9px;
+    line-height:1.6;
+}
+.checkout-button{
+    width:100%;
+    padding:17px;
+    border:0;
+    background:#171717;
+    color:#f2eee3;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+.checkout-button:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+.checkout-note{
+    margin-top:9px;
+    text-align:center;
+    font-size:8px;
+    letter-spacing:1px;
+    opacity:.5;
 }
 
-
-/* =========================
-   SHOP ALL
-========================= */
-
-.shop-all-wrap {
-    margin-top: 60px;
-    text-align: center;
+/* MOBILE */
+@media(max-width:700px){
+    .nav{padding:22px 18px}
+    .nav-brand{font-size:18px}
+    .nav-links{gap:13px}
+    .nav-links a{font-size:9px}
+    .hero-logo{width:92vw}
+    .strip-line{display:none}
+    .brand-strip p{font-size:9px;letter-spacing:2px;text-align:center}
+    .new-drop{padding:45px 18px 70px}
+    .product-grid{grid-template-columns:1fr;gap:50px}
+    .statement h3{font-size:14vw}
+    .social{padding:65px 18px}
+    .social-header{display:block}
+    .social-handle{margin-top:18px}
+    .social-grid{grid-template-columns:repeat(2,1fr)}
+    .quick-overlay{padding:10px}
+    .quick-modal{display:block;max-height:94vh}
+    .quick-gallery{min-height:360px}
+    .quick-details{padding:35px 22px}
 }
-
-.shop-all {
-    display: inline-block;
-
-    padding: 17px 60px;
-
-    background: #171717;
-    color: #f2eee3;
-
-    text-decoration: none;
-
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-}
-
-
-/* =========================
-   STATEMENT
-========================= */
-
-.statement {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 320px;
-
-    padding: 60px 20px;
-
-    background: #d8d0c1;
-
-    text-align: center;
-}
-
-.statement h3 {
-    max-width: 900px;
-
-    font-size: clamp(40px, 7vw, 100px);
-
-    line-height: 0.9;
-    letter-spacing: -5px;
-}
-
-
-/* =========================
-   SOCIAL
-========================= */
-
-.social {
-    padding: 90px 4% 100px;
-
-    background: #171717;
-    color: #f2eee3;
-}
-
-.social-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-
-    margin-bottom: 40px;
-}
-
-.social-title {
-    font-size: clamp(42px, 6vw, 82px);
-
-    line-height: 0.9;
-    letter-spacing: -4px;
-}
-
-.social-handle {
-    font-size: 11px;
-    letter-spacing: 3px;
-    opacity: 0.65;
-}
-
-.social-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-}
-
-.social-post {
-    position: relative;
-
-    aspect-ratio: 1 / 1;
-
-    background: #292929;
-}
-
-.social-post::after {
-    content: "CATALA";
-
-    position: absolute;
-
-    left: 18px;
-    bottom: 16px;
-
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-
-    opacity: 0.55;
-}
-
-.social-links {
-    display: flex;
-    gap: 40px;
-
-    margin-top: 35px;
-}
-
-.social-links a {
-    color: #f2eee3;
-
-    text-decoration: none;
-
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-
-    border-bottom:
-        1px solid rgba(242, 238, 227, 0.35);
-
-    padding-bottom: 5px;
-}
-
-
-/* =========================
-   QUICK LOOK OVERLAY
-========================= */
-
-.quick-overlay {
-    position: fixed;
-
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 25px;
-
-    background: rgba(0, 0, 0, 0.62);
-
-    opacity: 0;
-    visibility: hidden;
-
-    z-index: 1100;
-
-    transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease;
-}
-
-.quick-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.quick-modal {
-    position: relative;
-
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-
-    width: min(900px, 94vw);
-    max-height: 88vh;
-
-    overflow: auto;
-
-    background: #f2eee3;
-
-    transform: translateY(15px);
-
-    transition: transform 0.25s ease;
-}
-
-.quick-overlay.active .quick-modal {
-    transform: translateY(0);
-}
-
-.quick-close {
-    position: absolute;
-
-    top: 14px;
-    right: 17px;
-
-    z-index: 10;
-
-    border: 0;
-
-    background: transparent;
-
-    font-size: 30px;
-
-    cursor: pointer;
-}
-
-
-/* =========================
-   QUICK LOOK GALLERY
-========================= */
-
-.quick-gallery {
-    position: relative;
-
-    min-height: 530px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 45px;
-
-    background: #ddd7ca;
-}
-
-.quick-gallery img {
-    width: 75%;
-    max-height: 420px;
-
-    object-fit: contain;
-
-    opacity: 0.8;
-}
-
-.gallery-arrow {
-    position: absolute;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 42px;
-    height: 42px;
-
-    border: 1px solid rgba(23, 23, 23, 0.35);
-
-    background: rgba(242, 238, 227, 0.85);
-
-    color: #171717;
-
-    font-size: 18px;
-
-    cursor: pointer;
-}
-
-.gallery-prev {
-    left: 15px;
-}
-
-.gallery-next {
-    right: 15px;
-}
-
-.gallery-count {
-    position: absolute;
-
-    left: 18px;
-    bottom: 17px;
-
-    font-size: 9px;
-    letter-spacing: 2px;
-}
-
-
-/* =========================
-   QUICK LOOK DETAILS
-========================= */
-
-.quick-details {
-    padding: 70px 45px 45px;
-}
-
-.quick-label {
-    margin-bottom: 15px;
-
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 3px;
-
-    opacity: 0.5;
-}
-
-.quick-details h2 {
-    margin-bottom: 10px;
-
-    font-size: clamp(30px, 4vw, 48px);
-
-    line-height: 0.95;
-    letter-spacing: -2px;
-}
-
-.quick-price {
-    margin-bottom: 35px;
-
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.quick-specs {
-    border-top: 1px solid rgba(23, 23, 23, 0.2);
-}
-
-.quick-spec {
-    display: flex;
-    justify-content: space-between;
-
-    gap: 20px;
-
-    padding: 15px 0;
-
-    border-bottom: 1px solid rgba(23, 23, 23, 0.2);
-
-    font-size: 10px;
-    letter-spacing: 1px;
-}
-
-.quick-spec span:first-child {
-    opacity: 0.5;
-}
-
-.quick-sizes {
-    display: flex;
-    gap: 8px;
-
-    margin: 25px 0;
-}
-
-.quick-size {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 42px;
-    height: 42px;
-
-    border: 1px solid #171717;
-
-    font-size: 10px;
-    font-weight: 700;
-}
-
-.full-product-link {
-    display: block;
-
-    width: 100%;
-
-    padding: 16px;
-
-    background: #171717;
-    color: #f2eee3;
-
-    text-align: center;
-    text-decoration: none;
-
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-
-/* =========================
-   CART
-========================= */
-
-.cart-overlay {
-    position: fixed;
-
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.48);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition: 0.3s ease;
-
-    z-index: 998;
-}
-
-.cart-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.cart-drawer {
-    position: fixed;
-
-    top: 0;
-    right: 0;
-
-    width: min(470px, 94vw);
-    height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-
-    background: #f2eee3;
-
-    transform: translateX(100%);
-
-    transition: transform 0.35s ease;
-
-    z-index: 999;
-}
-
-.cart-drawer.active {
-    transform: translateX(0);
-}
-
-.cart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 28px;
-
-    border-bottom: 1px solid rgba(23, 23, 23, 0.2);
-}
-
-.cart-header h2 {
-    font-size: 22px;
-}
-
-.cart-close {
-    border: 0;
-
-    background: transparent;
-
-    font-size: 30px;
-
-    cursor: pointer;
-}
-
-.cart-body {
-    flex: 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 40px 28px;
-}
-
-.empty-cart {
-    width: 100%;
-
-    text-align: center;
-}
-
-.empty-cart h3 {
-    margin-bottom: 15px;
-
-    font-size: 42px;
-    line-height: 0.95;
-    letter-spacing: -2px;
-}
-
-.empty-cart p {
-    margin-bottom: 30px;
-
-    font-size: 11px;
-    letter-spacing: 1px;
-
-    opacity: 0.55;
-}
-
-.continue-shopping {
-    width: 100%;
-
-    padding: 16px;
-
-    border: 1px solid #171717;
-
-    background: #171717;
-    color: #f2eee3;
-
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-
-    cursor: pointer;
-}
-
-.cart-footer {
-    padding: 22px 28px;
-
-    border-top: 1px solid rgba(23, 23, 23, 0.2);
-
-    text-align: center;
-
-    font-size: 9px;
-    letter-spacing: 1px;
-
-    opacity: 0.5;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-    .nav {
-        padding: 22px 18px;
-    }
-
-    .nav-brand {
-        font-size: 18px;
-    }
-
-    .nav-links {
-        gap: 13px;
-    }
-
-    .nav-links a {
-        font-size: 9px;
-        letter-spacing: 0.8px;
-    }
-
-    .hero-logo {
-        width: 92vw;
-    }
-
-    .brand-strip {
-        padding: 25px 20px;
-    }
-
-    .strip-line {
-        display: none;
-    }
-
-    .brand-strip p {
-        font-size: 9px;
-        letter-spacing: 2px;
-        white-space: normal;
-    }
-
-    .new-drop {
-        padding: 45px 18px 70px;
-    }
-
-    .drop-heading h2 {
-        font-size: 46px;
-    }
-
-    .product-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .statement h3 {
-        font-size: 14vw;
-    }
-
-    .social {
-        padding: 65px 18px 70px;
-    }
-
-    .social-header {
-        display: block;
-    }
-
-    .social-title {
-        font-size: 13vw;
-    }
-
-    .social-handle {
-        margin-top: 18px;
-    }
-
-    .social-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .quick-overlay {
-        padding: 10px;
-    }
-
-    .quick-modal {
-        display: block;
-
-        width: 100%;
-
-        max-height: 94vh;
-    }
-
-    .quick-gallery {
-        min-height: 380px;
-
-        padding: 40px;
-    }
-
-    .quick-gallery img {
-        width: 70%;
-        max-height: 300px;
-    }
-
-    .quick-details {
-        padding: 35px 22px 25px;
-    }
-
-}
-
 </style>
-
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     HERO
-========================= -->
 
 <section class="hero">
 
 <nav class="nav">
+<a class="nav-brand" href="index.html">CATALA</a>
 
-    <a class="nav-brand" href="index.html">
-        CATALA
-    </a>
-
-    <div class="nav-links">
-
-        <a href="#shop">
-            SHOP
-        </a>
-
-        <a href="about.html">
-            ABOUT
-        </a>
-
-        <a href="#" id="cartOpen">
-            CART (0)
-        </a>
-
-    </div>
-
+<div class="nav-links">
+<a href="#shop">SHOP</a>
+<a href="about.html">ABOUT</a>
+<a href="#" id="cartOpen">CART (<span id="cartCount">0</span>)</a>
+</div>
 </nav>
 
-
 <div class="hero-content">
-
-    <img
-        class="hero-logo"
-        src="catala-logo.png"
-        alt="CATALA">
-
-    <a
-        class="hero-button"
-        href="#shop">
-
-        SHOP THE DROP
-
-    </a>
-
+<img class="hero-logo" src="catala-logo.png" alt="CATALA">
+<br>
+<a class="hero-button" href="#shop">SHOP THE DROP</a>
 </div>
 
-
-<a
-    class="photo-credit"
-    href="https://commons.wikimedia.org/wiki/File:Surfer_Cox_Bay_Tofino_2736.jpg"
-    target="_blank"
-    rel="noopener">
-
-    PHOTO: IMAGEPERSON / CC BY 4.0
-
+<a class="photo-credit"
+href="https://commons.wikimedia.org/wiki/File:Surfer_Cox_Bay_Tofino_2736.jpg"
+target="_blank" rel="noopener">
+PHOTO: IMAGEPERSON / CC BY 4.0
 </a>
 
 </section>
 
-
-
-<!-- =========================
-     BRAND STRIP
-========================= -->
-
 <section class="brand-strip">
-
-    <div class="strip-line"></div>
-
-    <p>
-        CATALA — BUILT FOR DAYS AROUND THE WATER
-    </p>
-
-    <div class="strip-line"></div>
-
+<div class="strip-line"></div>
+<p>CATALA — BUILT FOR DAYS AROUND THE WATER</p>
+<div class="strip-line"></div>
 </section>
 
-
-
-<!-- =========================
-     PRODUCTS
-========================= -->
-
-<section
-    class="new-drop"
-    id="shop">
+<section class="new-drop" id="shop">
 
 <div class="drop-heading">
-
-    <h2>
-        NEW DROP
-    </h2>
-
-    <span class="drop-number">
-        01 / 03
-    </span>
-
+<h2>NEW DROP</h2>
+<span class="drop-number">01 / 03</span>
 </div>
-
 
 <div class="product-grid">
 
-
-<!-- PRODUCT 1 -->
-
+<!-- TEE 01 -->
 <article class="product-card">
-
-    <div class="product-image">
-
-        <div class="placeholder">
-
-            <img
-                src="catala-logo.png"
-                alt="CATALA Tee 01">
-
-        </div>
-
-        <button
-            class="quick-look-button"
-            data-product="1">
-
-            QUICK LOOK
-
-        </button>
-
-    </div>
-
-    <div class="product-info">
-
-        <h3 class="product-name">
-            CATALA TEE 01
-        </h3>
-
-        <p class="product-detail">
-            WHITE / 100% COTTON
-        </p>
-
-        <p class="product-price">
-            $—
-        </p>
-
-        <a
-            class="product-button"
-            href="product.html?product=1">
-
-            VIEW TEE
-
-        </a>
-
-    </div>
-
+<div class="product-image">
+<div class="placeholder">
+<img src="catala-logo.png" alt="CATALA Tee 01">
+</div>
+<button class="quick-look-button" data-product="1">QUICK LOOK</button>
+</div>
+<div class="product-info">
+<h3 class="product-name">CATALA TEE 01</h3>
+<p class="product-detail">WHITE / 100% COTTON</p>
+<p class="product-price">$35 CAD</p>
+<a class="product-button" href="product.html?product=1">VIEW TEE</a>
+</div>
 </article>
 
-
-
-<!-- PRODUCT 2 -->
-
+<!-- TEE 02 -->
 <article class="product-card">
-
-    <div class="product-image">
-
-        <div class="placeholder">
-
-            <img
-                src="catala-logo.png"
-                alt="CATALA Tee 02">
-
-        </div>
-
-        <button
-            class="quick-look-button"
-            data-product="2">
-
-            QUICK LOOK
-
-        </button>
-
-    </div>
-
-    <div class="product-info">
-
-        <h3 class="product-name">
-            CATALA TEE 02
-        </h3>
-
-        <p class="product-detail">
-            WHITE / 100% COTTON
-        </p>
-
-        <p class="product-price">
-            $—
-        </p>
-
-        <a
-            class="product-button"
-            href="product.html?product=2">
-
-            VIEW TEE
-
-        </a>
-
-    </div>
-
+<div class="product-image">
+<div class="placeholder">
+<img src="catala-logo.png" alt="CATALA Tee 02">
+</div>
+<button class="quick-look-button" data-product="2">QUICK LOOK</button>
+</div>
+<div class="product-info">
+<h3 class="product-name">CATALA TEE 02</h3>
+<p class="product-detail">WHITE / 100% COTTON</p>
+<p class="product-price">$35 CAD</p>
+<a class="product-button" href="product.html?product=2">VIEW TEE</a>
+</div>
 </article>
 
-
-
-<!-- PRODUCT 3 -->
-
+<!-- TEE 03 -->
 <article class="product-card">
-
-    <div class="product-image">
-
-        <div class="placeholder">
-
-            <img
-                src="catala-logo.png"
-                alt="CATALA Tee 03">
-
-        </div>
-
-        <button
-            class="quick-look-button"
-            data-product="3">
-
-            QUICK LOOK
-
-        </button>
-
-    </div>
-
-    <div class="product-info">
-
-        <h3 class="product-name">
-            CATALA TEE 03
-        </h3>
-
-        <p class="product-detail">
-            WHITE / 100% COTTON
-        </p>
-
-        <p class="product-price">
-            $—
-        </p>
-
-        <a
-            class="product-button"
-            href="product.html?product=3">
-
-            VIEW TEE
-
-        </a>
-
-    </div>
-
+<div class="product-image">
+<div class="placeholder">
+<img src="catala-logo.png" alt="CATALA Tee 03">
+</div>
+<button class="quick-look-button" data-product="3">QUICK LOOK</button>
+</div>
+<div class="product-info">
+<h3 class="product-name">CATALA TEE 03</h3>
+<p class="product-detail">WHITE / 100% COTTON</p>
+<p class="product-price">$35 CAD</p>
+<a class="product-button" href="product.html?product=3">VIEW TEE</a>
+</div>
 </article>
-
 
 </div>
-
 
 <div class="shop-all-wrap">
-
-    <a
-        class="shop-all"
-        href="#shop">
-
-        SHOP ALL →
-
-    </a>
-
+<a class="shop-all" href="#shop">SHOP ALL →</a>
 </div>
 
 </section>
 
-
-
-<!-- =========================
-     STATEMENT
-========================= -->
-
 <section class="statement">
-
-<h3>
-    SURF MORE.<br>
-    EVERYTHING ELSE LESS.
-</h3>
-
+<h3>SURF MORE.<br>EVERYTHING ELSE LESS.</h3>
 </section>
-
-
-
-<!-- =========================
-     SOCIAL
-========================= -->
 
 <section class="social">
 
 <div class="social-header">
-
-    <h2 class="social-title">
-        FOLLOW THE<br>
-        GOOD DAYS
-    </h2>
-
-    <p class="social-handle">
-        @CATALA.PNW
-    </p>
-
+<h2 class="social-title">FOLLOW THE<br>GOOD DAYS</h2>
+<p class="social-handle">@CATALA.PNW</p>
 </div>
-
 
 <div class="social-grid">
-
-    <div class="social-post"></div>
-    <div class="social-post"></div>
-    <div class="social-post"></div>
-    <div class="social-post"></div>
-
+<div class="social-post"></div>
+<div class="social-post"></div>
+<div class="social-post"></div>
+<div class="social-post"></div>
 </div>
-
 
 <div class="social-links">
 
-    <a
-        href="https://www.instagram.com/catala.pnw?stkn=MWl4ZzV4OGFhNjJmNA%3D%3D&utm_source=qr"
-        target="_blank"
-        rel="noopener noreferrer">
+<a href="https://www.instagram.com/catala.pnw?stkn=MWl4ZzV4OGFhNjJmNA%3D%3D&utm_source=qr"
+target="_blank" rel="noopener noreferrer">
+INSTAGRAM ↗
+</a>
 
-        INSTAGRAM ↗
-
-    </a>
-
-    <a
-        href="https://www.tiktok.com/@catala.pnw?_r=1&_t=ZS-99z02Tc4fga"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        TIKTOK ↗
-
-    </a>
+<a href="https://www.tiktok.com/@catala.pnw?_r=1&_t=ZS-99z02Tc4fga"
+target="_blank" rel="noopener noreferrer">
+TIKTOK ↗
+</a>
 
 </div>
-
 </section>
 
-
-
-<!-- =========================
-     QUICK LOOK
-========================= -->
-
-<div
-    class="quick-overlay"
-    id="quickOverlay">
+<!-- QUICK LOOK -->
+<div class="quick-overlay" id="quickOverlay">
 
 <div class="quick-modal">
 
-    <button
-        class="quick-close"
-        id="quickClose">
+<button class="quick-close" id="quickClose">×</button>
 
-        ×
+<div class="quick-gallery">
 
-    </button>
+<button class="gallery-arrow gallery-prev" id="quickPrev">←</button>
 
+<img id="quickImage" src="catala-logo.png" alt="CATALA product">
 
-    <div class="quick-gallery">
+<button class="gallery-arrow gallery-next" id="quickNext">→</button>
 
-        <button
-            class="gallery-arrow gallery-prev"
-            id="quickPrev">
-
-            ←
-
-        </button>
-
-        <img
-            id="quickImage"
-            src="catala-logo.png"
-            alt="CATALA product">
-
-        <button
-            class="gallery-arrow gallery-next"
-            id="quickNext">
-
-            →
-
-        </button>
-
-        <span
-            class="gallery-count"
-            id="quickCount">
-
-            01 / 03
-
-        </span>
-
-    </div>
-
-
-    <div class="quick-details">
-
-        <p class="quick-label">
-            QUICK LOOK
-        </p>
-
-        <h2 id="quickName">
-            CATALA TEE 01
-        </h2>
-
-        <p class="quick-price">
-            $—
-        </p>
-
-
-        <div class="quick-specs">
-
-            <div class="quick-spec">
-                <span>COLOUR</span>
-                <strong>WHITE</strong>
-            </div>
-
-            <div class="quick-spec">
-                <span>MATERIAL</span>
-                <strong>100% COTTON</strong>
-            </div>
-
-            <div class="quick-spec">
-                <span>FIT</span>
-                <strong>CLASSIC / EVERYDAY</strong>
-            </div>
-
-        </div>
-
-
-        <div class="quick-sizes">
-
-            <span class="quick-size">S</span>
-
-            <span class="quick-size">M</span>
-
-            <span class="quick-size">L</span>
-
-        </div>
-
-
-        <a
-            class="full-product-link"
-            id="quickProductLink"
-            href="product.html?product=1">
-
-            VIEW FULL PRODUCT →
-
-        </a>
-
-    </div>
+<span class="gallery-count" id="quickCount">01 / 03</span>
 
 </div>
 
+<div class="quick-details">
+
+<p class="quick-label">QUICK LOOK</p>
+
+<h2 id="quickName">CATALA TEE 01</h2>
+
+<p class="quick-price" id="quickPrice">$35 CAD</p>
+
+<div class="quick-spec">
+<span>COLOUR</span><strong>WHITE</strong>
 </div>
 
-
-
-<!-- =========================
-     CART
-========================= -->
-
-<div
-    class="cart-overlay"
-    id="cartOverlay">
+<div class="quick-spec">
+<span>MATERIAL</span><strong>100% COTTON</strong>
 </div>
 
+<div class="quick-spec">
+<span>FIT</span><strong>CLASSIC / EVERYDAY</strong>
+</div>
 
-<aside
-    class="cart-drawer"
-    id="cartDrawer"
-    aria-hidden="true">
+<div class="quick-sizes">
+<span class="quick-size">S</span>
+<span class="quick-size">M</span>
+<span class="quick-size">L</span>
+</div>
+
+<a class="full-product-link"
+id="quickProductLink"
+href="product.html?product=1">
+VIEW FULL PRODUCT →
+</a>
+
+</div>
+</div>
+</div>
+
+<!-- CART -->
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
 
 <div class="cart-header">
-
-    <h2>
-        YOUR CART
-    </h2>
-
-    <button
-        class="cart-close"
-        id="cartClose">
-
-        ×
-
-    </button>
-
+<h2>YOUR CART</h2>
+<button class="cart-close" id="cartClose">×</button>
 </div>
 
+<div class="cart-items" id="cartItems"></div>
 
-<div class="cart-body">
+<div class="cart-summary">
 
-    <div class="empty-cart">
+<h3 class="summary-title">CART SUMMARY</h3>
 
-        <h3>
-            YOUR CART<br>
-            IS EMPTY.
-        </h3>
-
-        <p>
-            GO FIND SOMETHING RAD.
-        </p>
-
-        <button
-            class="continue-shopping"
-            id="continueShopping">
-
-            CONTINUE SHOPPING
-
-        </button>
-
-    </div>
-
+<div class="summary-row">
+<span>SUBTOTAL</span>
+<span id="subtotal">$0.00 CAD</span>
 </div>
 
-
-<div class="cart-footer">
-    CATALA — BORN IN THE PNW.
+<div class="summary-row">
+<span>SHIPPING</span>
+<span>CALCULATED AT CHECKOUT</span>
 </div>
 
+<div class="summary-row total">
+<span>ESTIMATED TOTAL</span>
+<span id="total">$0.00 CAD</span>
+</div>
+
+<div class="shipping-message">
+<strong>SHIPPING SCHEDULE</strong><br>
+CATALA orders are prepared in larger shipping batches on the
+1st and 15th of each month. Orders placed after a shipping date
+will normally be included in the next scheduled batch.
+</div>
+
+<button class="checkout-button" id="checkoutButton" disabled>
+CHECKOUT — COMING SOON
+</button>
+
+<p class="checkout-note">
+SECURE CHECKOUT WILL BE ADDED BEFORE LAUNCH.
+</p>
+
+</div>
 </aside>
-
-
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
 
 <script>
 
-/* PRODUCT DATA */
+/* =========================================
+   PRODUCTS
+   Change prices here later.
+========================================= */
 
 const products = {
-
-    1: {
-        name: "CATALA TEE 01",
-        images: [
+    1:{
+        id:1,
+        name:"CATALA TEE 01",
+        price:35,
+        colour:"White",
+        material:"100% Cotton",
+        images:[
             "catala-logo.png",
             "catala-logo.png",
             "catala-logo.png"
         ]
     },
-
-    2: {
-        name: "CATALA TEE 02",
-        images: [
+    2:{
+        id:2,
+        name:"CATALA TEE 02",
+        price:35,
+        colour:"White",
+        material:"100% Cotton",
+        images:[
             "catala-logo.png",
             "catala-logo.png",
             "catala-logo.png"
         ]
     },
-
-    3: {
-        name: "CATALA TEE 03",
-        images: [
+    3:{
+        id:3,
+        name:"CATALA TEE 03",
+        price:35,
+        colour:"White",
+        material:"100% Cotton",
+        images:[
             "catala-logo.png",
             "catala-logo.png",
             "catala-logo.png"
         ]
     }
-
 };
 
 
-/* QUICK LOOK */
+/* =========================================
+   CART STORAGE
+========================================= */
 
-const quickOverlay =
-    document.getElementById("quickOverlay");
+function getCart(){
+    try{
+        return JSON.parse(localStorage.getItem("catalaCart")) || [];
+    }catch{
+        return [];
+    }
+}
 
-const quickClose =
-    document.getElementById("quickClose");
+function saveCart(cart){
+    localStorage.setItem("catalaCart",JSON.stringify(cart));
+    renderCart();
+}
 
-const quickImage =
-    document.getElementById("quickImage");
-
-const quickName =
-    document.getElementById("quickName");
-
-const quickCount =
-    document.getElementById("quickCount");
-
-const quickProductLink =
-    document.getElementById("quickProductLink");
-
-let currentProduct = 1;
-let currentImage = 0;
+function money(value){
+    return "$" + value.toFixed(2) + " CAD";
+}
 
 
-function updateQuickGallery() {
+/* =========================================
+   CART COUNT
+========================================= */
 
-    const product =
-        products[currentProduct];
+function updateCartCount(){
 
-    quickImage.src =
-        product.images[currentImage];
+    const cart=getCart();
 
-    quickCount.textContent =
-        String(currentImage + 1).padStart(2, "0")
-        + " / "
-        + String(product.images.length).padStart(2, "0");
+    const count=cart.reduce(
+        (total,item)=>total+item.quantity,
+        0
+    );
+
+    document.getElementById("cartCount").textContent=count;
+}
+
+
+/* =========================================
+   CART RENDER
+========================================= */
+
+function renderCart(){
+
+    const cart=getCart();
+
+    const container=document.getElementById("cartItems");
+
+    container.innerHTML="";
+
+    if(cart.length===0){
+
+        container.innerHTML=`
+            <div class="empty-cart">
+                <h3>YOUR CART<br>IS EMPTY.</h3>
+                <p>GO FIND SOMETHING RAD.</p>
+            </div>
+        `;
+
+    }else{
+
+        cart.forEach((item,index)=>{
+
+            const product=products[item.productId];
+
+            const row=document.createElement("div");
+
+            row.className="cart-item";
+
+            row.innerHTML=`
+                <div class="cart-thumb">
+                    <img
+                    src="${product.images[0]}"
+                    alt="${product.name}">
+                </div>
+
+                <div>
+
+                    <div class="cart-item-top">
+
+                        <div>
+                            <div class="cart-item-name">
+                                ${product.name}
+                            </div>
+
+                            <div class="cart-size">
+                                SIZE ${item.size} / ${product.colour.toUpperCase()}
+                            </div>
+                        </div>
+
+                        <div class="cart-item-price">
+                            ${money(product.price*item.quantity)}
+                        </div>
+
+                    </div>
+
+                    <div class="cart-controls">
+
+                        <div class="quantity">
+
+                            <button
+                            data-action="minus"
+                            data-index="${index}">
+                            −
+                            </button>
+
+                            <span>
+                            ${item.quantity}
+                            </span>
+
+                            <button
+                            data-action="plus"
+                            data-index="${index}">
+                            +
+                            </button>
+
+                        </div>
+
+                        <button
+                        class="remove-item"
+                        data-action="remove"
+                        data-index="${index}">
+                        REMOVE
+                        </button>
+
+                    </div>
+
+                </div>
+            `;
+
+            container.appendChild(row);
+
+        });
+
+    }
+
+
+    const subtotal=cart.reduce((sum,item)=>{
+
+        const product=products[item.productId];
+
+        return sum+(product.price*item.quantity);
+
+    },0);
+
+
+    document.getElementById("subtotal").textContent=
+        money(subtotal);
+
+    document.getElementById("total").textContent=
+        money(subtotal);
+
+    updateCartCount();
 
 }
 
 
-function openQuickLook(productNumber) {
-
-    currentProduct =
-        productNumber;
-
-    currentImage = 0;
-
-    quickName.textContent =
-        products[currentProduct].name;
-
-    quickProductLink.href =
-        "product.html?product="
-        + currentProduct;
-
-    updateQuickGallery();
-
-    quickOverlay.classList.add("active");
-
-    document.body.classList.add("no-scroll");
-
-}
-
-
-function closeQuickLook() {
-
-    quickOverlay.classList.remove("active");
-
-    document.body.classList.remove("no-scroll");
-
-}
-
+/* =========================================
+   CART QUANTITY / REMOVE
+========================================= */
 
 document
-.querySelectorAll(".quick-look-button")
-.forEach(button => {
+.getElementById("cartItems")
+.addEventListener("click",event=>{
 
-    button.addEventListener(
-        "click",
-        function() {
+    const button=event.target.closest("[data-action]");
 
-            openQuickLook(
-                Number(this.dataset.product)
-            );
+    if(!button)return;
 
+    const index=Number(button.dataset.index);
+
+    const action=button.dataset.action;
+
+    const cart=getCart();
+
+    if(action==="plus"){
+        cart[index].quantity++;
+    }
+
+    if(action==="minus"){
+
+        cart[index].quantity--;
+
+        if(cart[index].quantity<=0){
+            cart.splice(index,1);
         }
-    );
+
+    }
+
+    if(action==="remove"){
+        cart.splice(index,1);
+    }
+
+    saveCart(cart);
 
 });
 
 
-quickClose.addEventListener(
-    "click",
-    closeQuickLook
-);
+/* =========================================
+   CART DRAWER
+========================================= */
 
+const cartDrawer=document.getElementById("cartDrawer");
+const cartOverlay=document.getElementById("cartOverlay");
 
-quickOverlay.addEventListener(
-    "click",
-    function(event) {
+function openCart(){
 
-        if (event.target === quickOverlay) {
-            closeQuickLook();
-        }
-
-    }
-);
-
-
-document
-.getElementById("quickPrev")
-.addEventListener(
-    "click",
-    function() {
-
-        const images =
-            products[currentProduct].images;
-
-        currentImage =
-            (currentImage - 1 + images.length)
-            % images.length;
-
-        updateQuickGallery();
-
-    }
-);
-
-
-document
-.getElementById("quickNext")
-.addEventListener(
-    "click",
-    function() {
-
-        const images =
-            products[currentProduct].images;
-
-        currentImage =
-            (currentImage + 1)
-            % images.length;
-
-        updateQuickGallery();
-
-    }
-);
-
-
-/* CART */
-
-const cartOpen =
-    document.getElementById("cartOpen");
-
-const cartClose =
-    document.getElementById("cartClose");
-
-const cartDrawer =
-    document.getElementById("cartDrawer");
-
-const cartOverlay =
-    document.getElementById("cartOverlay");
-
-const continueShopping =
-    document.getElementById("continueShopping");
-
-
-function openCart() {
+    renderCart();
 
     cartDrawer.classList.add("active");
 
@@ -1772,8 +1059,7 @@ function openCart() {
 
 }
 
-
-function closeCart() {
+function closeCart(){
 
     cartDrawer.classList.remove("active");
 
@@ -1783,63 +1069,147 @@ function closeCart() {
 
 }
 
+document
+.getElementById("cartOpen")
+.addEventListener("click",event=>{
 
-cartOpen.addEventListener(
-    "click",
-    function(event) {
+    event.preventDefault();
 
-        event.preventDefault();
+    openCart();
 
-        openCart();
+});
 
+document
+.getElementById("cartClose")
+.addEventListener("click",closeCart);
+
+cartOverlay.addEventListener("click",closeCart);
+
+
+/* =========================================
+   QUICK LOOK
+========================================= */
+
+const quickOverlay=document.getElementById("quickOverlay");
+
+let currentProduct=1;
+let currentImage=0;
+
+function updateQuickGallery(){
+
+    const product=products[currentProduct];
+
+    document.getElementById("quickImage").src=
+        product.images[currentImage];
+
+    document.getElementById("quickCount").textContent=
+        String(currentImage+1).padStart(2,"0")
+        +" / "+
+        String(product.images.length).padStart(2,"0");
+
+}
+
+function openQuickLook(id){
+
+    currentProduct=id;
+    currentImage=0;
+
+    const product=products[id];
+
+    document.getElementById("quickName").textContent=
+        product.name;
+
+    document.getElementById("quickPrice").textContent=
+        money(product.price);
+
+    document.getElementById("quickProductLink").href=
+        "product.html?product="+id;
+
+    updateQuickGallery();
+
+    quickOverlay.classList.add("active");
+
+    document.body.classList.add("no-scroll");
+
+}
+
+function closeQuickLook(){
+
+    quickOverlay.classList.remove("active");
+
+    document.body.classList.remove("no-scroll");
+
+}
+
+document.querySelectorAll(".quick-look-button")
+.forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        openQuickLook(
+            Number(button.dataset.product)
+        );
+
+    });
+
+});
+
+document
+.getElementById("quickClose")
+.addEventListener("click",closeQuickLook);
+
+quickOverlay.addEventListener("click",event=>{
+
+    if(event.target===quickOverlay){
+        closeQuickLook();
     }
-);
+
+});
+
+document
+.getElementById("quickPrev")
+.addEventListener("click",()=>{
+
+    const images=products[currentProduct].images;
+
+    currentImage=
+        (currentImage-1+images.length)%images.length;
+
+    updateQuickGallery();
+
+});
+
+document
+.getElementById("quickNext")
+.addEventListener("click",()=>{
+
+    const images=products[currentProduct].images;
+
+    currentImage=
+        (currentImage+1)%images.length;
+
+    updateQuickGallery();
+
+});
 
 
-cartClose.addEventListener(
-    "click",
-    closeCart
-);
+/* ESCAPE */
 
+document.addEventListener("keydown",event=>{
 
-cartOverlay.addEventListener(
-    "click",
-    closeCart
-);
-
-
-continueShopping.addEventListener(
-    "click",
-    function() {
-
+    if(event.key==="Escape"){
         closeCart();
-
-        document
-            .getElementById("shop")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
-
+        closeQuickLook();
     }
-);
+
+});
 
 
-document.addEventListener(
-    "keydown",
-    function(event) {
+/* INITIALISE */
 
-        if (event.key === "Escape") {
-
-            closeQuickLook();
-            closeCart();
-
-        }
-
-    }
-);
+renderCart();
 
 </script>
-
 
 </body>
 </html>

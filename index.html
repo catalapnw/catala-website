@@ -9,6 +9,10 @@
 
     <style>
 
+        /* =========================
+           RESET
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -36,8 +40,8 @@
 
             background-image:
                 linear-gradient(
-                    rgba(0, 0, 0, 0.08),
-                    rgba(0, 0, 0, 0.18)
+                    rgba(0, 0, 0, 0.05),
+                    rgba(0, 0, 0, 0.14)
                 ),
                 url("catala-hero.jpg");
 
@@ -63,36 +67,65 @@
             justify-content: space-between;
             align-items: center;
 
-            padding: 28px 40px;
+            padding: 30px 38px;
 
             z-index: 10;
-
-            color: white;
         }
 
 
-        .nav-logo {
-            font-size: 25px;
+        .nav-brand {
+            color: #f4efdf;
+
+            text-decoration: none;
+
+            font-size: 22px;
             font-weight: 900;
+
             letter-spacing: -1px;
         }
 
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            align-items: center;
+
+            gap: 34px;
         }
 
 
-        .nav a {
-            color: white;
+        .nav-links a {
+            position: relative;
+
+            color: #f4efdf;
 
             text-decoration: none;
 
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
 
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+        }
+
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -5px;
+
+            width: 0;
+            height: 1px;
+
+            background: #f4efdf;
+
+            transition: width 0.25s ease;
+        }
+
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
 
@@ -103,69 +136,105 @@
         .hero-content {
             position: absolute;
 
-            left: 0;
-            bottom: 7%;
+            left: 50%;
+            top: 56%;
+
+            transform: translate(-50%, -50%);
 
             width: 100%;
 
-            text-align: center;
-            color: white;
-
             padding: 0 30px;
+
+            text-align: center;
         }
 
 
-        /* CATALA IMAGE LOGO */
+        /* =========================
+           MAIN CATALA LOGO
+        ========================= */
 
         .hero-logo {
             display: block;
 
-            width: min(650px, 65vw);
+            width: min(780px, 72vw);
             height: auto;
 
             margin: 0 auto;
+
+            /*
+               Turns the black transparent PNG
+               into warm cream.
+            */
+
+            filter:
+                invert(96%)
+                sepia(13%)
+                saturate(447%)
+                hue-rotate(339deg)
+                brightness(105%)
+                contrast(91%);
         }
 
 
-        .hero-subtitle {
-            margin-top: 28px;
-
-            font-size: 12px;
-            font-weight: 700;
-
-            letter-spacing: 4px;
-
-            text-transform: uppercase;
-        }
-
-
-        /* SHOP BUTTON */
+        /* =========================
+           SHOP BUTTON
+        ========================= */
 
         .shop-button {
             display: inline-block;
 
-            margin-top: 25px;
+            margin-top: 38px;
 
-            padding: 13px 25px;
+            padding: 14px 28px;
 
-            border: 1px solid white;
+            border: 1px solid rgba(244, 239, 223, 0.9);
 
-            color: white;
+            color: #f4efdf;
 
             text-decoration: none;
 
             font-size: 11px;
             font-weight: 700;
 
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
 
-            transition: 0.25s ease;
+            transition:
+                background 0.25s ease,
+                color 0.25s ease;
         }
 
 
         .shop-button:hover {
-            background: white;
-            color: #111;
+            background: #f4efdf;
+
+            color: #171717;
+        }
+
+
+        /* =========================
+           SMALL PHOTO CREDIT
+        ========================= */
+
+        .photo-credit {
+            position: absolute;
+
+            right: 18px;
+            bottom: 14px;
+
+            color: rgba(244, 239, 223, 0.65);
+
+            font-size: 8px;
+
+            letter-spacing: 0.5px;
+
+            text-decoration: none;
+
+            z-index: 5;
+        }
+
+
+        .photo-credit:hover {
+            color: #f4efdf;
         }
 
 
@@ -176,9 +245,9 @@
         @media (max-width: 700px) {
 
             .hero {
-                min-height: 600px;
+                min-height: 620px;
 
-                background-position: center;
+                background-position: center center;
             }
 
 
@@ -187,27 +256,52 @@
             }
 
 
-            .nav-links a:not(:last-child) {
+            .nav-brand {
+                font-size: 19px;
+            }
+
+
+            .nav-links {
+                gap: 18px;
+            }
+
+
+            .nav-links a {
+                font-size: 10px;
+            }
+
+
+            .nav-links a:nth-child(2) {
                 display: none;
             }
 
 
             .hero-content {
-                bottom: 9%;
+                top: 55%;
+
+                padding: 0 18px;
             }
 
 
             .hero-logo {
-                width: 85vw;
+                width: 92vw;
             }
 
 
-            .hero-subtitle {
+            .shop-button {
+                margin-top: 30px;
+
+                padding: 13px 23px;
+
                 font-size: 10px;
+            }
 
-                letter-spacing: 3px;
 
-                margin-top: 22px;
+            .photo-credit {
+                right: 10px;
+                bottom: 8px;
+
+                font-size: 7px;
             }
 
         }
@@ -227,9 +321,9 @@
 
         <nav class="nav">
 
-            <div class="nav-logo">
+            <a class="nav-brand" href="#">
                 CATALA
-            </div>
+            </a>
 
 
             <div class="nav-links">
@@ -252,7 +346,7 @@
 
 
 
-        <!-- HERO CONTENT -->
+        <!-- MAIN HERO -->
 
         <div class="hero-content">
 
@@ -261,11 +355,6 @@
                 class="hero-logo"
                 src="catala-logo.png"
                 alt="CATALA">
-
-
-            <p class="hero-subtitle">
-                SURF / TRAVEL / GOOD DAYS
-            </p>
 
 
             <a
@@ -278,6 +367,20 @@
 
 
         </div>
+
+
+
+        <!-- PHOTO CREDIT -->
+
+        <a
+            class="photo-credit"
+            href="https://commons.wikimedia.org/wiki/File:Surfer_Cox_Bay_Tofino_2736.jpg"
+            target="_blank"
+            rel="noopener">
+
+            PHOTO: IMAGEPERSON / CC BY 4.0
+
+        </a>
 
 
     </section>

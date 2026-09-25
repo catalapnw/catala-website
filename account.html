@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CATALA Account</title>
+  <meta
+    name="description"
+    content="Join CATALA. Vote on future drops and get early access."
+  >
+
+  <style>
+    :root {
+      --cream: #f2ede2;
+      --black: #11110f;
+      --muted: #777268;
+      --line: rgba(17,17,15,0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--cream);
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    /* NAV */
+
+    .site-header {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 76px;
+      padding: 0 4vw;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.55;
+    }
+
+    .active {
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 4px;
+    }
+
+    /* PAGE */
+
+    .account-page {
+      min-height: calc(100vh - 76px);
+
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    /* LEFT */
+
+    .account-intro {
+      padding: 8vw 5vw;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      border-right: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin-bottom: 22px;
+
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+    }
+
+    h1 {
+      max-width: 720px;
+
+      font-size: clamp(60px, 8vw, 125px);
+      line-height: 0.82;
+      letter-spacing: -0.075em;
+      text-transform: uppercase;
+    }
+
+    .intro-copy {
+      max-width: 510px;
+      margin-top: 55px;
+
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .benefits {
+      margin-top: 55px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .benefit {
+      padding: 9px 12px;
+
+      border: 1px solid var(--black);
+
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+
+    /* RIGHT */
+
+    .account-panel {
+      padding: 8vw 6vw;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .panel-inner {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .panel-label {
+      margin-bottom: 14px;
+
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.17em;
+    }
+
+    .panel-title {
+      margin-bottom: 12px;
+
+      font-size: clamp(34px, 4vw, 55px);
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+    }
+
+    .panel-copy {
+      margin-bottom: 38px;
+
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    /* FORM */
+
+    .field {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 15px 0;
+
+      border: 0;
+      border-bottom: 1px solid var(--black);
+      border-radius: 0;
+
+      background: transparent;
+      color: var(--black);
+
+      outline: none;
+
+      font-size: 16px;
+    }
+
+    input::placeholder {
+      color: #aaa398;
+    }
+
+    input:focus {
+      border-bottom-width: 2px;
+    }
+
+    .checkbox-row {
+      margin: 30px 0;
+
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .checkbox-row input {
+      width: 17px;
+      height: 17px;
+      margin-top: 2px;
+
+      accent-color: var(--black);
+    }
+
+    .checkbox-row label {
+      margin: 0;
+
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 1.5;
+    }
+
+    .primary-btn {
+      width: 100%;
+      padding: 17px 20px;
+
+      border: 1px solid var(--black);
+      background: var(--black);
+      color: var(--cream);
+
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+
+      cursor: pointer;
+    }
+
+    .primary-btn:hover {
+      background: transparent;
+      color: var(--black);
+    }
+
+    .primary-btn:disabled {
+      opacity: 0.45;
+      cursor: wait;
+    }
+
+    .small-note {
+      margin-top: 17px;
+
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    /* MESSAGE */
+
+    .status-message {
+      display: none;
+      margin-bottom: 28px;
+      padding: 15px;
+
+      border: 1px solid var(--black);
+
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+    }
+
+    .status-message.show {
+      display: block;
+    }
+
+    /* LOGGED IN */
+
+    #loggedInView {
+      display: none;
+    }
+
+    .member-name {
+      margin-bottom: 8px;
+
+      font-size: clamp(45px, 6vw, 75px);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+    }
+
+    .member-email {
+      margin-bottom: 40px;
+
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .account-row {
+      padding: 18px 0;
+
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+
+      border-top: 1px solid var(--line);
+
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .account-row:last-of-type {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .account-row span:first-child {
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+    .account-actions {
+      margin-top: 35px;
+
+      display: grid;
+      gap: 10px;
+    }
+
+    .account-actions a,
+    .secondary-btn {
+      width: 100%;
+      padding: 15px 20px;
+
+      display: block;
+
+      border: 1px solid var(--black);
+      background: transparent;
+      color: var(--black);
+
+      text-align: center;
+      text-decoration: none;
+
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+
+      cursor: pointer;
+    }
+
+    .account-actions a:hover,
+    .secondary-btn:hover {
+      background: var(--black);
+      color: var(--cream);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+      .nav {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        align-items: flex-start;
+      }
+
+      .brand {
+        font-size: 16px;
+      }
+
+      .nav-links {
+        justify-content: flex-end;
+        gap: 13px;
+      }
+
+      .nav-links a {
+        font-size: 9px;
+      }
+
+      .account-page {
+        display: block;
+      }
+
+      .account-intro {
+        min-height: 65vh;
+        padding: 70px 5vw;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      h1 {
+        font-size: clamp(60px, 18vw, 100px);
+      }
+
+      .account-panel {
+        padding: 70px 5vw 100px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .nav {
+        display: block;
+      }
+
+      .brand {
+        display: inline-block;
+        margin-bottom: 18px;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+
+      <a class="brand" href="index.html">
+        CATALA
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html#shop">SHOP</a>
+        <a href="vote.html">VOTE</a>
+        <a href="about.html">ABOUT</a>
+        <a class="active" href="account.html">ACCOUNT</a>
+        <a href="index.html">CART (<span id="cartCount">0</span>)</a>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <main class="account-page">
+
+    <!-- LEFT -->
+    <section class="account-intro">
+
+      <div>
+        <div class="eyebrow">
+          CATALA MEMBERS
+        </div>
+
+        <h1>
+          GET IN<br>
+          EARLY.
+        </h1>
+
+        <p class="intro-copy">
+          Join CATALA to vote on what we make next,
+          get early access to future drops and stay
+          close to what's coming.
+        </p>
+      </div>
+
+      <div class="benefits">
+        <span class="benefit">VOTE ON FUTURE DROPS</span>
+        <span class="benefit">EARLY ACCESS</span>
+        <span class="benefit">CATALA UPDATES</span>
+      </div>
+
+    </section>
+
+
+    <!-- RIGHT -->
+    <section class="account-panel">
+
+      <div class="panel-inner">
+
+        <div
+          class="status-message"
+          id="statusMessage"
+        ></div>
+
+
+        <!-- SIGN IN / CREATE -->
+        <div id="authView">
+
+          <div class="panel-label">
+            CREATE / SIGN IN
+          </div>
+
+          <h2 class="panel-title">
+            YOUR CATALA ACCOUNT
+          </h2>
+
+          <p class="panel-copy">
+            No password. Enter your details and we'll
+            email you a secure sign-in link.
+          </p>
+
+
+          <form id="authForm">
+
+            <div class="field">
+              <label for="name">
+                NAME
+              </label>
+
+              <input
+                id="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Your name"
+              >
+            </div>
+
+
+            <div class="field">
+              <label for="email">
+                EMAIL *
+              </label>
+
+              <input
+                id="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@email.com"
+                required
+              >
+            </div>
+
+
+            <div class="field">
+              <label for="phone">
+                PHONE — OPTIONAL
+              </label>
+
+              <input
+                id="phone"
+                type="tel"
+                autocomplete="tel"
+                placeholder="+1 555 555 5555"
+              >
+            </div>
+
+
+            <div class="checkbox-row">
+
+              <input
+                id="newsletter"
+                type="checkbox"
+              >
+
+              <label for="newsletter">
+                Send me CATALA drop announcements,
+                early-access news and occasional brand
+                updates. I can unsubscribe later.
+              </label>
+
+            </div>
+
+
+            <button
+              class="primary-btn"
+              id="submitButton"
+              type="submit"
+            >
+              SEND MY SIGN-IN LINK
+            </button>
+
+
+            <p class="small-note">
+              By continuing, you'll receive an email
+              needed to access your CATALA account.
+              Marketing emails are optional.
+            </p>
+
+          </form>
+
+        </div>
+
+
+        <!-- LOGGED IN -->
+        <div id="loggedInView">
+
+          <div class="panel-label">
+            CATALA MEMBER
+          </div>
+
+          <h2
+            class="member-name"
+            id="memberName"
+          >
+            CATALA MEMBER
+          </h2>
+
+          <div
+            class="member-email"
+            id="memberEmail"
+          ></div>
+
+
+          <div class="account-row">
+            <span>VOTING</span>
+            <span id="voteStatus">
+              0 / 3 VOTES USED
+            </span>
+          </div>
+
+
+          <div class="account-row">
+            <span>EARLY ACCESS</span>
+            <span>ACTIVE</span>
+          </div>
+
+
+          <div class="account-row">
+            <span>CATALA EMAILS</span>
+            <span id="newsletterStatus">
+              —
+            </span>
+          </div>
+
+
+          <div class="account-actions">
+
+            <a href="vote.html">
+              VOTE ON THE NEXT DROP
+            </a>
+
+            <button
+              class="secondary-btn"
+              id="signOutButton"
+              type="button"
+            >
+              SIGN OUT
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+
+    /*
+      CATALA SUPABASE
+
+      This is the public browser key.
+      Never place a service-role key in this file.
+    */
+
+    const SUPABASE_URL =
+      "https://xlarcbmkksijhhkeqmgy.supabase.co";
+
+    const SUPABASE_KEY =
+      "sb_publishable_IijaS_XSF9Po7YcGfvLwOQ_lFJiob6v";
+
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
+
+
+    const authView =
+      document.getElementById("authView");
+
+    const loggedInView =
+      document.getElementById("loggedInView");
+
+    const authForm =
+      document.getElementById("authForm");
+
+    const submitButton =
+      document.getElementById("submitButton");
+
+    const statusMessage =
+      document.getElementById("statusMessage");
+
+    const signOutButton =
+      document.getElementById("signOutButton");
+
+
+    /*
+      CART
+    */
+
+    function updateCartCount() {
+
+      let cart = [];
+
+      try {
+        cart =
+          JSON.parse(
+            localStorage.getItem("catalaCart")
+          ) || [];
+      } catch {
+        cart = [];
+      }
+
+      const count =
+        cart.reduce(
+          (total, item) =>
+            total + (Number(item.quantity) || 1),
+          0
+        );
+
+      document.getElementById(
+        "cartCount"
+      ).textContent = count;
+    }
+
+
+    /*
+      STATUS MESSAGE
+    */
+
+    function showMessage(text) {
+      statusMessage.textContent = text;
+      statusMessage.classList.add("show");
+    }
+
+
+    function hideMessage() {
+      statusMessage.classList.remove("show");
+    }
+
+
+    /*
+      CURRENT SESSION
+    */
+
+    async function loadAccount() {
+
+      const {
+        data: { session }
+      } =
+        await supabaseClient.auth.getSession();
+
+      if (!session?.user) {
+
+        authView.style.display = "block";
+        loggedInView.style.display = "none";
+
+        return;
+      }
+
+      await showLoggedInAccount(
+        session.user
+      );
+    }
+
+
+    /*
+      SHOW MEMBER ACCOUNT
+    */
+
+    async function showLoggedInAccount(user) {
+
+      authView.style.display = "none";
+      loggedInView.style.display = "block";
+
+      const {
+        data: profile,
+        error: profileError
+      } =
+        await supabaseClient
+          .from("profiles")
+          .select(
+            "name, phone, newsletter_opt_in"
+          )
+          .eq("id", user.id)
+          .single();
+
+
+      if (profileError) {
+        console.error(profileError);
+      }
+
+
+      const name =
+        profile?.name?.trim() ||
+        "CATALA MEMBER";
+
+
+      document.getElementById(
+        "memberName"
+      ).textContent =
+        name.toUpperCase();
+
+
+      document.getElementById(
+        "memberEmail"
+      ).textContent =
+        user.email || "";
+
+
+      document.getElementById(
+        "newsletterStatus"
+      ).textContent =
+        profile?.newsletter_opt_in
+          ? "SIGNED UP"
+          : "NOT SIGNED UP";
+
+
+      /*
+        Count this member's votes.
+      */
+
+      const {
+        count,
+        error: voteError
+      } =
+        await supabaseClient
+          .from("votes")
+          .select(
+            "*",
+            {
+              count: "exact",
+              head: true
+            }
+          )
+          .eq(
+            "user_id",
+            user.id
+          );
+
+
+      if (voteError) {
+        console.error(voteError);
+      }
+
+
+      document.getElementById(
+        "voteStatus"
+      ).textContent =
+        `${count || 0} / 3 VOTES USED`;
+    }
+
+
+    /*
+      SEND MAGIC LINK
+    */
+
+    authForm.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+        hideMessage();
+
+
+        const name =
+          document
+            .getElementById("name")
+            .value
+            .trim();
+
+
+        const email =
+          document
+            .getElementById("email")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+        const phone =
+          document
+            .getElementById("phone")
+            .value
+            .trim();
+
+
+        const newsletter =
+          document
+            .getElementById("newsletter")
+            .checked;
+
+
+        if (!email) {
+          showMessage(
+            "ENTER YOUR EMAIL ADDRESS."
+          );
+          return;
+        }
+
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+          "SENDING...";
+
+
+        /*
+          Store signup details as Auth metadata.
+
+          When a brand-new account is created,
+          the database trigger copies these into
+          the member's profile.
+        */
+
+        const {
+          error
+        } =
+          await supabaseClient.auth.signInWithOtp({
+
+            email: email,
+
+            options: {
+
+              emailRedirectTo:
+                window.location.origin +
+                window.location.pathname,
+
+              data: {
+                name: name,
+                phone: phone,
+                newsletter_opt_in:
+                  newsletter
+              }
+
+            }
+
+          });
+
+
+        submitButton.disabled = false;
+
+        submitButton.textContent =
+          "SEND MY SIGN-IN LINK";
+
+
+        if (error) {
+
+          console.error(error);
+
+          showMessage(
+            "WE COULDN'T SEND THE EMAIL. CHECK THE ADDRESS AND TRY AGAIN."
+          );
+
+          return;
+        }
+
+
+        showMessage(
+          "CHECK YOUR EMAIL — YOUR CATALA SIGN-IN LINK IS ON ITS WAY."
+        );
+
+      }
+    );
+
+
+    /*
+      SIGN OUT
+    */
+
+    signOutButton.addEventListener(
+      "click",
+      async () => {
+
+        await supabaseClient.auth.signOut();
+
+        window.location.reload();
+
+      }
+    );
+
+
+    /*
+      AUTH CHANGES
+    */
+
+    supabaseClient.auth.onAuthStateChange(
+      async (event, session) => {
+
+        if (
+          event === "SIGNED_IN" &&
+          session?.user
+        ) {
+
+          await showLoggedInAccount(
+            session.user
+          );
+
+        }
+
+        if (event === "SIGNED_OUT") {
+
+          authView.style.display = "block";
+          loggedInView.style.display = "none";
+
+        }
+
+      }
+    );
+
+
+    /*
+      START
+    */
+
+    updateCartCount();
+    loadAccount();
+
+  </script>
+
+</body>
+</html>
